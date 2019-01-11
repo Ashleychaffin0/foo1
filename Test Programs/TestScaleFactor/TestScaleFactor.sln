@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestScaleFactor", "TestScaleFactor\TestScaleFactor.csproj", "{3D0FA497-A0C8-4747-AB29-340CF0420CD0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{3D0FA497-A0C8-4747-AB29-340CF0420CD0}.Debug.ActiveCfg = Debug|.NET
+		{3D0FA497-A0C8-4747-AB29-340CF0420CD0}.Debug.Build.0 = Debug|.NET
+		{3D0FA497-A0C8-4747-AB29-340CF0420CD0}.Release.ActiveCfg = Release|.NET
+		{3D0FA497-A0C8-4747-AB29-340CF0420CD0}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

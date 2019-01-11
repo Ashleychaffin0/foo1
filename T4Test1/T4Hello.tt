@@ -1,0 +1,11 @@
+<#@ template language="C#" #>
+using System;   
+
+public class <#= this.ClassName #>
+{
+   public static void HelloT4()
+   {
+      Console.WriteLine("LRS can write code!");
+   }
+}
+<#+ string ClassName = "MyT4Class"; #>

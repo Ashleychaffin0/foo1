@@ -1,0 +1,26 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	x:Class="WpfApplication4.MainWindow"
+	x:Name="Window"
+	Title="About WPF Unleashed"
+	Width="640" Height="480" Background="OrangeRed" mc:Ignorable="d" SizeToContent="WidthAndHeight">
+
+	<Grid x:Name="LayoutRoot">
+		<StackPanel Margin="8,8,65.6,0" VerticalAlignment="Top" Height="183.2">
+			<Label Content="WPF Unleashed (Version 3.0)" FontSize="26.667" FontWeight="Bold" Foreground="White"/>
+			<Label Content="(c) 2006, SAMS Publishing"/>
+			<Label Content="Installed Chapters..."/>
+			<ListBox Height="37.6">
+				<ListBoxItem Content="Chapter 1"/>
+				<ListBoxItem Content="Chapter 2"/>
+			</ListBox>
+			<StackPanel Height="26.4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+				<Button Content="Help" MinWidth="75" Margin="10,0,0,0"/>
+				<Button Content="OK" MinWidth="75" Margin="10,0,0,0" ToolTip="The OK button"/>
+			</StackPanel>
+			<StatusBar Height="21.6">This is status bar stuff</StatusBar>
+		</StackPanel>
+	</Grid>
+</Window>

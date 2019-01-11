@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GetSciAmParms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceDirectory>C:\Downloads\SciAmTemp</SourceDirectory>
+  <TargetDirectory>C:\$$LRS-SciAm</TargetDirectory>
+  <FilenamePrefix>SciAm - %YM-%M - %n - </FilenamePrefix>
+  <UserId>lrs5</UserId>
+  <Password>lrs5_Sciam</Password>
+  <SciAmDigitalUrl>https://www.sciamdigital.com/index.cfm?fa=Account.LoginUser</SciAmDigitalUrl>
+  <ArticleUrlPrefix>http://www.sciamdigital.com/index.cfm?fa=Products.ViewIssuePreview&amp;ARTICLEID_CHAR=</ArticleUrlPrefix>
+  <SelectYearUrl>http://www.sciamdigital.com/index.cfm?fa=Products.ViewBrowseCategoryList&amp;CATEGORY_CHAR={0}:1</SelectYearUrl>
+  <MaxFileCopyTries>60</MaxFileCopyTries>
+</GetSciAmParms>

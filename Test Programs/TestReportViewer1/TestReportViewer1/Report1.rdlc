@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="lldevelConnectionString">
+      <ConnectionProperties>
+        <ConnectString>Data Source=sqlb5.webcontrolcenter.com;Initial Catalog=lldevel;User ID=ahmed;Password=i7e9dua$tda@</ConnectString>
+        <DataProvider>SQL</DataProvider>
+      </ConnectionProperties>
+      <rd:DataSourceID>8a0678f5-1888-40ae-ab57-b3f2dfafcbc3</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>1in</RightMargin>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Left>0.375in</Left>
+        <Top>0.5in</Top>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <ZIndex>2</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <BackgroundColor>Cyan</BackgroundColor>
+          <Color>Red</Color>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Hello</Value>
+      </Textbox>
+      <Textbox Name="UserID">
+        <Left>2.875in</Left>
+        <Top>0.25in</Top>
+        <rd:DefaultName>UserID</rd:DefaultName>
+        <ZIndex>1</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!UserID.Value)</Value>
+      </Textbox>
+      <Textbox Name="AcctID">
+        <Left>1.5in</Left>
+        <Top>0.125in</Top>
+        <rd:DefaultName>AcctID</rd:DefaultName>
+        <Width>1in</Width>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>=Fields!AcctID.Value</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.875in</Height>
+  </Body>
+  <rd:ReportID>64023843-e8df-46d6-a4aa-2d154c792a8c</rd:ReportID>
+  <LeftMargin>1in</LeftMargin>
+  <DataSets>
+    <DataSet Name="lldevelDataSet_tblAccounts">
+      <rd:DataSetInfo>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:DataSetName>lldevelDataSet</rd:DataSetName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterName>tblAccountsTableAdapter</rd:TableAdapterName>
+        <rd:TableName>tblAccounts</rd:TableName>
+      </rd:DataSetInfo>
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT AcctID, UserID, UserID_Original, Password, FirstName, LastName, emailAddress, Creator, AcctType, PasswordInPlainText, EmailSent, Activated, Enabled, LeadsAccessDuration, RequiresCouponCode, RCLogo, RCContactInfo, PwdToBeEmailed, AcctIsStandAlone, AcctGenerator, AcctIsAlive FROM dbo.tblAccounts</CommandText>
+        <DataSourceName>lldevelConnectionString</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="AcctID">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>AcctID</DataField>
+        </Field>
+        <Field Name="UserID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>UserID</DataField>
+        </Field>
+        <Field Name="UserID_Original">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>UserID_Original</DataField>
+        </Field>
+        <Field Name="Password">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Password</DataField>
+        </Field>
+        <Field Name="FirstName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FirstName</DataField>
+        </Field>
+        <Field Name="LastName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LastName</DataField>
+        </Field>
+        <Field Name="emailAddress">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>emailAddress</DataField>
+        </Field>
+        <Field Name="Creator">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Creator</DataField>
+        </Field>
+        <Field Name="AcctType">
+          <rd:TypeName>System.Byte</rd:TypeName>
+          <DataField>AcctType</DataField>
+        </Field>
+        <Field Name="PasswordInPlainText">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PasswordInPlainText</DataField>
+        </Field>
+        <Field Name="EmailSent">
+          <rd:TypeName>System.Byte</rd:TypeName>
+          <DataField>EmailSent</DataField>
+        </Field>
+        <Field Name="Activated">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>Activated</DataField>
+        </Field>
+        <Field Name="Enabled">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>Enabled</DataField>
+        </Field>
+        <Field Name="LeadsAccessDuration">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>LeadsAccessDuration</DataField>
+        </Field>
+        <Field Name="RequiresCouponCode">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>RequiresCouponCode</DataField>
+        </Field>
+        <Field Name="RCLogo">
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+          <DataField>RCLogo</DataField>
+        </Field>
+        <Field Name="RCContactInfo">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RCContactInfo</DataField>
+        </Field>
+        <Field Name="PwdToBeEmailed">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PwdToBeEmailed</DataField>
+        </Field>
+        <Field Name="AcctIsStandAlone">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>AcctIsStandAlone</DataField>
+        </Field>
+        <Field Name="AcctGenerator">
+          <rd:TypeName>System.Byte</rd:TypeName>
+          <DataField>AcctGenerator</DataField>
+        </Field>
+        <Field Name="AcctIsAlive">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>AcctIsAlive</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Width>6.5in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

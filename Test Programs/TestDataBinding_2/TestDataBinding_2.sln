@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataBinding_2", "TestDataBinding_2\TestDataBinding_2.csproj", "{DEBE0CA2-1A9F-4409-ABD1-5B4CF5B82350}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DEBE0CA2-1A9F-4409-ABD1-5B4CF5B82350}.Debug.ActiveCfg = Debug|.NET
+		{DEBE0CA2-1A9F-4409-ABD1-5B4CF5B82350}.Debug.Build.0 = Debug|.NET
+		{DEBE0CA2-1A9F-4409-ABD1-5B4CF5B82350}.Release.ActiveCfg = Release|.NET
+		{DEBE0CA2-1A9F-4409-ABD1-5B4CF5B82350}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

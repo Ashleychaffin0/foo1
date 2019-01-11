@@ -1,0 +1,35 @@
+ Volume in drive G is 8920-New-D
+ Volume Serial Number is 6A7D-DB71
+
+ Directory of G:\LRS\$Dev\VS2017\SciAmToc
+
+11/06/2017  05:59 PM    <DIR>          .
+11/06/2017  05:59 PM    <DIR>          ..
+10/10/2017  09:41 PM               187 App.config
+10/10/2017  09:42 PM    <DIR>          bin
+10/12/2017  07:54 PM             1,290 DateRange.cs
+11/06/2017  05:46 PM           273,918 foo.txt
+11/06/2017  06:01 PM                 0 goo.txt
+11/03/2017  06:50 PM             6,836 IssueGuidance.cs
+11/06/2017  05:56 PM           273,918 IssueInfo.txt
+11/03/2017  07:17 PM             9,034 IssueToc.cs
+11/03/2017  06:58 PM             1,822 IssueToc_1.cs
+11/05/2017  02:30 PM             2,106 IssueToc_2.cs
+11/03/2017  06:59 PM               496 IssueToc_3.cs
+10/26/2017  10:45 PM    <DIR>          obj
+10/10/2017  09:44 PM    <DIR>          packages
+10/10/2017  09:44 PM               133 packages.config
+10/26/2017  02:25 PM             2,349 PdfFindText.cs
+10/28/2017  12:20 AM             4,290 PdfUtils.cs
+10/10/2017  09:42 PM               450 Program.cs
+10/10/2017  09:41 PM    <DIR>          Properties
+11/03/2017  06:52 PM             4,571 SciAmIssue.cs
+11/06/2017  05:58 PM            16,120 SciAmToc.cs
+11/03/2017  07:02 PM             5,904 SciAmToc.csproj
+11/03/2017  05:51 PM            19,883 SciAmToc.Designer.cs
+11/03/2017  05:51 PM             5,817 SciAmToc.resx
+10/10/2017  09:41 PM             1,114 SciAmToc.sln
+10/29/2017  12:58 PM             1,667 SciAmUi.cs
+11/03/2017  07:34 PM             3,361 SciAmUtils.cs
+              22 File(s)        635,266 bytes
+               6 Dir(s)  4,488,355,160,064 bytes free

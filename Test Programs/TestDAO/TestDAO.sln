@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDAO", "TestDAO\TestDAO.csproj", "{C37E5CAF-EFEC-4E29-A277-69F9FF7833BE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C37E5CAF-EFEC-4E29-A277-69F9FF7833BE}.Debug.ActiveCfg = Debug|.NET
+		{C37E5CAF-EFEC-4E29-A277-69F9FF7833BE}.Debug.Build.0 = Debug|.NET
+		{C37E5CAF-EFEC-4E29-A277-69F9FF7833BE}.Release.ActiveCfg = Release|.NET
+		{C37E5CAF-EFEC-4E29-A277-69F9FF7833BE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test11Email", "Test11Email\Test11Email.csproj", "{B664F4C8-A259-4793-8457-57BFCF45C5AC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B664F4C8-A259-4793-8457-57BFCF45C5AC}.Debug.ActiveCfg = Debug|.NET
+		{B664F4C8-A259-4793-8457-57BFCF45C5AC}.Debug.Build.0 = Debug|.NET
+		{B664F4C8-A259-4793-8457-57BFCF45C5AC}.Release.ActiveCfg = Release|.NET
+		{B664F4C8-A259-4793-8457-57BFCF45C5AC}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

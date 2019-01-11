@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="DataSet1" targetNamespace="http://www.tempuri.org/DataSet1.xsd" xmlns:mstns="http://www.tempuri.org/DataSet1.xsd" xmlns="http://www.tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="DataSet1" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Albums">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Album_x0020_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Artist" type="xs:string" />
+              <xs:element name="Category" type="xs:string" minOccurs="0" />
+              <xs:element name="Comments" type="xs:string" minOccurs="0" />
+              <xs:element name="Cuts" type="xs:int" minOccurs="0" />
+              <xs:element name="DiscID" type="xs:int" />
+              <xs:element name="Extra" type="xs:string" minOccurs="0" />
+              <xs:element name="Label" type="xs:string" minOccurs="0" />
+              <xs:element name="LargeCoverURL" type="xs:string" minOccurs="0" />
+              <xs:element name="MoreInfoURL" type="xs:string" minOccurs="0" />
+              <xs:element name="Need_x0020_Cut_x0020_Names_x0020_Expanded" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Not_x0020_Found_x0020_on_x0020_web" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Owner" type="xs:string" minOccurs="0" />
+              <xs:element name="PlayLengthInSeconds" type="xs:int" minOccurs="0" />
+              <xs:element name="Release_x0020_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Site" type="xs:string" minOccurs="0" />
+              <xs:element name="SmallCoverURL" type="xs:string" minOccurs="0" />
+              <xs:element name="Style" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" type="xs:string" />
+              <xs:element name="TotalLengthInFrames" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalLengthInSeconds" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Vetted" type="xs:boolean" minOccurs="0" />
+              <xs:element name="XML" type="xs:string" minOccurs="0" />
+              <xs:element name="XML2" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Albums" />
+      <xs:field xpath="mstns:Artist" />
+      <xs:field xpath="mstns:DiscID" />
+      <xs:field xpath="mstns:Title" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

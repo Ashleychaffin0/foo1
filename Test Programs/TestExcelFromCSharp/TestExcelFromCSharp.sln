@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExcelFromCSharp", "TestExcelFromCSharp\TestExcelFromCSharp.csproj", "{B22F5C09-A6FC-4D0F-A0CA-3D79C7735828}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B22F5C09-A6FC-4D0F-A0CA-3D79C7735828}.Debug.ActiveCfg = Debug|.NET
+		{B22F5C09-A6FC-4D0F-A0CA-3D79C7735828}.Debug.Build.0 = Debug|.NET
+		{B22F5C09-A6FC-4D0F-A0CA-3D79C7735828}.Release.ActiveCfg = Release|.NET
+		{B22F5C09-A6FC-4D0F-A0CA-3D79C7735828}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

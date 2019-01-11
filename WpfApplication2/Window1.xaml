@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApplication2.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300">
+    <Grid Background="Blue">
+        <Button Margin="77,128,126,111" Name="button1" Click="button1_Click" MouseEnter="button1_MouseEnter_1">
+            <TextBlock Text="Button 4">
+                <TextBlock.BitmapEffect>
+                    <OuterGlowBitmapEffect GlowSize="65"></OuterGlowBitmapEffect>
+                </TextBlock.BitmapEffect>
+            </TextBlock>
+        </Button>
+    </Grid>
+</Window>

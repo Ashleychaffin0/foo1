@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEnumerateBrowserTabs", "TestEnumerateBrowserTabs.csproj", "{2FF71AD0-319E-4274-80E0-0EAF2F5022CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FF71AD0-319E-4274-80E0-0EAF2F5022CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF71AD0-319E-4274-80E0-0EAF2F5022CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF71AD0-319E-4274-80E0-0EAF2F5022CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF71AD0-319E-4274-80E0-0EAF2F5022CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4483C244-D6E5-4CF0-AE35-B6421EB811ED}
+	EndGlobalSection
+EndGlobal

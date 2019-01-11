@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextExcel1", "TextExcel1\TextExcel1.csproj", "{FBA1B49C-BE25-4BBE-BEFF-584B4DB68F9C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FBA1B49C-BE25-4BBE-BEFF-584B4DB68F9C}.Debug.ActiveCfg = Debug|.NET
+		{FBA1B49C-BE25-4BBE-BEFF-584B4DB68F9C}.Debug.Build.0 = Debug|.NET
+		{FBA1B49C-BE25-4BBE-BEFF-584B4DB68F9C}.Release.ActiveCfg = Release|.NET
+		{FBA1B49C-BE25-4BBE-BEFF-584B4DB68F9C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

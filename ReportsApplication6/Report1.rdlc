@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <rd:DataSourceID>e5a2e629-f4a7-4a92-b183-d854551a4622</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1in</RightMargin>
+  <LeftMargin>1in</LeftMargin>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>b65b7e70-1403-4d7a-b7cc-786e5c0bd1fa</rd:ReportID>
+  <DataSets>
+    <DataSet Name="ReportsApplication6_MyReportData">
+      <Fields>
+        <Field Name="Album">
+          <DataField>Album</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Artist">
+          <DataField>Artist</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Tracks">
+          <DataField>Tracks</DataField>
+          <rd:TypeName>System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ReportsApplication6</rd:DataSetName>
+        <rd:TableName>MyReportData</rd:TableName>
+        <rd:ObjectDataSourceType>ReportsApplication6.MyReportData, ReportsApplication6, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Width>6.5in</Width>
+  <Body>
+    <ReportItems>
+      <List Name="list1">
+        <Left>0.875in</Left>
+        <DataSetName>ReportsApplication6_MyReportData</DataSetName>
+        <ReportItems>
+          <Textbox Name="Album">
+            <rd:DefaultName>Album</rd:DefaultName>
+            <Top>0.25in</Top>
+            <Width>1in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <CanGrow>true</CanGrow>
+            <Left>0.375in</Left>
+            <Height>0.25in</Height>
+            <Value>=Fields!Album.Value</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>0.625in</Top>
+        <Width>2in</Width>
+        <Height>1in</Height>
+      </List>
+    </ReportItems>
+    <Height>3.5in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

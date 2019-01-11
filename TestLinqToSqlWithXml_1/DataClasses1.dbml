@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Test_Xml_2" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LRS9450-PC\MSSQLSERVERLRS;Initial Catalog=Test_Xml_2;Integrated Security=True;Pooling=False" SettingsObjectName="TestLinqToSqlWithXml_1.Properties.Settings" SettingsPropertyName="Test_Xml_2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblTestXml_1" Member="tblTestXml_1s">
+    <Type Name="tblTestXml_1">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Xml" Type="System.Xml.Linq.XElement" DbType="Xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+</Database>
