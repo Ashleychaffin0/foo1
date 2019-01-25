@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzeActTrkExportFile", "AnalyzeActTrkExportFile\AnalyzeActTrkExportFile.csproj", "{9BC3A2CD-01C0-49FD-B835-7E46A8F2E67A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9BC3A2CD-01C0-49FD-B835-7E46A8F2E67A}.Debug.ActiveCfg = Debug|.NET
+		{9BC3A2CD-01C0-49FD-B835-7E46A8F2E67A}.Debug.Build.0 = Debug|.NET
+		{9BC3A2CD-01C0-49FD-B835-7E46A8F2E67A}.Release.ActiveCfg = Release|.NET
+		{9BC3A2CD-01C0-49FD-B835-7E46A8F2E67A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

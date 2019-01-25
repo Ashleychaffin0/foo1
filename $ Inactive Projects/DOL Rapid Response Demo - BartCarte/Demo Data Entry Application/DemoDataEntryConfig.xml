@@ -1,0 +1,13 @@
+<configuration>
+	<system.runtime.remoting>
+		<application>
+			<client>  <!-- url="tcp:192.168.0.132:1729/BartCarteDemoPrinter"> Needed for CAO -->
+				<wellknown 
+					type="nsDemoBartCarte.BartCarteDemoPrinter, BartCarte Demo Remotable Printer object"
+					url="tcp://192.168.0.132:1729/BartCarteDemoPrinter.rem"
+				/>
+			</client>
+			<channels ref="TCP" port="1729"/>
+		</application>
+	</system.runtime.remoting>
+</configuration>

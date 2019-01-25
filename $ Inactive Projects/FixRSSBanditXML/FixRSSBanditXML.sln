@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixRSSBanditXML", "FixRSSBanditXML\FixRSSBanditXML.csproj", "{4F1453D3-B4B2-488A-AC28-4DD09BA1892C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4F1453D3-B4B2-488A-AC28-4DD09BA1892C}.Debug.ActiveCfg = Debug|.NET
+		{4F1453D3-B4B2-488A-AC28-4DD09BA1892C}.Debug.Build.0 = Debug|.NET
+		{4F1453D3-B4B2-488A-AC28-4DD09BA1892C}.Release.ActiveCfg = Release|.NET
+		{4F1453D3-B4B2-488A-AC28-4DD09BA1892C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

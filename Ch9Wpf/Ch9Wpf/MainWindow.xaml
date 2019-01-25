@@ -1,0 +1,16 @@
+﻿<Window x:Class="Ch9Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="850" Width="525">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>URL</Label>
+                <TextBox Name="txtUrl" HorizontalAlignment="Stretch" MinWidth="300"/>
+                <Button Name="btnGo" Click="btnGo_Click">Go</Button>
+            </StackPanel>
+            <WebBrowser Name="web1" Navigated="web1_Navigated" Height="400" LoadCompleted="web1_LoadCompleted" />
+           <TextBlock Name="tbOutput"/>
+        </StackPanel>
+    </Grid>
+</Window>

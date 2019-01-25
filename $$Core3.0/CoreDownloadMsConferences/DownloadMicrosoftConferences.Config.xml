@@ -1,0 +1,300 @@
+﻿<?xml version="1.0"?>
+<ConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<DefaultTargetDir>
+	G:\MsConferences\
+	</DefaultTargetDir>
+
+  <!-- 
+		Every {n} (e.g. 5) times a download completes, move all completed entries to
+		the end of the UI, making room for incomplete entries to show that they're still
+		active.
+	-->
+  <MoveToTheRearOfTheBusPlease>
+    5
+  </MoveToTheRearOfTheBusPlease>
+
+
+  <NumberOfSimultaneousDownloads>
+	0
+	</NumberOfSimultaneousDownloads>
+
+	<ProcessorCountMultiplier>
+		0
+	</ProcessorCountMultiplier>
+	
+	<GlobalFilters>
+	<Includes>
+
+	</Includes>
+	<Excludes>
+		<string>Azure</string>
+		<string>Cloud</string>
+		<string>SharePoint</string>
+	</Excludes>
+	</GlobalFilters>
+
+	<Topics>
+		<string>Keynote</string>
+		<string>Xamarin.Forms\Xamarin</string>
+		<string>Universal\Windows 10</string>
+		<string>UWP</string>
+		<string>Windows 10</string>
+		<string>Windows 8</string>
+		<string>Windows Store</string>
+		<string>Windows Phone</string>
+		<string>Microsoft Teams</string>
+		<string>WP8\Windows Phone</string>
+		<string>Microsoft Graph</string>
+		<string>Microsoft Edge</string>
+		<string>Microsoft Store</string>
+		<string>Win32</string>
+		<string>Q#</string>
+		<string>Intelligent\AI</string>
+		<string>Machine Learning\AI</string>
+		<string>Cortana</string>
+		<string>Speech</string>
+		<string>Cognitive</string>
+		<string>Bing</string>
+		<string>Blockchain</string>
+		<string>Continuum</string>
+		<string>Microsoft Band</string>
+		<string>Microsoft Flow</string>
+		<string>ML.Net</string>
+		<string>Outlook</string>
+		<string>Cloud\Azure</string>
+		<string>Android</string>
+		<string>iOS</string>
+		<string>Objective-C\iOS</string>
+		<string>Game</string>
+		<string>IoT</string>
+		<string>Internet of Things\IoT</string>
+		<string>Hololens</string>
+		<string>Holographic\Hololens</string>
+		<string>Holoflight\Hololens</string>
+		<string>Linux</string>
+		<string>Entity Framework</string>
+		<string>SQL</string>
+		<string>Windows Server</string>
+		<string>DevOps</string>
+		<string>Graphics</string>
+		<string>C#</string>
+		<string>F#</string>
+		<string>HTML</string>
+		<string>PWA\Progressive Web App</string>
+		<string>PWAs\Progressive Web App</string>
+		<string>Progressive Web App</string>
+		<string>Progressive Web Apps\Progressive Web App</string>
+		<string>Git</string>
+		<string>GitHub\Git</string>
+		<string>VSTS\Team Foundation Server</string>
+		<string>.NET Standard</string>
+		<string>.NET Core</string>
+		<string>ASP.NET Core</string>
+		<string>ASP.NET</string>
+		<string>.Net</string>
+		<string>WPF</string>
+		<string>XAML</string>
+		<string>NodeJs\Node.js</string>
+		<string>Angular\Angular.js</string>
+		<string>Python</string>
+		<string>Unity\Game</string>
+		<string>C++</string>
+		<string>TypeScript</string>
+		<string>JavaScript</string>
+		<string>Teams\Microsoft Teams</string>
+		<string>SharePoint</string>
+		<string>Office</string>
+		<string>XBox</string>
+		<string>Visual Studio</string>
+		<string>Open Source</string>
+		<string>Raspberry PI</string>
+		<string>Cognitive</string>
+		<string>Fluent</string>
+		<string>Container</string>
+		<string>Paas</string>
+		<string>Mixed Reality</string>
+		<string>Web API</string>
+		<string>Web</string>
+		<string>SaaS</string>
+		<string>PowerApps</string>
+		<string>PowerBi</string>
+		<string>Microsoft</string>
+	
+	</Topics>
+
+	<Conferences>
+	
+	<Conference>
+		<Name>Connect 2018</Name>
+		<RssUrl>https://s.ch9.ms/Events/Connect/2018/rss</RssUrl>
+	</Conference>
+		
+	<Conference>
+		<Name>Ignite 2018</Name>
+		<RssUrl>https://channel9.msdn.com/Events/Ignite/2018/rss</RssUrl>
+	</Conference>
+		
+	<Conference>
+		<Name>.Net Config 2018</Name>
+		<RssUrl>https://s.ch9.ms/Events/dotnetConf/2018/rss</RssUrl>
+	</Conference>
+		
+	<Conference>
+		<Name>Build 2018</Name>
+		<RssUrl>https://s.ch9.ms/events/Build/2018/rss</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>WinHEC Fall 2017</Name>
+		<RssUrl>https://s.ch9.ms/Events/WinHEC/WinHEC-Fall-2017-Workshop/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Connect 2017</Name>
+		<RssUrl>https://s.ch9.ms/Events/Connect/2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Windows Developer Day Fall Creators 2017</Name>
+		<RssUrl>https://s.ch9.ms/Events/Windows/Windows-Developer-Day-Fall-Creators-Update/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>DotNet Conf 2017</Name>
+		<RssUrl>https://s.ch9.ms/Events/dotnetConf/2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>MSBuild 2017</Name>
+		<RssUrl>https://s.ch9.ms/events/Build/2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Microsoft Edge Web Summit 2017</Name>
+		<RssUrl>https://s.ch9.ms/Events/WebPlatformSummit/Microsoft-Edge-Web-Summit-2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>VS Live 2017</Name>
+		<RssUrl>https://channel9.msdn.com/Events/Visual-Studio/Live-2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>DevIntersection 2017</Name>
+		<RssUrl>https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2017-Orlando/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Build 2017</Name>
+		<RssUrl>http://s.ch9.ms/events/build/2017/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Build 2016</Name>
+		<RssUrl>http://s.ch9.ms/events/build/2016/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Build 2015 - TEST MP4</Name>
+		<RssUrl>http://s.ch9.ms/events/build/2015/rss/mp4</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Visual Studio 2017 Launch</Name>
+		<RssUrl>https://s.ch9.ms/Events/Visual-Studio/Visual-Studio-2017-Launch/rss</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Build Canada -- LIVE from Toronto</Name>
+		<RssUrl>https://channel9.msdn.com/Events/Build/Build-Tour-2016-Toronto/rss</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Ignite 2015</Name>
+		<RssUrl>https://channel9.msdn.com/Events/Ignite/2015/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Ignite 2016</Name>
+		<RssUrl>https://s.ch9.ms/Events/Ignite/2016/RSS</RssUrl>
+	</Conference>
+		
+	<Conference>
+		<Name>Ignite 2015 #2</Name>
+		<RssUrl>https://channel9.msdn.com/Blogs/MicrosoftIgnite/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Connect 2016</Name>
+		<RssUrl>https://s.ch9.ms/Events/Connect/2016/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>DotNetConf 2016</Name>
+		<RssUrl>https://channel9.msdn.com/Events/dotnetConf/2016/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>WinHEC 2016</Name>
+		<RssUrl>https://channel9.msdn.com/Blogs/WinHEC/RSS</RssUrl>
+	</Conference>
+	<Conference>
+		<Name>Xamarin Evolve 2016</Name>
+		<TargetDir>D:\MsConferences\Xamarin Evolve 2016</TargetDir>
+		<RssUrl>https://channel9.msdn.com/Events/Xamarin-Evolve/2016/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>DEVIntersection 2016</Name>
+		<RssUrl>https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2016/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>DEVIntersection 2015</Name>
+		<TargetDir>D:\MsConferences\DEVIntersection 2015</TargetDir>
+		<RssUrl>https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2015/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Build 2016</Name>
+		<RssUrl>http://s.ch9.ms/events/build/2016/rss/mp4</RssUrl>
+	</Conference>
+		
+	<Conference>
+		<Name>F# Conference 2016</Name>
+		<RssUrl>https://s.ch9.ms/Events/FSharp-Events/fsharpConf-2016/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Visual Studio 2015 Final Release Event Sessions</Name>
+		<RssUrl>http://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2015-Final-Release-Event/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+		<Name>Build 2015</Name>
+		<RssUrl>http://s.ch9.ms/events/build/2015/rss/mp4</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Build 2012</Name>
+		<RssUrl>http://channel9.msdn.com/Events/BUILD/2012/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Build 2013</Name>
+		<RssUrl>https://s.ch9.ms/Events/Build/2013/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Connect 2015</Name>
+		<RssUrl>http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+		<Name>Connect On Demand</Name>
+		<RssUrl>http://channel9.msdn.com/Series/ConnectOn-Demand/RSS</RssUrl>
+	</Conference>
+	
+	</Conferences>
+
+</ConfigData>

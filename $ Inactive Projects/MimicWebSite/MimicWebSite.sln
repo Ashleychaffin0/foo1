@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimicWebSite", "MimicWebSite\MimicWebSite.csproj", "{BBC0085C-8F1A-4772-ACF5-B5989A3DB627}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BBC0085C-8F1A-4772-ACF5-B5989A3DB627}.Debug.ActiveCfg = Debug|.NET
+		{BBC0085C-8F1A-4772-ACF5-B5989A3DB627}.Debug.Build.0 = Debug|.NET
+		{BBC0085C-8F1A-4772-ACF5-B5989A3DB627}.Release.ActiveCfg = Release|.NET
+		{BBC0085C-8F1A-4772-ACF5-B5989A3DB627}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

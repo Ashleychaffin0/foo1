@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{873F1D56-E545-4A49-82FC-02D9151A4A94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MovieCollection1</RootNamespace>
+    <AssemblyName>MovieCollection1</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DVDCollectionDataSet.cs">
+      <DependentUpon>DVDCollectionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DVDCollectionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DVDCollectionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ListDetails.Designer.cs">
+      <DependentUpon>ListDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchOnline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RatingPicker.Designer.cs">
+      <SubType>Component</SubType>
+      <DependentUpon>RatingPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RatingPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SimpleAmazonWS.cs" />
+    <Compile Include="Controls\DVD.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SearchOnline.Designer.cs">
+      <SubType>UserControl</SubType>
+      <DependentUpon>SearchOnline.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\RatingPicker.resx">
+      <DependentUpon>RatingPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListDetails.resx">
+      <DependentUpon>ListDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\DataSources\DVD.datasource" />
+    <None Include="Documentation\Getting Started Tutorial.htm">
+    </None>
+    <None Include="Documentation\images\vbmyDVDMain.gif">
+    </None>
+    <None Include="Documentation\images\top-vc.gif">
+    </None>
+    <None Include="Documentation\images\topjump-vc.gif">
+    </None>
+    <None Include="Documentation\images\side-vc.gif">
+    </None>
+    <None Include="Documentation\images\vbmyDVDSearch.gif">
+    </None>
+    <None Include="Documentation\images\vbmyDVDResources.gif">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DVDCollectionDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DVDCollectionDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>DVDCollectionDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="DVDCollectionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DVDCollectionDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Blue_fullBg-noSideText.jpg" />
+    <Content Include="Resources\button_addCollection.png" />
+    <Content Include="Resources\button_search_active.png" />
+    <Content Include="Resources\button_showDVD_L.png" />
+    <Content Include="Resources\button_showDVD_R.png" />
+    <Content Include="Resources\button_smallBlue_search.png" />
+    <Content Include="Resources\button_viewDvd_active.png" />
+    <Content Include="Resources\dvd-database.ico" />
+    <Content Include="Resources\icon_magnifyingGlass.png" />
+    <Content Include="Resources\panel_dvdInfo_noTxt.png" />
+    <Content Include="Resources\PanelBG.jpg" />
+    <Content Include="Resources\PanelBG_Tile.jpg" />
+    <Content Include="Resources\Record.GIF" />
+    <Content Include="Resources\star-empty.png" />
+    <Content Include="Resources\star-filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{AD028B85-FA21-41B1-AB4A-08672F633506}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

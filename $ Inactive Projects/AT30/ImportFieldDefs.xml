@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<ImportFieldDefs>
+	<Field Name="Card #"			Type="Numeric">1</Field>
+	<Field Name="First Name"		Type="Text">14</Field>
+	<Field Name="Middle Name"		Type="Text">507</Field>
+	<Field Name="Last Name"			Type="Text">15</Field>
+	<Field Name="Street"			Type="Text">5</Field>
+	<Field Name="Apt. No."			Type="Text">508</Field>
+	<Field Name="City"				Type="Text">6</Field>
+	<Field Name="State"				Type="Text">7</Field>
+	<Field Name="Zip"				Type="Text">8</Field>
+	<Field Name="Phone"				Type="Phone">9</Field>
+	<Field Name="Phone 2"			Type="Phone">10</Field>
+	<Field Name="Date and Time"		Type="DateTime">11</Field>
+	<Field Name="Services"			Type="Services">12</Field>
+	<Field Name="Demographics"		Type="Demographics">xxxxxxxxxxxxx17</Field>
+	<Field Name="Notes"				Type="Text">18</Field>
+	<Field Name="TerminalID"		Type="Text">19</Field>
+	<Field Name="Birth Date"		Type="Date">502</Field>
+	<Field Name="Creation Date"		Type="Date">509</Field>
+	<Field Name="Veteran"			Type="Text">503</Field>
+	<Field Name="Public Assistance"	Type="Text">504</Field>
+	<Field Name="SSN"				Type="Text">506</Field>
+	<Field Name="Survey"			Type="Survey">xxxxxxxxxxxxxxxxxxx700</Field>
+</ImportFieldDefs>

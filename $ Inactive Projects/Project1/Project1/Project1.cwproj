@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioProject>
+  <COMEGA ProjectType="Local"
+     SchemaVersion="1.0"
+     Name="Project1"
+     ProjectGuid="beb5eb6e-f27c-4f8f-ba36-05841bff4bf0"
+    >
+    <Build>
+      <Settings ApplicationIcon=""
+         AssemblyName="Project1"
+         OutputType="Exe"
+         RootNamespace="Project1"
+         StartupObject=""
+         TargetPlatform=""
+         TargetPlatformLocation=""
+        >
+        <Config Name="Debug"
+           AllowUnsafeBlocks="False"
+           BaseAddress="285212672"
+           CheckForOverflowUnderflow="False"
+           ConfigurationOverrideFile=""
+           DefineConstants="DEBUG;TRACE"
+           DocumentationFile=""
+           DebugSymbols="True"
+           FileAlignment="4096"
+           IncrementalBuild="True"
+           Optimize="False"
+           OutputPath="bin\debug"
+           RegisterForComInterop="False"
+           RemoveIntegerChecks="false"
+           TreatWarningsAsErrors="False"
+           WarningLevel="4"
+           />
+        <Config Name="Release"
+           AllowUnsafeBlocks="false"
+           BaseAddress="285212672"
+           CheckForOverflowUnderflow="false"
+           ConfigurationOverrideFile=""
+           DefineConstants="TRACE"
+           DocumentationFile=""
+           DebugSymbols="false"
+           FileAlignment="4096"
+           IncrementalBuild="false"
+           Optimize="true"
+           OutputPath="bin\release"
+           RegisterForComInterop="false"
+           RemoveIntegerChecks="false"
+           TreatWarningsAsErrors="false"
+           WarningLevel="4"
+           />
+      </Settings>
+      <References>
+        <Reference Name="System"
+             AssemblyName="System"
+             Private="false"
+             />
+        <Reference Name="System.Data"
+             AssemblyName="System.Data"
+             Private="false"
+             />
+        <Reference Name="System.Xml"
+             AssemblyName="System.Xml"
+             Private="false"
+             />
+        <Reference ToolAssembly="Microsoft.Sql2Comega, Version=1.0.3727.0, Culture=neutral, PublicKeyToken=736440c9b414ea16"
+             ToolType="Microsoft.Sql2Comega.ComegaSqlGenForm"
+             AssemblyName="Northwind"
+             Name="Northwind"
+             ServerName="(local)"
+             Catalog="Northwind"
+             ModuleName="Northwind"
+             Namespace="Northwind"
+             TrustedConnection="True"
+             OutputSource="False"
+             SavePassword="False"
+             Private="true"
+             />
+      </References>
+    </Build>
+    <Files>
+      <Include>
+        <File RelPath="AssemblyInfo.cw"
+                 SubType="Code"
+                 BuildAction="Compile"
+                 />
+        <File RelPath="Northwind.cw"
+                 SubType="Code"
+                 BuildAction="Compile"
+                 />
+      </Include>
+    </Files>
+  </COMEGA>
+</VisualStudioProject>

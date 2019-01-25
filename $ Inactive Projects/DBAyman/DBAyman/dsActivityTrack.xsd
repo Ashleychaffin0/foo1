@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="dsActivityTrack" targetNamespace="http://www.tempuri.org/dsActivityTrack.xsd" xmlns:mstns="http://www.tempuri.org/dsActivityTrack.xsd" xmlns="http://www.tempuri.org/dsActivityTrack.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="dsActivityTrack" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="tblPerson">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Address2" type="xs:string" minOccurs="0" />
+              <xs:element name="City" type="xs:string" minOccurs="0" />
+              <xs:element name="County" type="xs:string" minOccurs="0" />
+              <xs:element name="DateEntered" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DOB" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FName" type="xs:string" minOccurs="0" />
+              <xs:element name="HomePhone" type="xs:string" minOccurs="0" />
+              <xs:element name="HomeSiteID" type="xs:string" minOccurs="0" />
+              <xs:element name="LName" type="xs:string" minOccurs="0" />
+              <xs:element name="MidName" type="xs:string" minOccurs="0" />
+              <xs:element name="Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="PubAssistance" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SSN" type="xs:string" />
+              <xs:element name="SSNId" msdata:AutoIncrement="true" type="xs:int" minOccurs="0" />
+              <xs:element name="State" type="xs:string" minOccurs="0" />
+              <xs:element name="Veteran" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Zip" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblPerson" />
+      <xs:field xpath="mstns:SSN" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

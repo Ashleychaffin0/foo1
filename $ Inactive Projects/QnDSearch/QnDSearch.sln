@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnDSearch", "QnDSearch\QnDSearch.csproj", "{5EC893B1-F4C0-44F6-83E7-FA99BBFF5B78}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5EC893B1-F4C0-44F6-83E7-FA99BBFF5B78}.Debug.ActiveCfg = Debug|.NET
+		{5EC893B1-F4C0-44F6-83E7-FA99BBFF5B78}.Debug.Build.0 = Debug|.NET
+		{5EC893B1-F4C0-44F6-83E7-FA99BBFF5B78}.Release.ActiveCfg = Release|.NET
+		{5EC893B1-F4C0-44F6-83E7-FA99BBFF5B78}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

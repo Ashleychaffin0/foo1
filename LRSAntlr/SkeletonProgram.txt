@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Antlr4.Runtime;
+using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
+
+namespace $$GrammarName$$ {
+	class $$GrammarName$$ {
+		private static void Main(string[] args) {
+			try {
+				string input			 = "X=453+987";
+				ICharStream stream		 = CharStreams.fromstring(input);
+				var lex					 = new $$GrammarName$$Lexer(stream);
+				var tokens				 = new CommonTokenStream(lex);
+				var parser				 = new $$GrammarName$$Parser(tokens);
+				parser.BuildParseTree	 = true;
+				var tree				 = parser.StartRule();
+				var printer				 = new $$GrammarName$$Listener();
+				ParseTreeWalker.Default.Walk(printer, tree);
+			} catch (Exception ex) {
+				Console.WriteLine("Error: " + ex);
+			}
+		}
+	}
+
+//---------------------------------------------------------------------------------------
+
+	class $$GrammarName$$Listener : I$$GrammarName$$Listener {
+
+	}
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TonyCheckFor192RipConsole", "TonyCheckFor192RipConsole\TonyCheckFor192RipConsole.csproj", "{C42C497B-8C01-4AF7-8E48-BFB5F0FCEE76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C42C497B-8C01-4AF7-8E48-BFB5F0FCEE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42C497B-8C01-4AF7-8E48-BFB5F0FCEE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42C497B-8C01-4AF7-8E48-BFB5F0FCEE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42C497B-8C01-4AF7-8E48-BFB5F0FCEE76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF4C6FF5-237E-4C4C-A4F9-2FABDC26D310}
+	EndGlobalSection
+EndGlobal

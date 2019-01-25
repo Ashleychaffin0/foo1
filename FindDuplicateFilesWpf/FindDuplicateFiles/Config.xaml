@@ -1,0 +1,19 @@
+﻿<Window x:Class="FindDuplicateFiles.Config"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:FindDuplicateFiles"
+        Title="Configure Parameters" Height="300" Width="300">
+    <Grid>
+        <TabControl Height="53" HorizontalAlignment="Left" Margin="0,7,0,0" Name="tabControl1" VerticalAlignment="Top" Width="266">
+            <TabItem Header="Include Dirs" Name="tabIncludeDirs" Margin="-2,-2,-2,6">
+                <StackPanel>
+                    <local:UcDirectories Margin="0,0,0,-154"/>
+                    <TextBlock>Hi there world</TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Exclude Dirs" Name="tabExcludeDirs">
+                <Grid Height="205" Width="271" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

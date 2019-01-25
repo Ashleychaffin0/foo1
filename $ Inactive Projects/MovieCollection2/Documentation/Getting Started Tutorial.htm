@@ -1,0 +1,743 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Microsoft Visual C# Express Starter Kit</title>
+<style>
+<!--
+BODY         { background: url(images/top-vc.gif) repeat-x; font-family: Verdana; font-size: 67% }
+.maindiv     { background: url(images/side-vc.gif) repeat-y; padding-left: 55px; padding-top: 5px; position: relative; height: 50px }
+P            { margin-top: 0; margin-bottom: 6px; line-height:130% }
+H1           { margin-top: 20px; margin-bottom: 12px; font-size:190% }
+H2           { color: #585F56; left: -55px; position: relative; margin-top: 21px; margin-bottom: 9px; font-size:170% }
+H3           { margin-top: 21px; margin-bottom: 9px; font-size: 140%;  font-weight: bold}
+H4           { margin-top: 18px; margin-bottom: 9px; font-size: 140%; font-weight: bold}
+OL           { margin-top: 0; margin-bottom: 9px; line-height:130%}
+UL           { margin-top: 0; margin-bottom: 9px; line-height:130%}
+LI           { margin-top: 0; margin-bottom: 6px }
+BLOCKQUOTE   { margin-left: 20px }
+TABLE        { padding: 4px; BACKGROUND: #f8f7ef; BORDER: #DDDCD6 1px solid; BORDER-COLLAPSE: collapse; margin-bottom: 9px; }
+TR           { vertical-align: top} 
+TD           { padding: 4px; font-family: Verdana; font-size: 67%; line-height: 130%} 
+.contents    { line-height: 150% }
+DIV.CodeBlock   { font-family: "Courier New"; font-size: 100%; margin-bottom: 6px; BACKGROUND: #f8f7ef; BORDER: #eeede6 1px solid; padding: 10px; color: #0000FF }
+.CodeInline  { font-family: "Courier New" }
+.ProcedureLabel {margin-top: 12px; font-style: italic; font-weight: bold; color: #0D4CC3 } 
+.FileNameCol { padding: 6px; BACKGROUND: #eeede6; width=220px; font-weight: bold}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="20" text="#000000">
+<div class="maindiv">
+
+<!-- MAIN CONTENT BEGINS -->
+
+<p><a name="top">Microsoft Visual C# Express Starter Kit</a></p>
+<h1>Starter Kit: Movie Collection</h1>
+<p class="contents"><font color="#003300"><b>Contents:</b><br>
+</font><font color="#003300">
+<a href="#Introduction">Introduction</a><br>
+<a href="#GettingStarted0">Download the Updated Web Plus Edition</a><br>
+<a href="#GettingStarted">Getting Started</a><br>
+<a href="#HowItWorks">How Movie Collection Works</a><br>
+<a href="#InDepth">Movie Collection Starter Kit In-Depth</a>
+</font></p>
+
+<h2><A href="#top"><IMG src="images/topjump-vc.gif" border=0></A><a name="Introduction">Introduction</a></h2>
+<p><img border="0" src="images/vbmyDVDmain.gif" width="250" height="177" alt="My DVD Collection main" align="right" style="margin-left: 15px; margin-bottom: 10px"
+></p>
+
+<p>The Movie Collection starter kit is a sample application designed to help 
+you track your collection of movies. With this kit, you can organize movies in 
+your collection, rate them, and look up information about them. Plus, you can 
+change the application anyway you want <i>and</i> 
+see the source code. </p>
+
+<h2><A href="#top"><IMG src="images/topjump-vc.gif" border=0></A><a name="GettingStarted0">Download 
+the Updated Web Plus Edition</a></h2>
+
+<p>Want to connect your movie collection to the Web and download information 
+about your movies? The Web Plus edition of the Movie Collection starter 
+kit does just that: it tracks your collection and searches for movies using an 
+online Web service. The Web Plus edition also contains updates to the starter 
+kit that aren't in the version shipped with Visual C# Express Edition, so you 
+will want to download it even if you don't want to use the Web features.</p>
+<p>You can download the Web Plus edition for free from
+<a href="http://go.microsoft.com/fwlink/?linkid=29243&clcid=0x409">here</a>.  </p>
+
+<h2><A href="#top"><IMG src="images/topjump-vc.gif" border=0></A><a name="GettingStarted">Getting Started</a></h2>
+
+<p>The first step to getting your movie collection application up and running is loading the 
+starter kit project by choosing the Movie Collection Starter Kit template in 
+the <b>New Project</b> dialog box.  </p>
+<h3>1) Starting the Movie Collection Application  </h3>
+
+<p>To see the application in action, you need to run it.</p>
+
+<p class="ProcedureLabel">To run the application</p>
+
+<ul>
+	<li>Press<span style="font-size: 100%"> </span> <b><font size="2">F5</font></b> to 
+	run the application.</li>
+</ul>
+
+<p> The form for the application is displayed. This is the form
+where you’ll enter information about your movies, organize them, and search
+through your collection.</p>
+
+
+<h3>2) Adding Movies to your Collection</h3>
+
+<p>Let's add a movie from your collection.</p>
+
+<p class="ProcedureLabel">To add a movie to your collection</p>
+
+<ol>
+	<li>On the form, click <b>Add Title</b>.<p>A new entry, called a record, opens in the 
+	list above the <b>Add Title</b> button.<p></li>
+	<li>In the <b>dvd details</b> boxes to the right, add the
+title of a favorite movie and other information, such as director or movie
+rating.</li>
+</ol>
+
+<p>The database file that is part of your project is updated
+with the information automatically anytime you add, delete, or modify data.</p>
+
+<p>At any time, you can select
+a movie from the grid and view its details.</p>
+
+<h3>3) Updating Information about your Collection</h3>
+
+<p>Updating a record is just as easy as entering one.</p>
+
+<p class="ProcedureLabel">To update a record in your movie collection</p>
+
+<ol>
+	<li>In the list, click the record you would like to update.</li>
+	<li>The data from this record is displayed in the boxes to the right.</li>
+	<li>Choose the data that you would like to update and make your change. 
+	Your new information is saved as soon as you move from a box.</li>
+</ol>
+
+<h3>4) Searching Online for Information about a Movie</h3>
+
+<p>If you have the Web Plus edition of the Movie Collection starter kit, you 
+can take advantage of the rich movie collection that is provided by <b>Amazon.com</b> 
+Web service. The Movie Collection starter kit application is already 
+connected, and you can use this connection to download information about your 
+favorite films. Don't forget: You need to be connected to the Internet for this 
+to work, and you need the Web Plus edition, which can be downloaded for free
+<a href="http://go.microsoft.com/fwlink/?linkid=29243&clcid=0x409">here</a>. </p>
+
+<p class="ProcedureLabel">To get online information about a movie</p>
+
+<ol>
+	<li>Connect to the Internet, if you are currently offline.</li>
+	<li>On the form, click the <b>Search Online</b> button.</li>
+	<li>In the first box, type a keyword or keywords
+related to the film, and then click the Search button. The keywords can be words from the title, actor names, or any
+other words having to do with the film.	The first ten films that match are added 
+	to the results list; if the film that you were looking for is not included 
+	in the first ten, you can enter additional keywords to narrow the results.</li>
+	<li>If there's a match with the film you were looking for, select it and click <b>Add To Collection</b>.</li>
+</ol>
+
+<p>The movie is added to your collection.</p>
+
+<h3>5) Assigning a Rating to a Movie</h3>
+
+<p>Now you can be a movie critic. Movies that are added via the Web don't have 
+ratings or comments, but you can add your own.</p>
+
+<p class="ProcedureLabel">To assign a rating to a movie</p>
+
+<ul>
+	<li>Using the mouse, click the number of stars to assign a rating (1 through 5). 
+	The stars turn yellow when selected. Your rating is automatically saved.</li>
+</ul>
+
+<p class="ProcedureLabel">To add a comment for a movie</p>
+<ul>
+	<li>Select the Comments field and enter your comments. The comments are 
+	automatically saved</li>
+</ul>
+
+<h3>6) Customizing the Application</h3>
+
+<p>Let's see how easy it is to customize the look and feel of the application. You can customize the text of labels and forms, and use your own images
+and icons for your application. Before you can do this, however, you need to
+stop the application from running.</p>
+
+<p class="ProcedureLabel">To stop the application from running</p>
+
+<ul>
+	<li>Switch to the Visual C# Express Edition window.</li>
+	<li>On the <b>Debug</b> menu, click <b>Stop Debugging</b>.</li>
+</ul>
+
+<p>You’re
+in design mode. This mode is where you can make code and design changes.</p>
+
+<h3>Customizations</h3>
+
+<p>The Movie Collection application consists of several forms. <b>MainForm.cs</b> is the starting point for the
+application. There are also two custom controls:</p>
+
+<ul>	
+	<li><b>ListDetails.cs</b>
+– This control is where you view details about your collection. The information
+comes from the Movie Collection database.</li>
+	<li><b>SearchOnline.cs</b>
+– This control is connected to the Amazon.com Web service, and is what you use
+to search online.</li>
+</ul>
+
+<p>You can customize the text or images of the form or any of the
+controls by setting properties in the <b>Properties</b>
+window. Or, you can update properties by editing the code associated with the
+forms.</p>
+<p>The following examples show a few of the ways you might want to customize the 
+application.</p>
+
+<p class="ProcedureLabel">To change the text displayed in the Title Bar</p>
+
+<ol>
+	<li>In <b>Solution Explorer</b>,
+right-click <b>MainForm.cs</b> and choose <b>View Designer</b>.</li>
+	<li>In the <b>Properties</b>
+window, make sure that MainForm is selected in the dropdown list, then locate and change the value of <b>Text</b> property.
+For example, change the text from "Movie Collection" to "<i>[Your Name] </i>Movie Collection.&quot;</li>
+</ol>
+
+<p>The <b>Text</b> property of the form is changed once you press ENTER. Notice 
+that the Title Bar of the form reflects your new text.</p>
+<p>You will probably also want to change the text displayed on the form itself 
+to match, since it still reads &quot;Movie Collection&quot;.</p>
+
+<p class="ProcedureLabel">To change the text displayed on the form</p>
+
+<ol>
+	<li>In <b>Solution Explorer</b>,
+right-click <b>MainForm.cs</b> and choose <b>View Designer</b>.</li>
+	<li>Select the <b>Label</b> control that contains the text &quot;Movie 
+	Collection&quot;.</li>
+	<li>In the <b>Properties</b>
+window, locate and change the value of <b>Text</b> property.
+For example, change the text from "Movie Collection" to "<i>[Your Name] </i>Movie Collection.&quot;</li>
+</ol>
+
+<p>The <b>Text</b> property of the label is changed once you press ENTER. </p>
+<p>You can change the properties of any of the custom controls that appear on the form.</p>
+<p>&nbsp;</p>
+<p>Images for the application are managed in the <b>Resources</b> tab of the <b>
+Project Designer</b>.</p>
+
+<p class="ProcedureLabel">To add a background image</p>
+
+<ol>
+	<img border="0" src="images/vbmyDVDResources.gif" width="250" height="188" alt="Project Designer Resources tab" align="right" style="margin-left: 15px">
+	<li>In <b>Solution Explorer</b>, right click on the MovieCollection Project, and select 
+	<b>Properties</b>.</li>
+	<li>On the left side, click the <b>Resources</b> tab.</li>
+	<li>In the <b>Categories</b> list, select <b>Images</b>.</li>
+	<li>Add your favorite images to the designer. Click the 
+	<b>Add</b> button and then click <b>Existing
+	File</b>. Locate to the image you want to add. Or drag and drop an image
+file from Windows Explorer (for example, from My Pictures) to the designer.</li>
+	<li>
+	<p>In <b>Solution Explorer</b>, right-click <b>ListDetails.cs</b> and choose 
+	<b>View Designer</b>.</p>
+	<p>The ListDetails form will appear in the Form designer.</p></li>
+	<li>Select the <b>DVDDetailsPanel</b> control (the dark gray box on the right side 
+	of the form).</li>
+	<li><p>In the <b>Properties</b>
+	window, locate the <b>BackgroundImage</b> property and click the ellipsis 
+	button to the right of the property.<br></p>
+	<p>The <b>Select Resource</b> dialog box will open.</p></li>
+	<li>
+	<p>Select the image that you just added, and then click <b>OK</b>.</p>
+	<p>The new background image will appear in the designer. You can change the image to anything in the Resources folder, including the image you added.</p></li>
+</ol>
+<p>&nbsp;</p>
+
+<p>Do you ever have movie titles too long to fit in your labels? This will fix 
+it.</p>
+
+<p class="ProcedureLabel">To change display behavior of ListDetails</p>
+
+<ol>
+	<li>In <b>Solution Explorer</b>, right-click <b>ListDetails.cs</b> and choose <b>View Designer</b>.</li>
+	<li>Click the <b>Label2</b> control (&quot;[Title]&quot;) , and in the Properties window set 
+	<b>AutoSize</b> property = False; set 
+	<b>AutoEllipsis</b> property = True.</li>
+</ol>
+
+<p class="ProcedureLabel">To test your application</p>
+
+<ul>	<li>Press <b>F5</b> to rebuild the application. You can now
+see your changes.</li>
+</ul>
+
+<p>Move your mouse over the title of the movie in your collection to show its 
+ToolTip and ellipsis. </p>
+<p>Want to add a new field to keep track of the actors in your movies? Here's 
+how.</p>
+
+<p class="ProcedureLabel">To add a field to ListDetails</p>
+
+<ol>
+	<li>In <b>Solution Explorer</b>, right-click <b>ListDetails.cs</b> and choose <b>View Designer</b>.</li>
+	<li>From the <b>Toolbox</b> window, drag a <b>TextBox</b> control onto the 
+	form beneath the <b>Description</b> field. Resize and rearrange the controls 
+	as necessary.</li>
+	<li>With the <b>TextBox</b> control selected, choose the <b>(DataBindings)</b> 
+	property in the <b>Properties</b> window and expand it.</li>
+	<li>Select the <b>(Advanced)</b> property and click the Ellipsis button to 
+	open the <b>Formatting and Advanced Binding</b> dialog box.</li>
+	<li>From the <b>Binding</b> dropdown list, choose <b>DVDxBindingSource - 
+	Actor</b>, and then click <b>Ok</b>.</li>
+	<li>From the <b>Toolbox</b>, drag a <b>Label</b> control onto the form and 
+	place it next to the new <b>TextBox</b> control.</li>
+	<li>In the <b>Properties</b> window, change the <b>Text</b> property to 
+	&quot;Actors&quot;.</li>
+</ol>
+
+<p>When you run the application again 
+you should see the Actors field. Enter the names of the actors for the movie. </p>
+<p>&nbsp;</p>
+<p>Do you have movies in more than one format, for example DVD and VHS? Add a 
+field to the database to track the media type.</p>
+
+<p class="ProcedureLabel">To add a field to the database</p>
+
+<ol>
+	<li>In <b>Solution Explorer</b>, right-click <b>DVDCollectionDatabase.mdf
+	</b>and choose <b>Open</b>. The <b>Database Explorer</b> window will open.</li>
+	<li>In the <b>Database Explorer</b>, expand the <b>Tables</b> node and 
+	select <b>DVDs</b>, and then right-click and choose <b>Open Table Definition</b>.</li>
+	<li>In the <b>Table</b> designer, scroll to the bottom of the list and in 
+	the <b>Column Name</b> column type &quot;Media&quot;.</li>
+	<li>In the <b>Data Type</b> column, select <b>nvarchar(MAX)</b> from the 
+	dropdown list.</li>
+	<li>On the <b>File</b> menu, choose <b>Save DVDs</b> to save your changes. </li>
+</ol>
+
+<p>You can now add a Media field to 
+the ListDetails view as you did with the Actors field in the previous example.</p>
+
+<h2><A href="#top"><IMG src="images/topjump-vc.gif" border=0></A><a name="HowItWorks">How 
+Movie Collection Works </a></h2>
+
+<p>This has been a brief introduction to the Movie Collection
+starter kit. You can use the application some more, and get more practice in
+customizing the look and feel. You might try rearranging the layout of the
+controls or dramatically altering the look and feel. If you are comfortable
+with Visual C# code, dissect the functionality of the application by examining
+the source code. Finally, add features to the application to organize books and music,
+or write your own application based on this one.</p>
+
+<h3>Movie Collection Files and Folders</h3>
+
+<p>The Movie Collection starter kit consists of the following
+files and folders.</p>
+<p>&nbsp;</p>
+
+<table border="1" bordercolor= #DDDCD6 width="100%" style="border-collapse: collapse">
+	<tr>
+		<td class="FileNameCol">MainForm.cs</td>
+		<td>Main form; serves as container for controls. </td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">ListDetails.cs</td>
+		<td>Custom user control; serves as a viewer and editor for your movie collection.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">SearchOnline.cs</td>
+		<td>Custom user control; serves as a search tool for online web services.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">DVDCollectionDatabase.mdf</td>
+		<td>Database for movie collection. <b>Note</b>: When adding a database 
+		to your project, it is important to understand where the database is 
+		located. For more information, look for the help topic &quot;How To: Manage 
+		Local Data Files in Your Project&quot;.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">DVDCollectionDataSet.xsd</td>
+		<td>Dataset and data layer objects; helps to do database operations such as loading, saving, and validating data.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">Resources folder</td>
+		<td>Folder containing images, such as bitmaps.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">Documentation folder</td>
+		<td>Folder containing documentation and Help for the starter kit. Right-click Getting Started Tutorial.htm and then click <b>View in Browser</b> to view the documentation.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">Controls folder</td>
+		<td>Custom controls used by the collection.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">Web References folder</td>
+		<td>(<a href="#GettingStarted0">Web Plus edition only</a>) Folder containing Web Service connection.</td>
+	</tr>
+	<tr>
+		<td class="FileNameCol">Project folder</td>
+		<td>Folder containing Visual C# project and application settings. Double-click to open the Project Designer.</td>
+	</tr>
+</table>
+
+
+<h2><A href="#top"><IMG src="images/topjump-vc.gif" border=0></A><a name="InDepth">Movie 
+Collection Starter Kit
+In-Depth</a></h2>
+
+<p>This section describes the workings of the Movie Collection
+kit, and suggests entry points for your customizations.</p>
+
+<h3>Online search</h3>
+
+<p><img border="0" src="images/vbmyDVDSearch.gif" width="250" height="177" alt="My DVD Collection search" align="right" style="margin-left: 15px">(<a href="#GettingStarted0">Web Plus edition only</a>) The application is making an online search request for this
+data, and it is responding back with XML describing the resulting data. This is
+analogous to visiting the Web page and performing a search; the application programmatically 
+makes a request to the Web service, and the service responds back with XML data.</p>
+
+<p>Notice that only a few lines of code are used to fill a
+list of DVD objects and bind them to the screen in the <b>PerformSearch</b>
+method of the <b>SearchOnline.cs </b>file. </p>
+<div class="CodeBlock">private void PerformSearch()<br>
+	{<br>
+&nbsp;&nbsp;&nbsp; //object responsible for containing dvd search results<br>
+&nbsp;&nbsp;&nbsp; BindingList&lt;DVD&gt; searchResults = new BindingList&lt;DVD&gt;();<br>
+	<br>
+&nbsp;&nbsp;&nbsp; //simple wrapper object responsible for handling requests and 
+	responses from the Amazon.com Web service<br>
+&nbsp;&nbsp;&nbsp; SimpleAmazonWS amazonService = new SimpleAmazonWS();<br>
+	<br>
+&nbsp;&nbsp;&nbsp; //show hour glass during the search to tell users that work 
+	is being done<br>
+&nbsp;&nbsp;&nbsp; this.Cursor = Cursors.WaitCursor;<br>
+	<br>
+&nbsp;&nbsp;&nbsp; try<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //request search results from the Web 
+	service passing in the user's search criteria<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; searchResults = 
+	amazonService.SearchDVDs(this.searchTextBox.Text);<br>
+	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //data bind the search results to the 
+	form UI<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.dvdDataConnector.DataSource = 
+	searchResults;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; catch (Exception ex)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(String.Format(&quot;There 
+	was a problem connecting to the Web service. Please verify that you are 
+	connected to the Internet. Additional details: {0}&quot;, ex.Message));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(ex);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; finally<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //set cursor back to the default now 
+	that work is done<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Cursor = Cursors.Default;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+	<br>
+&nbsp;&nbsp;&nbsp; //tell the user how many results were found. Use 
+	String.Format feature to concat strings in a Localization-friendly way<br>
+&nbsp;&nbsp;&nbsp; this.label2.Text = String.Format(&quot;{0} results found. &quot;, 
+	searchResults.Count.ToString());<br>
+	}</div>
+<p>This method creates a <b>List</b> of <b>DVD</b> objects,
+and then calls the simplified Amazon.com Web service to fetch DVD search
+results based on search criteria (specified by the <b>SearchTextBox</b> control on the
+user’s display). The <b>SearchOnline</b> control is then data bound to the list of DVD
+object results returned by the Web service. This is done by setting the
+control’s <b>DataConnector.Datasource = [List of DVD objects]</b>.</p>
+
+<h3>Data binding</h3>
+
+<p>Visual C# treats this data like a list of DVD objects and can
+bind (or base the data in) the controls to it. Visual C# Express Edition permits
+you to bind user interface elements to several kinds of data:</p>
+<ul>
+	<li>databases</li>
+	<li>objects</li>
+	<li>Web services</li>
+</ul>
+<p>Creating elements bound to data is as
+easy as drag and drop, or using the smart tag on a particular control. You can
+then write additional code to rebind your element to data dynamically, so long
+as it's the same kind of data.</p>
+
+<p>For example, from your online search for DVD titles, click the
+first, then second items in the results list. Notice that the grid has been populated with data from the web
+service.</p>
+
+<p>Clicking on a particular item shows details in the boxes on the right side. The application 
+also retrieves images from
+the image URL and displays them in the Picture Box, if there are any. This is
+done asynchronously.</p>
+
+<p>Now, select your favorite item and click <b>Add to Collection</b>. The 
+following code is executed.</p>
+<div class="CodeBlock">private void AddCurrentToCollection()<br>
+	{<br>
+&nbsp;&nbsp;&nbsp; //try to add data to the collection<br>
+&nbsp;&nbsp;&nbsp; try<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //check boundary cases where DVD list 
+	is empty or there is no current selection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((this.dvdDataConnector.Count &gt; 0) 
+	&amp;&amp; (this.dvdDataConnector.Current != null))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //object that 
+	stores the current DVD selection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DVD 
+	currentDVD = (DVD)this.dvdDataConnector.Current;<br>
+	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //try to cache the image to the dvd 
+	object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (this.pictureBox1.Image != null)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //try loading 
+	from picture box first<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (!String.IsNullOrEmpty(currentDVD.ImageUrl))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //else try 
+	from the source URL<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.pictureBox1.Load(currentDVD.ImageUrl);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //convert custom DVD object to the 
+	datable / datarow format used by the application, and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //add the datarow to the datatable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	mainForm.ListDetailsPart.dvdCollectionDataSet.DVDs.AddDVDsRow(currentDVD);<br>
+	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //update display to show 
+	ListDetailsPart with new row selected<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	mainForm.ListDetailsPart.dvdsDataConnector.Position = 
+	mainForm.ListDetailsPart.dvdsDataConnector.Count - 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mainForm.ShowListDetailsPart();<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(&quot;No DVD is selected. 
+	Please select a DVD before adding to collection. &quot;);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+	<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; catch (Exception ex)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(&quot;There was a problem 
+	adding this DVD to the collection. &quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(ex);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+	}</div>
+<p>This step converts
+the list of <b>DVD</b> objects into the format used by the DVD collection, the
+<b>DVDCollectionDataSet</b>, and then adds a new <b>DVDCollectionRow</b>. This step is
+analogous to entering a DVD title into the collection by hand. You can see the 
+code that does the conversion by viewing the DVDCollectionDataSet.cs file.</p>
+
+<p>The application dynamically starts viewing the collection again. At this point you can 
+refine the data in the editable
+fields. You can also provide personalized data like comments and a rating.</p>
+
+<h3>User controls</h3>
+
+<p>The My Rating field is implemented as a user control named RatingPicker.cs, 
+created in Visual C#. If you look at the form in design mode, you won't see 
+the <b>RatingPicker</b> control - it's created when the form loads in the <b>
+InitRatingPickerControl()</b> method. </p>
+<p>You may have noticed that when you move the mouse over the <b>RatingPicker</b> 
+control that the stars &quot;light up&quot; as you pass over them. This is handled in the
+<b>Star_MouseHover</b> method with the following code:</p>
+<div class="CodeBlock">
+	<p>protected internal virtual void Star_MouseHover(object sender, 
+	System.EventArgs e)<br>
+	{<br>
+&nbsp;&nbsp;&nbsp; PictureBox hoverOverStar = (PictureBox)sender;<br>
+	<br>
+&nbsp;&nbsp;&nbsp; if (!this.m_Initializing)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch (hoverOverStar.Name)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;Star1&quot;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.PreviewNewRating((int)RatingPickerValue.Poor);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;Star2&quot;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.PreviewNewRating((int)RatingPickerValue.BelowAverage);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;Star3&quot;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.PreviewNewRating((int)RatingPickerValue.Average);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;Star4&quot;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.PreviewNewRating((int)RatingPickerValue.AboveAverage);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &quot;Star5&quot;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	this.PreviewNewRating((int)RatingPickerValue.Excellent);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; }<br>
+	}<br>
+&nbsp;</div>
+<p>The stars (Star1, Star2, etc.) are picture boxes contained in the user 
+control. Depending on which star the mouse is over, the PreviewNewRating method 
+is called with a RatingPickerValue. The following code sets the Image for each 
+star based on the rating:</p>
+<div class="CodeBlock">Bitmap notSetImage = Properties.Resources.star_empty;
+            <p>Bitmap setImage = Properties.Resources.star_filled;            </p>
+	<p>RatingPickerValue newRatingValue = (RatingPickerValue)newRating;            </p>
+	<p>switch (newRatingValue)
+            </p>
+	<p>&nbsp;&nbsp;&nbsp; {
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.NotSet:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.Poor:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.BelowAverage:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.Average:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.AboveAverage:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case RatingPickerValue.Excellent:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = setImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+                </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default:
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star1.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star2.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star3.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star4.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Star5.Image = notSetImage;
+                    </p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;
+            </p>
+	<p>&nbsp;&nbsp;&nbsp; }</div>
+<p>You could easily customize the control to use different images, or to display 
+ratings on a scale of ten instead of five.</p>
+
+<h3>For more information</h3>
+
+<ul>
+	<li>Provide feedback on this documentation
+	<a href="http://go.microsoft.com/fwlink/?linkid=29242&clcid=0x409">here</a>.</li>
+	<li>Other Visual C# Starter Kits are available
+	<a href="http://go.microsoft.com/fwlink/?linkid=29243&clcid=0x409">here</a>.</li>
+	<li>Get further details on Visual C# Express Edition
+	<a href="http://go.microsoft.com/fwlink/?LinkId=40165">here</a>.</li>
+</ul>
+
+<p>
+<a href="http://www.microsoft.com/info/cpyright.mspx">
+© 2000
+Microsoft Corporation and/or its suppliers. All rights reserved. Terms of Use.</a>
+</p>
+
+<!-- DONT EDIT BELOW THIS LINE  -->
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

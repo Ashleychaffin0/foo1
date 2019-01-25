@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LRSSTreeNodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <nodes>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>http://hoser.lander.ca/SyndicationService.asmx/GetRss</URL>
+        <Title>CLR Hoser</Title>
+        <Description />
+        <PubDate>0001-01-01T00:00:00</PubDate>
+        <Favorite>false</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>http://www.theinquirer.net/inquirer.rss</URL>
+        <Title>the INQUIRER</Title>
+        <Description>IT news - never knowingly undersoldered</Description>
+        <PubDate>0001-01-01T00:00:00</PubDate>
+        <Favorite>false</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>http://news.com.com/2547-1_3-0-5.xml</URL>
+        <Title>CNET News.com</Title>
+        <Description>Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.</Description>
+        <PubDate>2006-08-24T07:00:06</PubDate>
+        <Favorite>false</Favorite>
+        <ImageURL>http://i.i.com.com/cnwk.1d/i/ne/gr/prtnr/rss_logo.gif</ImageURL>
+        <Width>88</Width>
+        <Height>31</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>blogs.msdn.com/brada/rss.aspx</URL>
+        <Title>Brad Abrams </Title>
+        <Description>Design Guidelines, Managed code and the .NET Framework</Description>
+        <PubDate>0001-01-01T00:00:00</PubDate>
+        <Favorite>true</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>www.sysinternals.com/sysinternals.xml</URL>
+        <Title>Sysinternals</Title>
+        <Description>Advanced Windows Tools, Source Code and Information</Description>
+        <PubDate>2006-07-11T20:40:40-04:00</PubDate>
+        <Favorite>false</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL>http://www.charlespetzold.com/rss.xml</URL>
+        <Title>Charles Petzold</Title>
+        <Description>Books and other writings by Charles Petzold</Description>
+        <PubDate>0001-01-01T00:00:00</PubDate>
+        <Favorite>true</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children />
+      <IsFeed>true</IsFeed>
+    </LRSRSSTreeNode>
+    <LRSRSSTreeNode>
+      <feed>
+        <URL />
+        <Title>Test category name</Title>
+        <Description>e3wer</Description>
+        <PubDate>0001-01-01T00:00:00</PubDate>
+        <Favorite>false</Favorite>
+        <Width>0</Width>
+        <Height>0</Height>
+      </feed>
+      <children>
+        <LRSRSSTreeNode>
+          <feed>
+            <URL>http://blogs.msdn.com/texttospeech/rss.aspx</URL>
+            <Title>Jay's blog on text-to-speech</Title>
+            <Description>What's up with text-to-speech (TTS) and Microsoft? Heck, what's up with TTS in general these days? Speech, language, and technology. Cool stuff, indeed.</Description>
+            <PubDate>0001-01-01T00:00:00</PubDate>
+            <Favorite>false</Favorite>
+            <Width>0</Width>
+            <Height>0</Height>
+          </feed>
+          <children />
+          <IsFeed>true</IsFeed>
+        </LRSRSSTreeNode>
+      </children>
+      <IsFeed>false</IsFeed>
+    </LRSRSSTreeNode>
+  </nodes>
+</LRSSTreeNodes>

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNSQuery_LRS", "DNSQuery_LRS\DNSQuery_LRS.csproj", "{EAB7468C-F811-40F3-B64D-424DC10AFFE5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{EAB7468C-F811-40F3-B64D-424DC10AFFE5}.Debug.ActiveCfg = Debug|.NET
+		{EAB7468C-F811-40F3-B64D-424DC10AFFE5}.Debug.Build.0 = Debug|.NET
+		{EAB7468C-F811-40F3-B64D-424DC10AFFE5}.Release.ActiveCfg = Release|.NET
+		{EAB7468C-F811-40F3-B64D-424DC10AFFE5}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

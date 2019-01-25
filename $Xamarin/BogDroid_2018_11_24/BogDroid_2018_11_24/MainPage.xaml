@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:TestCore2_1"
+			 xmlns:bog="clr-namespace:BogDroid_2018_11_24"
+			 x:Class="BogDroid_2018_11_24.MainPage">
+
+	<StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<!--
+			<Button Text="Click Me"
+					x:Name="BtnClickMe"
+					Clicked="BtnClickMe_Clicked" />
+			<Button Text="Read Bog Dictionaries"
+					x:Name="BtnReadBogDicts"
+					Clicked="BtnReadBogDicts_Click" />
+			-->
+			<Button Text="Write TOD to disk"
+					x:Name="BtnWriteTOD"
+					Clicked="BtnWriteTOD_Click" />
+			<Button Text="Read TOD"
+					x:Name="BtnReadTOD"
+					Clicked="BtnReadTOD_Click" />
+			<Button Text="New Game"
+					x:Name="BtnNewGame"
+					Clicked="BtnNewGame_Click" />
+		</StackLayout>
+
+		<StackLayout Orientation="Horizontal">
+			<StackLayout WidthRequest="1920">
+				<Frame OutlineColor="Red">
+					<Grid x:Name="BogGrid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*" />
+							<ColumnDefinition Width="1*" />
+							<ColumnDefinition Width="1*" />
+							<ColumnDefinition Width="1*" />
+							<ColumnDefinition Width="1*" />
+						</Grid.ColumnDefinitions>
+						<bog:BogCube x:FieldModifier="public" Grid.Row="0" x:Name="Sq00" Grid.Column="0" Text="X" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="0" x:Name="Sq01" Grid.Column="1" Text="B" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="0" x:Name="Sq02" Grid.Column="2" Text="C" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="0" x:Name="Sq03" Grid.Column="3" Text="B" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="0" x:Name="Sq04" Grid.Column="4" Text="C" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+
+						<bog:BogCube x:FieldModifier="public" Grid.Row="1" x:Name="Sq10" Grid.Column="0" Text="0" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="1" x:Name="Sq11" Grid.Column="1" Text="1" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="1" x:Name="Sq12" Grid.Column="2" Text="2" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="1" x:Name="Sq13" Grid.Column="3" Text="1" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="1" x:Name="Sq14" Grid.Column="4" Text="2" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+
+						<bog:BogCube x:FieldModifier="public" Grid.Row="2" x:Name="Sq20" Grid.Column="0" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="2" x:Name="Sq21" Grid.Column="1" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="2" x:Name="Sq22" Grid.Column="2" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="2" x:Name="Sq23" Grid.Column="3" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="2" x:Name="Sq24" Grid.Column="4" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+
+						<bog:BogCube x:FieldModifier="public" Grid.Row="3" x:Name="Sq30" Grid.Column="0" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="3" x:Name="Sq31" Grid.Column="1" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="3" x:Name="Sq32" Grid.Column="2" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="3" x:Name="Sq33" Grid.Column="3" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="3" x:Name="Sq34" Grid.Column="4" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+
+						<bog:BogCube x:FieldModifier="public" Grid.Row="4" x:Name="Sq40" Grid.Column="0" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="4" x:Name="Sq41" Grid.Column="1" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="4" x:Name="Sq42" Grid.Column="2" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="4" x:Name="Sq43" Grid.Column="3" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+						<bog:BogCube x:FieldModifier="public" Grid.Row="4" x:Name="Sq44" Grid.Column="4" Text="Qu" FontSize="6" FontFamily="Arial" Clicked="BtnSquare_Click" BackgroundColor="Cyan" TextColor="DarkBlue" />
+					</Grid>
+				</Frame>
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
+				<ListView x:FieldModifier="public" x:Name="lvProgramWords" Header="Program Words" RowHeight="12" WidthRequest="480" >
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<Label FontSize="6"/>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+				<ListView x:FieldModifier="public" x:Name="lvPlayerWords"  Header="lvPlayerWords Header" WidthRequest="480" />
+			</StackLayout>
+
+		</StackLayout>
+
+		<Label x:Name="LblMessages"/>
+	</StackLayout>
+
+</ContentPage>

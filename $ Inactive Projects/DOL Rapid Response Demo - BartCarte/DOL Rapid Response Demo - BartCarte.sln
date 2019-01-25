@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BartCarte Server", "DOL Rapid Response Demo - BartCarte\BartCarte Server.csproj", "{1C5D3591-44FE-411C-9042-9FD4923C3A12}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB29BDE4-9643-4045-A10B-862690FA6C15} = {AB29BDE4-9643-4045-A10B-862690FA6C15}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo Data Entry Application", "Demo Data Entry Application\Demo Data Entry Application.csproj", "{909C5F53-CC7D-47F2-A83F-F1DC763D0E9E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB29BDE4-9643-4045-A10B-862690FA6C15} = {AB29BDE4-9643-4045-A10B-862690FA6C15}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BartCarte Demo Remotable Printer object", "BartCarte Demo Remotable Printer object\BartCarte Demo Remotable Printer object.csproj", "{AB29BDE4-9643-4045-A10B-862690FA6C15}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1C5D3591-44FE-411C-9042-9FD4923C3A12}.Debug.ActiveCfg = Debug|.NET
+		{1C5D3591-44FE-411C-9042-9FD4923C3A12}.Debug.Build.0 = Debug|.NET
+		{1C5D3591-44FE-411C-9042-9FD4923C3A12}.Release.ActiveCfg = Release|.NET
+		{1C5D3591-44FE-411C-9042-9FD4923C3A12}.Release.Build.0 = Release|.NET
+		{909C5F53-CC7D-47F2-A83F-F1DC763D0E9E}.Debug.ActiveCfg = Debug|.NET
+		{909C5F53-CC7D-47F2-A83F-F1DC763D0E9E}.Debug.Build.0 = Debug|.NET
+		{909C5F53-CC7D-47F2-A83F-F1DC763D0E9E}.Release.ActiveCfg = Release|.NET
+		{909C5F53-CC7D-47F2-A83F-F1DC763D0E9E}.Release.Build.0 = Release|.NET
+		{AB29BDE4-9643-4045-A10B-862690FA6C15}.Debug.ActiveCfg = Debug|.NET
+		{AB29BDE4-9643-4045-A10B-862690FA6C15}.Debug.Build.0 = Debug|.NET
+		{AB29BDE4-9643-4045-A10B-862690FA6C15}.Release.ActiveCfg = Release|.NET
+		{AB29BDE4-9643-4045-A10B-862690FA6C15}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnScreenKeyboard", "OnScreenKeyboard\OnScreenKeyboard.csproj", "{D510421A-4A9D-407E-BE9B-9C138229B97A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D510421A-4A9D-407E-BE9B-9C138229B97A}.Debug.ActiveCfg = Debug|.NET
+		{D510421A-4A9D-407E-BE9B-9C138229B97A}.Debug.Build.0 = Debug|.NET
+		{D510421A-4A9D-407E-BE9B-9C138229B97A}.Release.ActiveCfg = Release|.NET
+		{D510421A-4A9D-407E-BE9B-9C138229B97A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

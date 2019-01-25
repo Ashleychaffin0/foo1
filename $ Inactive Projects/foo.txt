@@ -1,0 +1,91 @@
+File DNSQuery_LRS\DNSQuery_LRS\DnsCache.cs:
+	#region struct CacheEntry
+	internal struct CacheEntry
+		public CacheEntry(object recordObj,int addTime)
+	/// Summary description for DnsCache.
+	internal class DnsCache
+		private static int       m_HoldInCacheTime = 1000000;
+		static DnsCache()
+		#region function GetFromCache
+		public static ArrayList GetFromCache(string qname,int qtype)
+					CacheEntry entry = (CacheEntry)m_ChacheTbl[qname + qtype];
+					if(entry.Time + m_HoldInCacheTime > Environment.TickCount){
+		#region function AddToCache
+		public static void AddToCache(string qname,int qtype,ArrayList answers)
+					m_ChacheTbl.Add(qname + qtype,new CacheEntry(answers,Environment.TickCount));
+		public static bool CacheInited
+File DNSQuery_LRS\DNSQuery_LRS\DnsEx.cs:
+		private static bool     m_UseDnsCache = true;
+			if(m_UseDnsCache){
+				ArrayList entries = DnsCache.GetFromCache(qname,(int)qtype);
+						// Cache query
+						if(m_UseDnsCache && answers.Count > 0){
+							DnsCache.AddToCache(qname,(int)qtype,answers);
+		public static bool UseDnsCache
+			get{ return m_UseDnsCache; }
+			set{ m_UseDnsCache = value; }
+File fooCrystalReports\fooCrystalReports\CrystalReport1.cs:
+    public class CachedCrystalReport1 : Component, ICachedReport {
+        public CachedCrystalReport1() {
+        public virtual bool IsCacheable {
+        public virtual System.TimeSpan CacheTimeOut {
+                return CachedReportConstants.DEFAULT_TIMEOUT;
+        public virtual string GetCustomizedCacheKey(RequestContext request) {
+            // // cache key for caching report jobs in the ASP.NET Cache.
+            // key = RequestContext.BuildCompleteCacheKey(
+File LRSClasses\Cache.cs:
+	class Cache<TKey, TValue> {
+		public Cache(uint MaxSize) {
+File MovieCollection1\DVDCollectionDataSet.cs:
+					if (myDvd.ImageCache != null) {
+							myDvd.ImageCache.Save(memStream, myDvd.ImageCache.RawFormat);
+File MovieCollection1\ListDetails.cs:
+							refreshedDVD.ImageCache = (Bitmap)this.boxArtPictureBox.Image;
+File MovieCollection1\SearchOnline.cs:
+						currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;
+						currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;
+File MovieCollection1\Controls\DVD.cs:
+		public Bitmap ImageCache = null;
+File MovieCollection2\DVDCollectionDataSet.cs:
+					if (myDvd.ImageCache != null) {
+							myDvd.ImageCache.Save(memStream, myDvd.ImageCache.RawFormat);
+File MovieCollection2\ListDetails.cs:
+							refreshedDVD.ImageCache = (Bitmap)this.boxArtPictureBox.Image;
+File MovieCollection2\SearchOnline.cs:
+						currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;
+						currentDVD.ImageCache = (Bitmap)this.pictureBox1.Image;
+File MovieCollection2\Controls\DVD.cs:
+		public Bitmap ImageCache = null;
+File MovieCollection2\Web References\AmazonServiceSDK\Reference.cs:
+		private NonNegativeIntegerWithUnits secondaryCacheSizeField;
+		public NonNegativeIntegerWithUnits SecondaryCacheSize {
+				return this.secondaryCacheSizeField;
+				this.secondaryCacheSizeField = value;
+File SharpLog\SharpLog\SharpLog.cs:
+		string	SharpDir, CacheDir;
+			CacheDir = SharpDir + @"Cache\";
+			// xdoc.LoadXml(GetFileFromCache(node));
+				xdoc.Load(CacheDir + GetCacheUrl(node));
+				string s = GetFileFromCache(node);
+				string url = GetCacheUrl(node);
+		private string GetCacheUrl(XmlNode node) {
+		string GetFileFromCache(XmlNode	node) {
+				string url = GetCacheUrl(node);
+				sr = new StreamReader(CacheDir + url);
+File TestTrees\TestTrees\TestTrees.cs:
+			TestCache();
+		public void TestCache() {
+			SizeCache<foo> cache = new SizeCache<foo>(10);
+	/// anyway.) What bothers me a bit more is the CurrentCacheSize property. It can
+	/// all nodes. In that case the CurrentCacheSize parameter will be reset to 0, and
+	public class SizeCache<T> where T: IBartGetSize {
+		int					CurrentCacheSize;
+		public SizeCache(int MaxSize) {
+			CurrentCacheSize = 0;
+				CurrentCacheSize += entry.GetSize();
+			if (CurrentCacheSize > MaxSize)
+			dbgDumpCache();
+			while (CurrentCacheSize > MaxSize) {
+				CurrentCacheSize -= CurEntry.Value.GetSize();
+					CurrentCacheSize = 0;
+		private void dbgDumpCache() {

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoldHTML", "FoldHTML.csproj", "{1CF1FF2F-76BE-4024-99AA-B12B6AC2F956}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1CF1FF2F-76BE-4024-99AA-B12B6AC2F956}.Debug.ActiveCfg = Debug|.NET
+		{1CF1FF2F-76BE-4024-99AA-B12B6AC2F956}.Debug.Build.0 = Debug|.NET
+		{1CF1FF2F-76BE-4024-99AA-B12B6AC2F956}.Release.ActiveCfg = Release|.NET
+		{1CF1FF2F-76BE-4024-99AA-B12B6AC2F956}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

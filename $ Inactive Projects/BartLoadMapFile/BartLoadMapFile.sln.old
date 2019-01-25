@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BartLoadMapFile", "BartLoadMapFile.csproj", "{541AD34A-1622-43C1-9AEF-F64D849AE89E}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{541AD34A-1622-43C1-9AEF-F64D849AE89E}.Debug.ActiveCfg = Debug|.NET
+		{541AD34A-1622-43C1-9AEF-F64D849AE89E}.Debug.Build.0 = Debug|.NET
+		{541AD34A-1622-43C1-9AEF-F64D849AE89E}.Release.ActiveCfg = Release|.NET
+		{541AD34A-1622-43C1-9AEF-F64D849AE89E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

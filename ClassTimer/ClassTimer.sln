@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassTimer", "ClassTimer\ClassTimer.csproj", "{50B9F8D3-7AF2-46B7-82B4-173915634DCD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{50B9F8D3-7AF2-46B7-82B4-173915634DCD}.Debug.ActiveCfg = Debug|.NET
+		{50B9F8D3-7AF2-46B7-82B4-173915634DCD}.Debug.Build.0 = Debug|.NET
+		{50B9F8D3-7AF2-46B7-82B4-173915634DCD}.Release.ActiveCfg = Release|.NET
+		{50B9F8D3-7AF2-46B7-82B4-173915634DCD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

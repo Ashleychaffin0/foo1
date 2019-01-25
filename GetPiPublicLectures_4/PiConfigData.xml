@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<PiConfigData xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+	<DefaultTargetDir>
+		G:\PiLectures\1
+	</DefaultTargetDir>
+
+<!-- 
+	The next field defines the base number of files that will be downloaded
+	simultaneously. A value of zero defaults to the number of CPU cores your machine has.
+	Also, the following field, ProcessorCountMultiplier, multiplies this by the specified
+	factor. See the comments below for why this is done.
+	-->
+	<NumberOfSimultaneousDownloads>
+		0
+	</NumberOfSimultaneousDownloads>
+
+	<!--
+	Just what the heck is going on with this next field? It's meant to be used
+	in conjunction with NumberOfSimultaneousDownloads to set the maximum
+	number of downloads to be performed at any one time. Why would you do this?
+	There are at least two reasons:
+	1) The default number of cores are unlikely to keep the CPU anywhere near
+		 100% busy. 
+	2) There's a bug in the .Net framework whereby a socket can be disabled
+		 because of a problem with a race condition. What the user sees is that the
+		 number of concurrent downloads seems to decrease over time, especially
+		 when downloading a large number of files. Adding more threads via this parameter
+		 will ameliorate this somewhat, until Microsoft fixes the bug.
+		 
+	See the following comment, copied from the start of module GetPiLectures_4.cs.
+	Also note that it is planned to be fixed in version 4.8 of the .Net Framework, but
+	as of this writing (September 2018), we're only on 4.7.2.
+		 
+		 
+	For a long time I"ve suffered with the symptom that as downloads continued, sometimes
+	a WebClient instance would hang. I"ve tried to dig into it to a certain extent, but
+	I"ve never tried really hard since I could just restart the program and restart any
+	stalled downloads. My guess was that there was a bug, probably deeply buried, in the
+	.Net Framework. And I stumbled upon the following bug fix in an update to 
+	.Net Core 2.1, which sounds like a perfect fit. The article at can be found at
+	https://github.com/dotnet/corefx/commit/7ce9270ac7
+
+	This article says: "On Windows, if Socket.Send/ReceiveAsync is used, and there"s a 
+	race condition where the Socket is disposed of between the time that the Socket 
+	checks for disposal and attempts to get a NativeOverlapped for use with the
+	operation, the getting of the NativeOverlapped can throw an exception and cause us 
+	to leave a field in an inconsistent state, which in turn can cause the operation to
+	hang, waiting for that state to be reset."
+
+	Now all we have to do is to wait as patiently as we can for this bug to be fixed
+	in the main .Net Framework. But it"s now the end of June 2018, and according to
+	Rich Landers comment in https://blogs.msdn.microsoft.com/dotnet/2018/06/06/announcing-net-framework-4-8-early-access-build-3621/,
+	4.8 isn"t expected to ship until 2019!
+
+	So hang in there (pun intended) for the time being, folks.
+	
+	Finally, specifying a ProcessorCountMultiplier value of zero will default 
+	the value to 2.
+
+	-->
+	<ProcessorCountMultiplier>
+		0
+	</ProcessorCountMultiplier>
+
+	<!-- 
+		Every {n} (e.g. 5) times a download completes, move all completed entries to
+		the end of the UI, making room for incomplete entries to show that they're still
+		active.
+	-->
+	<MoveToTheRearOfTheBusPlease>
+		5
+	</MoveToTheRearOfTheBusPlease>
+
+	<FileTypes>
+<!--  Comment/Uncomment these to set the default filetypes -->
+		<string>.mp4</string>
+<!--    <string>.LoRes.mp4</string> -->
+<!--    <string>.mp3</string>       -->
+		<string>.pdf</string>
+	</FileTypes>
+</PiConfigData>

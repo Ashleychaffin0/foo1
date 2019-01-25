@@ -1,0 +1,114 @@
+﻿<?xml version="1.0"?>
+<ConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Topics>
+	<string>Xamarin</string>
+	<string>Universal\Windows 10</string>
+	<string>UWP</string>
+	<string>Windows 10</string>
+	<string>Windows 8</string>
+	<string>Windows Store</string>
+	<string>Windows Phone</string>
+	<string>WP8\Windows Phone</string>
+	<string>Microsoft Edge</string>
+	<string>Cortana</string>
+	<string>Continuum</string>
+	<string>Microsoft Band</string>
+	<string>Azure</string>
+	<string>Cloud\Azure</string>
+	<string>Android</string>
+	<string>iOS</string>
+	<string>Objective-C\iOS</string>
+	<string>Game</string>
+	<string>IoT</string>
+	<string>Internet of Things\IoT</string>
+	<string>Hololens</string>
+	<string>Holographic\Hololens</string>
+	<string>Holoflight\Hololens</string>
+	<string>Linux</string>
+	<string>Entity Framework</string>
+	<string>SQL</string>
+	<string>Windows Server</string>
+	<string>DevOps</string>
+	<string>Graphics</string>
+	<string>C#</string>
+	<string>F#</string>
+	<string>HTML</string>
+	<string>Git</string>
+	<string>GitHub\Git</string>
+	<string>Team Foundation Server</string>
+	<string>ASP.NET Core</string>
+	<string>ASP.NET</string>
+	<string>.Net</string>
+	<string>WPF</string>
+	<string>XAML</string>
+	<string>Node.js</string>
+	<string>Angular\Angular.js</string>
+	<string>Python</string>
+	<string>Unity\Game</string>
+	<string>C++</string>
+	<string>TypeScript</string>
+	<string>JavaScript</string>
+	<string>SharePoint</string>
+	<string>Office</string>
+	<string>XBox</string>
+	<string>Visual Studio</string>
+	<string>Open Source</string>
+	<string>Raspberry PI</string>
+  </Topics>
+
+  <Conferences>
+	<Conference>
+	  <Name>Build 2016</Name>
+	  <TargetDir>D:\MsConferences\BUILD 2016</TargetDir>
+	  <RssUrl>http://s.ch9.ms/events/build/2016/rss/mp4</RssUrl>
+	</Conference>
+	  
+	<Conference>
+	  <Name>F# Conference 2016</Name>
+	  <TargetDir>D:\MsConferences\F# Conference 2016</TargetDir>
+	  <RssUrl>https://s.ch9.ms/Events/FSharp-Events/fsharpConf-2016/rss</RssUrl>
+	</Conference>
+	
+	<Conference>
+	  <Name>Visual Studio 2015 Final Release Event Sessions</Name>
+	  <TargetDir>D:\MsConferences\Visual Studio 2015 Final Release Event Sessions</TargetDir>
+	  <RssUrl>http://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2015-Final-Release-Event/RSS</RssUrl>
+	</Conference>
+	
+	<Conference>
+	  <Name>Build 2015</Name>
+	  <TargetDir>D:\MsConferences\BUILD 2015</TargetDir>
+	  <RssUrl>http://s.ch9.ms/events/build/2015/rss/mp4</RssUrl>
+	</Conference>
+
+	<Conference>
+	  <Name>Build 2012</Name>
+	  <TargetDir>D:\MsConferences\BUILD 2012</TargetDir>
+	  <RssUrl>http://channel9.msdn.com/Events/BUILD/2012/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+	  <Name>Build 2013</Name>
+	  <TargetDir>D:\MsConferences\BUILD 2013</TargetDir>
+	  <RssUrl>https://s.ch9.ms/Events/Build/2013/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+	  <Name>Connect 2015</Name>
+	  <TargetDir>D:\MsConferences\Connect 2015</TargetDir>
+	  <RssUrl>http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+	  <Name>Connect On Demand</Name>
+	  <TargetDir>D:\MsConferences\Connect On Demand</TargetDir>
+	  <RssUrl>http://channel9.msdn.com/Series/ConnectOn-Demand/RSS</RssUrl>
+	</Conference>
+
+	<Conference>
+	  <Name>This Week on Channel 9</Name>
+	  <TargetDir>D:\MsConferences\This Week on Channel 9</TargetDir>
+	  <RssUrl>https://channel9.msdn.com/Feeds/RSS</RssUrl>
+	</Conference>
+  </Conferences>
+</ConfigData>

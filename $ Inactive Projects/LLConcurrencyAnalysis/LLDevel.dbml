@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="lldevel" Class="LLDevelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SQLB5.WebControlCenter.com;Initial Catalog=lldevel;Persist Security Info=True;User ID=ahmed" SettingsObjectName="LLConcurrencyAnalysis.Properties.Settings" SettingsPropertyName="lldevelConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblAccounts" Member="tblAccounts">
+    <Type Name="tblAccount">
+      <Column Name="AcctID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID_Original" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="emailAddress" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="Creator" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AcctType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordInPlainText" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailSent" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Activated" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LeadsAccessDuration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DoNotRequireCouponCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RCLogo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RCContactInfo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PwdToBeEmailed" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AcctIsStandAlone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AcctGenerator" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AcctIsAlive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GoldAcct" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEvents" Member="tblEvents">
+    <Type Name="tblEvent">
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EventStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EventEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EventCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EventState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EventCountry" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EventShowMgmtID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EventRCID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventLogo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EvImOpID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ETZID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImportType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Flags" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblImportTracking" Member="tblImportTrackings">
+    <Type Name="tblImportTracking">
+      <Column Name="SwipeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeqNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AcctID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImportTimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblMapCfg" Member="tblMapCfgs">
+    <Type Name="tblMapCfg">
+      <Column Name="MapCfgID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MapCfgContents" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MapCfgCRC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPersonByEvent" Member="tblPersonByEvents">
+    <Type Name="tblPersonByEvent">
+      <Column Name="PersonEventID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Hashvalue" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSavedImports" Member="tblSavedImports">
+    <Type Name="tblSavedImport">
+      <Column Name="SavedImportID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WhenImported" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AcctID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCAcctID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MapCfgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IgnoreFirstRecord" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DataIsExpanded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Flags" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisitorDataCompressed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TerminalSerial" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DataLen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VisitorData" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DataLenCompressed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RecordCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TallTableInsertions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResponseInsertions" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkFallbacks_TallTable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BulkFallbacks_Responses" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MillisecondsToImport" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSwipes" Member="tblSwipes">
+    <Type Name="tblSwipe">
+      <Column Name="SwipeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonEventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AcctID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SwipeDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TerminalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DataSource" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="VisitorRecordCRC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSwipesText" Member="tblSwipesTexts">
+    <Type Name="tblSwipesText">
+      <Column Name="PersonEventID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FieldName" Type="System.String" DbType="VarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FieldText" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="SeqNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTerminal" Member="tblTerminals">
+    <Type Name="tblTerminal">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TerminalSerial" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

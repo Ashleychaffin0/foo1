@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LRS_Library_BooksDataSet" targetNamespace="http://tempuri.org/LRS_Library_BooksDataSet.xsd" xmlns:mstns="http://tempuri.org/LRS_Library_BooksDataSet.xsd" xmlns="http://tempuri.org/LRS_Library_BooksDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LRSLibraryBooks" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LRSLibraryBooks (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.LRSLibraryBooks.Properties.Settings.GlobalReference.Default.LRSLibraryBooks" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SelectAllItemsTableAdapter" GeneratorDataComponentClassName="SelectAllItemsTableAdapter" Name="SelectAllItems" UserDataComponentName="SelectAllItemsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LRSLibraryBooks (Settings)" DbObjectName="[LRS Library Books].dbo.SelectAllItems" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Title, Author, MediaName, GenreName, [DueDate], HasFullyRead, IsAnthology, StoppedAtPage, Owner FROM dbo.SelectAllItems</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="Author" DataSetColumn="Author" />
+              <Mapping SourceColumn="MediaName" DataSetColumn="MediaName" />
+              <Mapping SourceColumn="GenreName" DataSetColumn="GenreName" />
+              <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
+              <Mapping SourceColumn="HasFullyRead" DataSetColumn="HasFullyRead" />
+              <Mapping SourceColumn="IsAnthology" DataSetColumn="IsAnthology" />
+              <Mapping SourceColumn="StoppedAtPage" DataSetColumn="StoppedAtPage" />
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LRS_Library_BooksDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LRS_Library_BooksDataSet" msprop:Generator_UserDSName="LRS_Library_BooksDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SelectAllItems" msprop:Generator_TableClassName="SelectAllItemsDataTable" msprop:Generator_TableVarName="tableSelectAllItems" msprop:Generator_TablePropName="SelectAllItems" msprop:Generator_RowDeletingName="SelectAllItemsRowDeleting" msprop:Generator_RowChangingName="SelectAllItemsRowChanging" msprop:Generator_RowEvHandlerName="SelectAllItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="SelectAllItemsRowDeleted" msprop:Generator_UserTableName="SelectAllItems" msprop:Generator_RowChangedName="SelectAllItemsRowChanged" msprop:Generator_RowEvArgName="SelectAllItemsRowChangeEvent" msprop:Generator_RowClassName="SelectAllItemsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Author" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAuthor" msprop:Generator_ColumnPropNameInRow="Author" msprop:Generator_ColumnPropNameInTable="AuthorColumn" msprop:Generator_UserColumnName="Author" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="61" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MediaName" msprop:Generator_ColumnVarNameInTable="columnMediaName" msprop:Generator_ColumnPropNameInRow="MediaName" msprop:Generator_ColumnPropNameInTable="MediaNameColumn" msprop:Generator_UserColumnName="MediaName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GenreName" msprop:Generator_ColumnVarNameInTable="columnGenreName" msprop:Generator_ColumnPropNameInRow="GenreName" msprop:Generator_ColumnPropNameInTable="GenreNameColumn" msprop:Generator_UserColumnName="GenreName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Due_x0020_Date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDue_Date" msprop:Generator_ColumnPropNameInRow="Due_Date" msprop:Generator_ColumnPropNameInTable="Due_DateColumn" msprop:Generator_UserColumnName="DueDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HasFullyRead" msprop:Generator_ColumnVarNameInTable="columnHasFullyRead" msprop:Generator_ColumnPropNameInRow="HasFullyRead" msprop:Generator_ColumnPropNameInTable="HasFullyReadColumn" msprop:Generator_UserColumnName="HasFullyRead" type="xs:boolean" />
+              <xs:element name="IsAnthology" msprop:Generator_ColumnVarNameInTable="columnIsAnthology" msprop:Generator_ColumnPropNameInRow="IsAnthology" msprop:Generator_ColumnPropNameInTable="IsAnthologyColumn" msprop:Generator_UserColumnName="IsAnthology" type="xs:boolean" />
+              <xs:element name="StoppedAtPage" msprop:Generator_ColumnVarNameInTable="columnStoppedAtPage" msprop:Generator_ColumnPropNameInRow="StoppedAtPage" msprop:Generator_ColumnPropNameInTable="StoppedAtPageColumn" msprop:Generator_UserColumnName="StoppedAtPage" type="xs:int" />
+              <xs:element name="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_UserColumnName="Owner">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindLargeFiles", "FindLargeFiles.csproj", "{D365F6FD-99F2-484B-B6F7-FFD8F9558D02}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {E13130E0-AE04-4879-91D2-03AE0F4FF2FF}
+		SccProjectUniqueName1 = FindLargeFiles.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D365F6FD-99F2-484B-B6F7-FFD8F9558D02}.Debug.ActiveCfg = Debug|.NET
+		{D365F6FD-99F2-484B-B6F7-FFD8F9558D02}.Debug.Build.0 = Debug|.NET
+		{D365F6FD-99F2-484B-B6F7-FFD8F9558D02}.Release.ActiveCfg = Release|.NET
+		{D365F6FD-99F2-484B-B6F7-FFD8F9558D02}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

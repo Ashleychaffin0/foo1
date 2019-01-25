@@ -1,0 +1,17 @@
+<configuration>
+	<system.runtime.remoting>
+		<application>
+			<service>
+				<wellknown 
+					mode="SingleCall"
+					type="nsDemoBartCarte.BartCarteDemoPrinter, BartCarte Demo Remotable Printer object"
+					objectUri="BartCarteDemo.rem"
+				/>
+			</service>
+			<channels>
+				<channel ref="TCP" port="1729"/>
+			</channels>
+		</application>
+	</system.runtime.remoting>
+</configuration>
+

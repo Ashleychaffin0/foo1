@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AT30", "AT30.csproj", "{75C542E4-1BA4-4693-B53A-0C8B26B0A3CB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B98377C-85EB-4636-8978-647F5D725481} = {9B98377C-85EB-4636-8978-647F5D725481}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityTrack30", "..\ActivityTrack30\ActivityTrack30.csproj", "{9B98377C-85EB-4636-8978-647F5D725481}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{75C542E4-1BA4-4693-B53A-0C8B26B0A3CB}.Debug.ActiveCfg = Debug|.NET
+		{75C542E4-1BA4-4693-B53A-0C8B26B0A3CB}.Debug.Build.0 = Debug|.NET
+		{75C542E4-1BA4-4693-B53A-0C8B26B0A3CB}.Release.ActiveCfg = Release|.NET
+		{75C542E4-1BA4-4693-B53A-0C8B26B0A3CB}.Release.Build.0 = Release|.NET
+		{9B98377C-85EB-4636-8978-647F5D725481}.Debug.ActiveCfg = Debug|.NET
+		{9B98377C-85EB-4636-8978-647F5D725481}.Debug.Build.0 = Debug|.NET
+		{9B98377C-85EB-4636-8978-647F5D725481}.Release.ActiveCfg = Release|.NET
+		{9B98377C-85EB-4636-8978-647F5D725481}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

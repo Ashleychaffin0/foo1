@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+	<title></title>
+	<style type='text/css' media='all'>
+pre.csharpcode
+{
+	background: #FFFFFF;
+	color: #000000;;
+	font: 10pt "Lucida Console";
+}
+.csharp01{
+	background: #C0FFFF;
+	color: #0000FF;
+}
+.csharp02{
+	background: #C0FFFF;
+	color: #0000FF;
+}
+.csharp03{
+	color: #3F703F;
+}
+.csharp04{
+	color: #007F7F;
+}
+.csharp05{
+	color: #FF0000;
+}
+.csharp06{
+	background: #FFFF00;
+	color: #0000FF;
+}
+.csharp07{
+	color: #7F007F;
+}
+.csharp08{
+	color: #804080;
+}
+.csharp09{
+	background: #00FF00;
+	color: #FF6820;
+}
+.csharp10{
+	color: #FF0000;
+	font-weight: bold;
+}
+.csharp12{
+	background: #E0C0E0;
+}
+.csharp13{
+	background: #E0FFE0;
+	color: #007F00;
+	font-family: "Courier New";
+}
+.csharp14{
+	background: #E0F0FF;
+	color: #3F7F3F;
+	font-family: "Courier New";
+}
+.csharp15{
+	color: #3F703F;
+}
+.csharp16{
+	color: #B00040;
+}
+.csharp32{
+}
+.csharp34{
+	color: #0000EE;
+	font-weight: bold;
+}
+.csharp35{
+	color: #EE0000;
+	font-weight: bold;
+}
+.csharp36{
+	color: #808080;
+}
+	</style>
+</head>
+<body>
+<pre class='csharpcode'><span class='csharp05'>using</span> System<span class='csharp10'>;</span>
+<span class='csharp05'>using</span> System<span class='csharp10'>.</span>IO<span class='csharp10'>;</span>
+<span class='csharp05'>using</span> System<span class='csharp10'>.</span>Collections<span class='csharp10'>.</span>Generic<span class='csharp10'>;</span>
+<span class='csharp05'>using</span> System<span class='csharp10'>.</span>Text<span class='csharp10'>;</span>
+<span class='csharp05'>using</span> System<span class='csharp10'>.</span>Text<span class='csharp10'>.</span>RegularExpressions<span class='csharp10'>;</span>
+
+<span class='csharp05'>namespace</span> FindOPMLDups <span class='csharp10'>{</span>
+    <span class='csharp05'>class</span> Program <span class='csharp10'>{</span>
+        <span class='csharp05'>static</span> <span class='csharp05'>int</span> Main<span class='csharp10'>(</span><span class='csharp05'>string</span><span class='csharp10'>[]</span> args<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+<span class='csharp09'>#if DEBUG
+</span>            <span class='csharp05'>string</span>    InFile <span class='csharp10'>=</span> <span class='csharp13'>@&quot;C:\LRS\C#\LRSS\LRSS\SharpReader - 2006-06-19.opml&quot;</span><span class='csharp10'>;</span>
+            <span class='csharp05'>string</span>    OutFile <span class='csharp10'>=</span> <span class='csharp06'>&quot;foo.txt&quot;</span><span class='csharp10'>;</span>
+<span class='csharp09'>#else
+</span>            <span class='csharp05'>if</span> <span class='csharp10'>(</span>args<span class='csharp10'>.</span>Length <span class='csharp10'>!=</span> <span class='csharp04'>2</span><span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                Console<span class='csharp10'>.</span>WriteLine<span class='csharp10'>(</span><span class='csharp06'>&quot;Usage: FindOPMLDups File.opml outfile.txt&quot;</span><span class='csharp10'>);</span>
+                <span class='csharp05'>return</span> <span class='csharp04'>1</span><span class='csharp10'>;</span>
+            <span class='csharp10'>}</span>
+            <span class='csharp05'>string</span>    InFile <span class='csharp10'>=</span> args<span class='csharp10'>[</span><span class='csharp04'>0</span><span class='csharp10'>];</span>
+            <span class='csharp05'>string</span>    OutFile <span class='csharp10'>=</span> args<span class='csharp10'>[</span><span class='csharp04'>1</span><span class='csharp10'>];</span>
+<span class='csharp09'>#endif
+</span>            Dictionary<span class='csharp10'>&lt;</span><span class='csharp05'>string</span><span class='csharp10'>,</span> List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;&gt;</span>    dict <span class='csharp10'>=</span> <span class='csharp05'>new</span> Dictionary<span class='csharp10'>&lt;</span><span class='csharp05'>string</span><span class='csharp10'>,</span>List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;&gt;();</span>
+            <span class='csharp05'>if</span> <span class='csharp10'>(!</span> File<span class='csharp10'>.</span>Exists<span class='csharp10'>(</span>InFile<span class='csharp10'>))</span> <span class='csharp10'>{</span>
+                Console<span class='csharp10'>.</span>WriteLine<span class='csharp10'>(</span><span class='csharp06'>&quot;Input file does not exist - {0}&quot;</span><span class='csharp10'>,</span> InFile<span class='csharp10'>);</span>
+                <span class='csharp05'>return</span> <span class='csharp04'>2</span><span class='csharp10'>;</span>
+            <span class='csharp10'>}</span>
+            <span class='csharp05'>try</span> <span class='csharp10'>{</span>
+                StreamReader    sysin  <span class='csharp10'>=</span> <span class='csharp05'>new</span> StreamReader<span class='csharp10'>(</span>InFile<span class='csharp10'>);</span>
+                StreamWriter    sysout <span class='csharp10'>=</span> <span class='csharp05'>new</span> StreamWriter<span class='csharp10'>(</span>OutFile<span class='csharp10'>);</span>
+                <span class='csharp05'>string</span>            FullText <span class='csharp10'>=</span> sysin<span class='csharp10'>.</span>ReadToEnd<span class='csharp10'>();</span>
+                sysin<span class='csharp10'>.</span>BaseStream<span class='csharp10'>.</span>Position <span class='csharp10'>=</span> <span class='csharp04'>0</span><span class='csharp10'>;</span>        <span class='csharp02'>// Rewind
+</span>                Process<span class='csharp10'>(</span>sysin<span class='csharp10'>,</span> sysout<span class='csharp10'>,</span> dict<span class='csharp10'>,</span> FullText<span class='csharp10'>.</span>Split<span class='csharp10'>(</span><span class='csharp05'>new</span> <span class='csharp05'>string</span> <span class='csharp10'>[]</span> <span class='csharp10'>{</span><span class='csharp06'>&quot;\r\n&quot;</span><span class='csharp10'>},</span> StringSplitOptions<span class='csharp10'>.</span>None<span class='csharp10'>));</span>
+            <span class='csharp10'>}</span> <span class='csharp05'>catch</span> <span class='csharp10'>(</span>Exception ex<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                Console<span class='csharp10'>.</span>WriteLine<span class='csharp10'>(</span><span class='csharp06'>&quot;Unpexpected error. Program will terminate - {0}&quot;</span><span class='csharp10'>,</span> ex<span class='csharp10'>.</span>Message<span class='csharp10'>);</span>
+                <span class='csharp05'>return</span> <span class='csharp04'>3</span><span class='csharp10'>;</span>
+            <span class='csharp10'>}</span>
+            <span class='csharp05'>return</span> <span class='csharp04'>0</span><span class='csharp10'>;</span>
+        <span class='csharp10'>}</span>
+
+<span class='csharp02'>//---------------------------------------------------------------------------------------
+</span>
+        <span class='csharp05'>private</span> <span class='csharp05'>static</span> <span class='csharp05'>void</span> Process<span class='csharp10'>(</span>StreamReader sysin<span class='csharp10'>,</span> StreamWriter sysout<span class='csharp10'>,</span> 
+                    Dictionary<span class='csharp10'>&lt;</span><span class='csharp05'>string</span><span class='csharp10'>,</span> List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;&gt;</span> dict<span class='csharp10'>,</span> <span class='csharp05'>string</span> <span class='csharp10'>[]</span> FullText<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+            <span class='csharp05'>int</span>        lineNo <span class='csharp10'>=</span> <span class='csharp04'>0</span><span class='csharp10'>;</span>
+            <span class='csharp05'>string</span>    line<span class='csharp10'>;</span>
+            <span class='csharp05'>string</span>    restring <span class='csharp10'>=</span> <span class='csharp13'>@&quot;title=&quot;&quot;(?&lt;title&gt;).+?\&quot;&quot;&quot;</span><span class='csharp10'>;</span>
+            <span class='csharp05'>string</span>    title<span class='csharp10'>;</span>
+            Regex    re <span class='csharp10'>=</span> <span class='csharp05'>new</span> Regex<span class='csharp10'>(</span>restring<span class='csharp10'>,</span> RegexOptions<span class='csharp10'>.</span>Compiled <span class='csharp10'>|</span> RegexOptions<span class='csharp10'>.</span>IgnoreCase<span class='csharp10'>);</span>
+            Match    m<span class='csharp10'>;</span>
+            <span class='csharp05'>while</span> <span class='csharp10'>((</span>line <span class='csharp10'>=</span> sysin<span class='csharp10'>.</span>ReadLine<span class='csharp10'>())</span> <span class='csharp10'>!=</span> <span class='csharp05'>null</span><span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                <span class='csharp10'>++</span>lineNo<span class='csharp10'>;</span>
+                <span class='csharp05'>if</span> <span class='csharp10'>(</span><span class='csharp04'>0</span> <span class='csharp10'>==</span> <span class='csharp10'>(</span>lineNo <span class='csharp10'>%</span> <span class='csharp04'>100</span><span class='csharp10'>))</span> <span class='csharp10'>{</span>
+                    Console<span class='csharp10'>.</span>WriteLine<span class='csharp10'>(</span><span class='csharp06'>&quot;Processing line {0}&quot;</span><span class='csharp10'>,</span> lineNo<span class='csharp10'>);</span>
+                <span class='csharp10'>}</span>
+                m <span class='csharp10'>=</span> re<span class='csharp10'>.</span>Match<span class='csharp10'>(</span>line<span class='csharp10'>);</span>
+                <span class='csharp05'>if</span> <span class='csharp10'>(</span>m<span class='csharp10'>.</span>Success<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                    title <span class='csharp10'>=</span> m<span class='csharp10'>.</span>Value<span class='csharp10'>;</span>
+                    <span class='csharp02'>// Console.WriteLine(&quot;Found title at line {0} - {1}&quot;, lineNo, title);
+</span>                    FindDup<span class='csharp10'>(</span>title<span class='csharp10'>,</span> dict<span class='csharp10'>,</span> FullText<span class='csharp10'>);</span>
+                <span class='csharp10'>}</span>
+            <span class='csharp10'>}</span>
+
+            <span class='csharp05'>string</span> <span class='csharp10'>[]</span> keys <span class='csharp10'>=</span> <span class='csharp05'>new</span> <span class='csharp05'>string</span><span class='csharp10'>[</span>dict<span class='csharp10'>.</span>Keys<span class='csharp10'>.</span>Count<span class='csharp10'>];</span>
+            dict<span class='csharp10'>.</span>Keys<span class='csharp10'>.</span>CopyTo<span class='csharp10'>(</span>keys<span class='csharp10'>,</span> <span class='csharp04'>0</span><span class='csharp10'>);</span>
+            Array<span class='csharp10'>.</span>Sort<span class='csharp10'>(</span>keys<span class='csharp10'>);</span>
+            List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;</span>        lines<span class='csharp10'>;</span>
+            <span class='csharp05'>foreach</span> <span class='csharp10'>(</span><span class='csharp05'>string</span> key <span class='csharp05'>in</span> keys<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                lines <span class='csharp10'>=</span> dict<span class='csharp10'>[</span>key<span class='csharp10'>];</span>
+                Console<span class='csharp10'>.</span>Write<span class='csharp10'>(</span><span class='csharp06'>&quot;Title {0} occurs {1} times on lines:&quot;</span><span class='csharp10'>,</span> 
+                    key<span class='csharp10'>,</span> lines<span class='csharp10'>.</span>Count<span class='csharp10'>);</span>
+                <span class='csharp05'>for</span> <span class='csharp10'>(</span><span class='csharp05'>int</span> j <span class='csharp10'>=</span> <span class='csharp04'>0</span><span class='csharp10'>;</span> j <span class='csharp10'>&lt;</span> lines<span class='csharp10'>.</span>Count<span class='csharp10'>;</span> j<span class='csharp10'>++)</span> <span class='csharp10'>{</span>
+                    Console<span class='csharp10'>.</span>Write<span class='csharp10'>(</span><span class='csharp06'>&quot; {0}&quot;</span><span class='csharp10'>,</span> lines<span class='csharp10'>[</span>j<span class='csharp10'>]);</span>
+                <span class='csharp10'>}</span>
+                Console<span class='csharp10'>.</span>WriteLine<span class='csharp10'>();</span>
+            <span class='csharp10'>}</span>
+        <span class='csharp10'>}</span>
+
+<span class='csharp02'>//---------------------------------------------------------------------------------------
+</span>
+        <span class='csharp05'>private</span> <span class='csharp05'>static</span> <span class='csharp05'>void</span> FindDup<span class='csharp10'>(</span><span class='csharp05'>string</span> title<span class='csharp10'>,</span> Dictionary<span class='csharp10'>&lt;</span><span class='csharp05'>string</span><span class='csharp10'>,</span> List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;&gt;</span> dict<span class='csharp10'>,</span> <span class='csharp05'>string</span><span class='csharp10'>[]</span> FullText<span class='csharp10'>)</span> <span class='csharp10'>{</span>
+            List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;</span>    LineNumbers <span class='csharp10'>=</span> <span class='csharp05'>new</span> List<span class='csharp10'>&lt;</span><span class='csharp05'>int</span><span class='csharp10'>&gt;();</span>
+            <span class='csharp05'>for</span> <span class='csharp10'>(</span><span class='csharp05'>int</span> i <span class='csharp10'>=</span> <span class='csharp04'>0</span><span class='csharp10'>;</span> i <span class='csharp10'>&lt;</span> FullText<span class='csharp10'>.</span>Length<span class='csharp10'>;</span> i<span class='csharp10'>++)</span> <span class='csharp10'>{</span>
+                <span class='csharp05'>if</span> <span class='csharp10'>(</span>FullText<span class='csharp10'>[</span>i<span class='csharp10'>].</span>Contains<span class='csharp10'>(</span>title<span class='csharp10'>))</span> <span class='csharp10'>{</span>
+                    LineNumbers<span class='csharp10'>.</span>Add<span class='csharp10'>(</span>i<span class='csharp10'>);</span>
+                <span class='csharp10'>}</span>
+            <span class='csharp10'>}</span>
+            <span class='csharp05'>if</span> <span class='csharp10'>(</span>LineNumbers<span class='csharp10'>.</span>Count <span class='csharp10'>&gt;</span> <span class='csharp04'>1</span><span class='csharp10'>)</span> <span class='csharp10'>{</span>
+                <span class='csharp02'>// Yuck. Can't blindly add, in case the key's already there. Yuck.
+</span>                <span class='csharp02'>// dict.Add(title, LineNumbers);
+</span>                <span class='csharp05'>if</span> <span class='csharp10'>(</span>dict<span class='csharp10'>.</span>ContainsKey<span class='csharp10'>(</span>title<span class='csharp10'>))</span> <span class='csharp10'>{</span>
+                    dict<span class='csharp10'>[</span>title<span class='csharp10'>]</span> <span class='csharp10'>=</span> LineNumbers<span class='csharp10'>;</span>
+                <span class='csharp10'>}</span> <span class='csharp05'>else</span> <span class='csharp10'>{</span>
+                    dict<span class='csharp10'>.</span>Add<span class='csharp10'>(</span>title<span class='csharp10'>,</span> LineNumbers<span class='csharp10'>);</span>
+                <span class='csharp10'>}</span>
+            <span class='csharp10'>}</span>
+        <span class='csharp10'>}</span>
+    <span class='csharp10'>}</span>
+<span class='csharp10'>}</span>
+</pre>
+</body>
+</html>

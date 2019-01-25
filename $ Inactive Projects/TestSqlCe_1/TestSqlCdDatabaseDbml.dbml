@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="TestSqlCeDatabase" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="tblAlbums" Member="TblAlbums">
+    <Type Name="TblAlbums">
+      <Column Name="Extra" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Release Date" Member="ReleaseDate" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Label" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SmallCoverURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="LargeCoverURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MoreInfoURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="XML" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="XML2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="TotalTime" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TotalLengthInFrames" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalLengthInSeconds" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayLengthInSeconds" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Owner" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Vetter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Need Cut Name" Member="NeedCutName" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Not Found on Web" Member="NotFoundOnWeb" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Artist" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiscID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="tblCeAlbums" Member="TblCeAlbums">
+    <Type Name="TblCeAlbums">
+      <Column Name="AlbumID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="tblCeAlbums2" Member="TblCeAlbums2">
+    <Type Name="TblCeAlbums2">
+      <Column Name="AlbumID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

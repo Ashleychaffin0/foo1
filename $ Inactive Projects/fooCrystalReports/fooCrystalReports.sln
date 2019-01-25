@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fooCrystalReports", "fooCrystalReports\fooCrystalReports.csproj", "{F16ADA58-B81D-42DB-B2EE-3F9A21DF0875}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F16ADA58-B81D-42DB-B2EE-3F9A21DF0875}.Debug.ActiveCfg = Debug|.NET
+		{F16ADA58-B81D-42DB-B2EE-3F9A21DF0875}.Debug.Build.0 = Debug|.NET
+		{F16ADA58-B81D-42DB-B2EE-3F9A21DF0875}.Release.ActiveCfg = Release|.NET
+		{F16ADA58-B81D-42DB-B2EE-3F9A21DF0875}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

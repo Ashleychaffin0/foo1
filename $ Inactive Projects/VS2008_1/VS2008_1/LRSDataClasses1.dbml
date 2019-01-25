@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="lldevel" Class="LRSDataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SQLB5.WebControlCenter.com;Initial Catalog=lldevel;Persist Security Info=True;User ID=ahmed" SettingsObjectName="VS2008_1.Properties.Settings" SettingsPropertyName="lldevelConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblEvents" Member="tblEvents">
+    <Type Name="tblEvent">
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EventStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EventEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EventCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EventState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EventCountry" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EventShowMgmtID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EventRCID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventLogo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EvImOpID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ETZID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spLL_App_AddEvent" Method="spLL_App_AddEvent">
+    <Parameter Name="EventRCID" Parameter="eventRCID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EventImportOption" Parameter="eventImportOption" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EventTimeZone" Parameter="eventTimeZone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EventName" Parameter="eventName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EventStartDate" Parameter="eventStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EventEndDate" Parameter="eventEndDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EventCity" Parameter="eventCity" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EventState" Parameter="eventState" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EventCountry" Parameter="eventCountry" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spLL_App_AddEventResult">
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

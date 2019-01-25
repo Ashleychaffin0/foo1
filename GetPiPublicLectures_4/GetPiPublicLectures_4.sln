@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetPiPublicLectures_4", "GetPiPublicLectures_4.csproj", "{7663D1CA-4B1D-4DE0-B060-6F011AAB1834}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F955F3B2-9C96-457F-BA98-15EC5CE2DCFF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		DownloadFileProgess.dll = DownloadFileProgess.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7663D1CA-4B1D-4DE0-B060-6F011AAB1834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7663D1CA-4B1D-4DE0-B060-6F011AAB1834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7663D1CA-4B1D-4DE0-B060-6F011AAB1834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7663D1CA-4B1D-4DE0-B060-6F011AAB1834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE43DB78-00F1-4808-9625-523DA3708A1E}
+	EndGlobalSection
+EndGlobal
