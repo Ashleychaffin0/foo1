@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	class BogDice {
 
 //---------------------------------------------------------------------------------------
@@ -206,7 +206,7 @@ namespace BogDroid_2018_11_24 {
 
 using System;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	class BogDice {
 
 //---------------------------------------------------------------------------------------

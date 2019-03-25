@@ -1,2 +1,0 @@
-#!@# Words With Special Characters -- must be treated specially
-C# C++ F# Q#

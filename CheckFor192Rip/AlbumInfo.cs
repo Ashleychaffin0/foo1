@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Microsoft.WindowsAPICodePack.Shell;
@@ -7,20 +8,29 @@ using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 
 namespace CheckFor192Rip {
 	class AlbumInfo {
-		public string	PathName;
-		public string	ArtistName;
-		public string	AlbumName;
-		public long		Size;
-		public TimeSpan Duration;
-		public bool		IsGood = false;
-		public int		Rate;
-		public int		NumberOfCuts;
-		public string	PrimaryGenre;		// May be several; each cut may be different
+		public string	 PathName;
+		public string	 ArtistName;
+		public string	 AlbumName;
+		public long		 Size;
+		public TimeSpan  Duration;
+		public bool		 IsAlbumNotArtist = false;
+		public int		 Rate;				// In kBits/sec
+		public int		 NumberOfCuts;
+		public string	 PrimaryGenre;		// May be several; each cut may be different
+		public string	 Title;
+		public List<Cut> Cuts;
+
+		HashSet<string> Titles = new HashSet<string>();
 
 		public static DateTime EarliestCreationTime;
 		// Next line is meant to be used only as a debugging info source
 		public static List<(DateTime CreationTime, string Pathname)> Earlies;
 
+ 		List<(int cut, int rate, string filename)> CutsTuple;
+
+		public bool bIs128;
+		public bool bIs192;
+		public bool bIsMixed;
 
 //---------------------------------------------------------------------------------------
 
@@ -32,6 +42,11 @@ namespace CheckFor192Rip {
 //---------------------------------------------------------------------------------------
 
 		public AlbumInfo(string filePath) {
+			CutsTuple    = new List<(int cut, int rate, string filename)>();
+			Cuts         = new List<Cut>();
+			bIsMixed     = false;
+			bIs128       = false;
+			bIs192       = false;
 			var PathInfo = new FileInfo(filePath);
 			if (!PathInfo.Attributes.HasFlag(FileAttributes.Directory)) { return; }
 
@@ -44,13 +59,27 @@ namespace CheckFor192Rip {
 			NumberOfCuts  = files.Count();
 			int CutNumber = 0;
 
-			foreach (var file in files) {
-				var fi = new FileInfo(file);
-				var cut = GetTagsEtAl(file);
-				if (CutNumber++ == 0) {
-					IsGood = true;
-					Rate = cut.Properties.AudioBitrate;
-					PrimaryGenre = cut.Tag.FirstGenre ?? "Unknown Genre";
+			foreach (var xfile in files) {
+				var file = @"\\?\" + xfile;
+				IsAlbumNotArtist = true;
+
+				var fi      = new FileInfo(file);
+				var CutInfo = GetTagsEtAl(file);
+				var cut     = new Cut(CutInfo);
+				cut.Title   = CutInfo.Tag.Title;
+				cut.Rate    = CutInfo.Properties.AudioBitrate;
+				Cuts.Add(cut);
+
+				this.Rate = cut.Rate;
+				this.Title = Path.GetFileName(PathName);
+
+
+				bIs128 = Rate == 128;
+				bIs192 = Rate == 192;
+				Duration += CutInfo.Properties.Duration;
+				CutsTuple.Add(((int)CutInfo.Tag.Track, Rate, file));
+				if (CutNumber++ == 0) {			// Only once per album
+					PrimaryGenre = CutInfo.Tag.FirstGenre ?? "Unknown Genre";
 					if (Rate == 192) {
 						if (fi.CreationTime.Year < 2018) {
 							Earlies.Add((fi.CreationTime, filePath));
@@ -61,12 +90,22 @@ namespace CheckFor192Rip {
 					}
 				}
 				Size += fi.Length;
+				cut.Filename = Path.GetFileName(file);
+#if false
 				// See https://www.markheath.net/post/how-to-get-media-file-duration-in-c
-				using (var shell = ShellObject.FromParsingName(fi.FullName)) {
+				using (var shell        = ShellObject.FromParsingName(fi.FullName)) {
 					IShellProperty prop = shell.Properties.System.Media.Duration;
-					var t = (ulong)prop.ValueAsObject;
-					Duration += TimeSpan.FromTicks((long)t);
+					var t               = (ulong)prop.ValueAsObject;
+					Duration           += TimeSpan.FromTicks((long)t);
 				}
+#endif
+			}
+			bIsMixed = bIs128 && bIs192;
+			if (bIsMixed) {
+				Console.WriteLine($"        ******** Mixed rates: {filePath}");
+				var cut128 = CutsTuple.First(c => c.rate == 128);
+				var cut192 = CutsTuple.First(c => c.rate == 192);
+				Console.WriteLine($"        **** 128->{cut128.filename}, 192->{cut192.filename}");
 			}
 		}
 

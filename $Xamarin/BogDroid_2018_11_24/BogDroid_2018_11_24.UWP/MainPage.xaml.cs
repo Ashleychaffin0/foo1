@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace BogDroid_2018_11_24.UWP
+namespace BogDroid_2019_03.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace BogDroid_2018_11_24.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new BogDroid_2018_11_24.App());
+            LoadApplication(new BogDroid_2019_03.App());
         }
     }
 }

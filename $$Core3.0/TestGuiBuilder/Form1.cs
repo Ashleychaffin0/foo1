@@ -8,17 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestGuiBuilder
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace xxxTest_____GuiBuilder {
+	public partial class Form1 : Form {
+		public Form1() {
             InitializeComponent();
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
+		private void ButtonExit_Click(object sender, EventArgs e) {
             Application.Exit();
         }
     }

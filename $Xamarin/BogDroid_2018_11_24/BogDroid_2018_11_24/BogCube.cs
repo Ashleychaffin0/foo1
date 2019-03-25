@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	public class BogCube : Button {
 
 		internal int     row, col;
@@ -76,7 +76,7 @@ using Xamarin.Forms;
 
 using LRSUtils;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 
 	/// <summary>
 	/// A BogCube (derived from Label) represents a physical die and the letter(s -- Qu)

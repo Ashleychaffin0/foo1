@@ -1,9 +1,0 @@
-C# 
-C-Sharp 
-C++ 
-F# 
-Q# 
-GO
-IBM/AT
-IF
-.NET

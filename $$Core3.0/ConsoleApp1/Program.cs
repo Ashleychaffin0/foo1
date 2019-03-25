@@ -5,6 +5,7 @@ using System.IO.Compression;
 namespace ConsoleApp1 {
 	class Program {
 		static void Main(string[] args) {
+			sse42 foo;
 			Console.WriteLine("Hello World!"[1..^2]);
 			var tmpout = Console.Out;
 			Console.SetOut(new StreamWriter(@"G:\lrs\foo.txt"));

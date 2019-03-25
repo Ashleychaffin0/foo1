@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-using BogDroid_2018_11_24;
+using BogDroid_2019_03;
 
 // Note: At once point I derived a new class, BogWord_ListboxEntry. This held additional
 //		 fields that were only useful when the BogWord was in a listbox, such as the
@@ -21,7 +21,7 @@ using BogDroid_2018_11_24;
 // TODO: Whether a word is valid should be part of a BogWord. See ValidateWord 
 //		 and IsValidWord
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	/// <summary>
 	/// A BogWord encapsulates the concept a word found on the board and contains a
 	/// List(BogCube). The ToString() method will get the string for the word from the

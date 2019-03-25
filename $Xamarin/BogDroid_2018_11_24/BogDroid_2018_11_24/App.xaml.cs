@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 
-using BogDroid_2018_11_24;
+using BogDroid_2019_03;
 
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	public partial class App : Application {
 		public static MainPage BogMain;
 		public static BogBoard Board;

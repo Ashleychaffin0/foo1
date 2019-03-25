@@ -3,7 +3,7 @@
   <Identity Name="ef190603-c84b-4448-9de9-7b8b2d14775b" Publisher="CN=fcb6fbb5-8be0-41df-ae5a-51def78fe0e4" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>BogDroid_2018_11_24.UWP</DisplayName>
+    <DisplayName>BogDroid_2019_03.UWP</DisplayName>
     <PublisherDisplayName>fcb6fbb5-8be0-41df-ae5a-51def78fe0e4</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,8 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BogDroid_2018_11_24.UWP.App">
-      <uap:VisualElements DisplayName="BogDroid_2018_11_24.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="BogDroid_2018_11_24.UWP" BackgroundColor="transparent">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BogDroid_2019_03.UWP.App">
+      <uap:VisualElements DisplayName="BogDroid_2019_03.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="BogDroid_2019_03.UWP" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />

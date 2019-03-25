@@ -12,7 +12,7 @@ using System.IO;
 // using System.Collections.Generic;
 // using System.IO;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 
 	/// <summary>
 	/// Supports finding words in either the program or the user dictionary

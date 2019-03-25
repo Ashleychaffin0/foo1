@@ -4,7 +4,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	public class Boondog2014 {
 		public static Font SqFont;
 		public PlayerProfile ProgramProf;

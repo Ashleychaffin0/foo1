@@ -47,6 +47,7 @@ namespace GetPiPublicLectures_4 {
 			) {
 			Title       = ScrapePiPage.CleanFilename(CtorTitle);
 			Speaker     = ScrapePiPage.CleanText(CtorSpeaker);
+			if (Speaker.Length == 0) { Speaker = "$ Not Given $"; }
 			LectureDate = CtorLectureDate;
 			Url         = CtorUrl;
 			Abstract    = ScrapePiPage.CleanText(CtorAbstract);
@@ -56,8 +57,9 @@ namespace GetPiPublicLectures_4 {
 
 			MediaType = CtorMediaType;
 			// DownloadDone = false;
+			string FilenamePrefix = LectureDate.ToString("yyyy-MM-dd - ") + Speaker + " -- ";
 			ControlKey = ScrapePiPage.CleanFilename(CtorTitle + CtorMediaType);
-			Filename = Path.Combine(Main.PiDir, ControlKey);
+			Filename = Path.Combine(Main.PiDir, FilenamePrefix + ControlKey);
 			// The File may have been previously created but has no data yet. A zero
 			// length file doesn't truly exist as far as this program is concerned.
 			var fi = new FileInfo(Filename);
@@ -75,7 +77,8 @@ namespace GetPiPublicLectures_4 {
 				return;
 			}
 
-			twc           = new TitledWebClient(Title + MediaType, Filename, Abstract, Url, Url, this);
+			string Title2 = Title + MediaType;
+			twc           = new TitledWebClient(Title2, Filename, Abstract, Url, Url, this);
 			twc.Progress  = new DownloadFileProgress(twc, ControlKey, Main.Msg, DoProgress);
 			var FlowPanel = Main.flowLayoutPanel1;
 			lock (FlowPanel) {

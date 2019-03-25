@@ -99,7 +99,7 @@ namespace GetPiPublicLectures_4 {
 					// a new Lecture for each type the user selects.
 					foreach (var item in GetMediaLinks(divDefCon)) {
 						if (item.Link == null) {
-							break;
+							break;					// TODO: Should this be <continue>?
 						}
 						var lect = new Lecture(Title, Speaker, Date, item.Link, Abstract, item.MediaType);
 						Console.WriteLine($"{Title} -- {item.MediaType} -- {item.Link}");
@@ -418,6 +418,7 @@ namespace GetPiPublicLectures_4 {
 		/// </summary>
 		public void DoAllDownloads() {
 			Main.AllLectures.AddRange(PageLectures);
+			// TODO: Should lock PageLectures?
 			foreach (var lect in PageLectures) {
 				if (Main.ChkOnlySaveLinks.Checked) {
 					WriteToSavedLinksFile(lect);

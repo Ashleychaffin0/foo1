@@ -84,6 +84,7 @@
     <Compile Include="CheckFor192Rip.Designer.cs">
       <DependentUpon>CheckFor192Rip.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cut.cs" />
     <Compile Include="LrsPdm.cs" />
     <Compile Include="PdInfo.cs" />
     <Compile Include="Program.cs" />

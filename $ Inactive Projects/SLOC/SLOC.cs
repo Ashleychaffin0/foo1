@@ -1,7 +1,7 @@
-using	System;
-using	System.IO;
-using	System.Text;
-using	System.Text.RegularExpressions;
+using System;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LRS {
 	/// <summary>
@@ -26,6 +26,7 @@ namespace LRS {
 					+ "\n       (e.g. SLOC . *.c *.cpp)");
 					return 1;
 			}
+			DecodeSymbols();
 			re = new Regex(@"^\s*}\s*(//.*)?", RegexOptions.Compiled);
 			TotalLines = new LineCounts();
 			string	dir;
@@ -34,6 +35,7 @@ namespace LRS {
 			for (int i=1; i<args.Length; ++i) 
 				ProcessFileSpec(dir, args[i]);
 			Console.WriteLine("\nGrand total: {0} lines", TotalLines);
+			DecodeSymbols();
 			return 0;
 		}
 
@@ -93,46 +95,11 @@ namespace LRS {
 			}
 			return lines;
 		}
-	}
 
 //---------------------------------------------------------------------------------------
 
-	class LineCounts {
-		public int nLines;
-		public int nBlankLines;
-		public int nJustClosingBrace;
-		public int nCommentLines;
-
-//---------------------------------------------------------------------------------------
-
-		public LineCounts() {
-			// Let everything default to 0
-		}
-
-//---------------------------------------------------------------------------------------
-
-		public LineCounts(int nLines, int nBlankLines, int nJustClosingBrace, int nCommentLines) {
-			this.nLines            = nLines;
-			this.nBlankLines       = nBlankLines;
-			this.nJustClosingBrace = nJustClosingBrace;
-			this.nCommentLines     = nCommentLines;
-		}
-
-//---------------------------------------------------------------------------------------
-
-		public static LineCounts operator +(LineCounts left, LineCounts right) {
-			return new LineCounts(
-				left.nLines + right.nLines, 
-				left.nBlankLines + right.nBlankLines,
-				left.nJustClosingBrace + right.nJustClosingBrace,
-				left.nCommentLines + right.nCommentLines);
-		}
-
-//---------------------------------------------------------------------------------------
-
-		public override string ToString() {
-			return string.Format("{0,5}L {1,5}B {2,5}}} {3,5}// {4,5}T", nLines, nBlankLines,
-				nJustClosingBrace, nCommentLines, nLines - nBlankLines - nJustClosingBrace - nCommentLines);
+		private static void DecodeSymbols() {
+			Console.WriteLine("L=Total lines, B=Blank lines, }=Just closing brace, //=Comment lines, T=Text lines");
 		}
 	}
 }

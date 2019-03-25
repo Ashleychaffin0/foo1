@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 
 	class PlayerProfiles {
 		// TODO:

@@ -11,18 +11,24 @@ using PortableDeviceApiLib;
 
 using TagLib;
 
+/*
+C:\Program Files (x86)\Android\android-sdk\platform-tools>adb push --sync "g:\$ Zune Master\Brenda Stubbert" /sdcard/Music
+*/
+
+// TODO: G:\OneDrive\$ Zune Master\Various Artists\New Electric Muse II; the Continuing Story of Folk into Rock (Disc 1) - Delete *.wma?
+// TODO: G:\OneDrive\$ Zune Master\Various Artists\New Electric Muse II; the Continuing Story of Folk into Rock (Disc 2) - Delete *.wma?
+// TODO: Look for albums with multiple identical cut #'s
+// TODO: Check for filenames (including path) > 254
+// TODO: Get # tracks per album and make sure we have that # of cuts per album
+
 using static LRSNativeMethodsNamespace.LRSNativeMethods;
 using WindowsPortableDeviceNet;
 
 namespace CheckFor192Rip {
 	public partial class CheckFor192Rip : Form {
-#if false
-		Dictionary<int, int> nDirsByRate;
-		Dictionary<int, List<string>> DirsByRate;
-		Dictionary<string, int> FileTypes;
-#endif
 		Dictionary<int, List<AlbumInfo>> AlbumsByRate;
 		Dictionary<int, (long TotalSize, TimeSpan TotalDuration)> Totals;
+		List<AlbumInfo> Albums;
 		DateTime	Earliest192;
 		Stopwatch	sw;
 		Timer		tmr;
@@ -34,11 +40,14 @@ namespace CheckFor192Rip {
 
 		public CheckFor192Rip() {
 			InitializeComponent();
+
 			TxtStartingFolder.Text = @"G:\$ Zune Master";
-			sw = new Stopwatch();
+
+			sw  = new Stopwatch();
 			tmr = new Timer();
+
 			tmr.Interval = 1_000;   // 1 second
-			tmr.Tick += Tmr_Tick;
+			tmr.Tick    += Tmr_Tick;
 
 #if false
 			var lst = new List<string> {
@@ -81,6 +90,11 @@ namespace CheckFor192Rip {
 //---------------------------------------------------------------------------------------
 
 		private void BtnGo_Click(object sender, EventArgs e) {
+			bool DocWatson = false;
+			if (DocWatson) {
+				DoDocWatson();
+				return;
+			}
 			AlbumsByRate    = default;
 			Totals          = default;
 			Earliest192     = new DateTime(2100, 12, 31);
@@ -90,9 +104,10 @@ namespace CheckFor192Rip {
 			sw.Restart();
 			tmr.Start();
 
-			AlbumsByRate       = new Dictionary<int, List<AlbumInfo>>();
-			AlbumsByArtistName = new Dictionary<string, List<AlbumInfo>>();
-			Totals             = new Dictionary<int, (long TotalSize, TimeSpan TotalDuration)>();
+			Albums             = new List<AlbumInfo>(2600);
+			AlbumsByRate       = new Dictionary<int, List<AlbumInfo>>(2600);
+			AlbumsByArtistName = new Dictionary<string, List<AlbumInfo>>(2600);
+			Totals             = new Dictionary<int, (long TotalSize, TimeSpan TotalDuration)>(2600);
 
 			string ZuneRootDir   = TxtStartingFolder.Text;
 			var ZuneDirs         = Directory.EnumerateDirectories(ZuneRootDir, "*", SearchOption.AllDirectories);
@@ -114,15 +129,20 @@ namespace CheckFor192Rip {
 			*/
 
 			foreach (var dir in ZuneDirs) {
+				// if (!dir.Contains(@"G:\$ Zune Master\Al Petteway\Caledon Wood")) continue;	// TODO:
 				LblDone.Text = dir;
-				var info     = new AlbumInfo(dir);
-				if (!info.IsGood) { continue; }
+				var info = new AlbumInfo(dir);
+				if (info.NumberOfCuts == 0) { continue; }
+				Albums.Add(info);
+				if (!info.IsAlbumNotArtist) { continue; }
 				EnsureDictsExist(info);
+
+				// Console.WriteLine($"Album[{count++}]: [{info.Rate}] {info.ArtistName} - {info.AlbumName}");
 
 				AlbumsByRate[info.Rate].Add(info);
 				AlbumsByArtistName[info.ArtistName].Add(info);
 				if ((info.Rate == 192) && (AlbumInfo.EarliestCreationTime < Earliest192)) {
-					Earliest192		 = AlbumInfo.EarliestCreationTime;
+					Earliest192 = AlbumInfo.EarliestCreationTime;
 					LblEarliest.Text = Earliest192.ToShortDateString();
 				}
 				UpdateUiStats(info.Rate);
@@ -135,19 +155,199 @@ namespace CheckFor192Rip {
 			tmr.Stop();
 			LblDone.Text = "Done!";
 
-			FindCopyableAlbums();
+			ShowAlbumsByRate(128);
+
+			CheckConsistnecyOfAlbumCutGenres();
+
+			FindDuplicateTrackNumbers();
+
+			FindCopyableAlbums(128);
+
+			ShowDiskNotDisc();
+#if false
+
+			FindCopyableAlbums(192);
+
+			ShowAlbumsByRate(192);
+			ShowAlbumsByDuration();
+
+#endif
+			ShowDuplicateDurationAlbums();
 		}
 
 //---------------------------------------------------------------------------------------
 
-		private void FindCopyableAlbums() {
-			var qry = from album in AlbumsByArtistName
-					  where album.Value.All(cut => cut.Rate == 192)
-					  select album;
-			int count = 0;
-			foreach (var item in qry) {
-				Console.WriteLine($"[{++count}]: Copyable -- {item.Key}");
+		private void ShowDiskNotDisc() {
+			Console.WriteLine("===========================");
+			Console.WriteLine("Album titles with Disk not Disc");
+			var qry = from alb in Albums
+					  where alb.Title.ToUpper().Contains("DISK")
+					  select alb;
+			int n = 0;
+			foreach (AlbumInfo item in qry) {
+				Console.WriteLine($"[{++n}]: {item.ArtistName} - {item.Title}");
 			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void DoDocWatson() {
+			string ZuneRootDir = TxtStartingFolder.Text;
+			var WatsonDirs = Directory.EnumerateDirectories(ZuneRootDir, "*Watson*");
+			var nl = Environment.NewLine;
+			var tab = "";
+			for (int i = 0; i < 1; i++) {
+				// tab += "&nbsp;";
+				tab += "   ";
+			}
+			foreach (var doc in WatsonDirs) {
+				string artist = Path.GetFileName(doc);
+				if (! artist.ToUpper().Contains("WATSON")) { continue; }
+				// Console.WriteLine($"<p/><h1>{artist}</h1>");
+				Console.WriteLine($"{nl}<h1/>{artist}");
+				var Albums = Directory.EnumerateDirectories(doc);
+				foreach (var album in Albums) {
+					var AlbumName = Path.GetFileName(album);
+					Console.WriteLine($"{tab}<b>{AlbumName}");
+					// Console.WriteLine($"\t<b>{AlbumName}</b><br/>");
+					foreach (var cut in Directory.EnumerateFiles(album, "*.wma")) {
+						var CutName = Path.GetFileNameWithoutExtension(cut);
+						Console.WriteLine($"{tab}{tab}{CutName}");
+					}
+				}
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void FindDuplicateTrackNumbers() {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Find Duplicate Track Numbers");
+			var Tracks = new HashSet<int>();
+			foreach (var alb in Albums) {
+				// if (alb.PathName.Contains(@"Discover The Classics, Vol. 2 [Disc 2]")) Debugger.Break();
+				Tracks.Clear();
+				bool bFoundDups = false;
+				foreach (var cut in alb.Cuts) {
+					var bDupTrackNum = Tracks.Contains(cut.CutNumber);
+					Tracks.Add(cut.CutNumber);
+					if (bDupTrackNum && (!bFoundDups)) { 
+						Console.WriteLine(alb.PathName);
+						bFoundDups = true;
+						DumpCuts(alb);			// TODO: Do this in other method(s)
+						break;
+					}
+				}
+				Application.DoEvents();
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void DumpCuts(AlbumInfo alb) {
+			for (int i = 0; i < alb.Cuts.Count; i++) {
+				Console.WriteLine($"\tcut[{i + 1}]={alb.Cuts[i].CutNumber}, Rate={alb.Cuts[i].Rate}, genre={alb.Cuts[i].Genres[0]}, title={alb.Cuts[i].Title}");
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void CheckConsistnecyOfAlbumCutGenres() {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Check consistency of album cut genre");
+			foreach (var alb in Albums) {
+				HashSet<string> Genres = new HashSet<string>();
+				bool bDumped = false;
+				foreach (var cut in alb.Cuts) {
+					if (cut.Genres.Length > 1) {
+						Debugger.Break();
+					}
+					Genres.Add(cut.Genres[0]);
+					if ((Genres.Count > 1) && !bDumped) {
+						Console.WriteLine($"{alb.PathName}");
+						DumpCuts(alb);
+						bDumped = true;
+						// Debugger.Break();
+					}
+				}
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void ShowAlbumsByDuration() {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Showing albums by Duration");
+			var qry = from alb in Albums
+					  orderby alb.Duration descending
+					  select alb;
+			int n = 0;
+			foreach (var alb in qry) {
+				++n;
+				Console.WriteLine($@"[{n:N0}]: {alb.Duration:hh\:mm\:ss} (Cuts:{alb.NumberOfCuts}) - {alb.ArtistName} => {alb.AlbumName}");
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void ShowDuplicateDurationAlbums() {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Albums grouped by Duration");
+			var qry = from a in Albums
+					  where a.NumberOfCuts > 0
+					  orderby a.ArtistName
+					  group a by a.Duration into g
+					  select new { Duration = g.Key, Albums = g.ToList() };
+			int n = 0;
+			foreach (var set in qry) {
+				if (set.Albums.Count > 1) {
+					Console.WriteLine($@"{set.Duration:hh\:mm\:ss} =======================");
+					foreach (var alb in set.Albums) {
+						Console.WriteLine($"[{++n}]: Rate={alb.Rate}, Cuts={alb.NumberOfCuts}, {alb.PathName}");
+					}
+				}
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void ShowAlbumsByRate(int rate) {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Showing albums by rate {rate}");
+			int n = 0;
+			foreach (var album in AlbumsByRate[rate]) {
+				Console.WriteLine($"[{++n}]: {album.ArtistName} -- {album.AlbumName}, cuts={album.NumberOfCuts}");
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void FindCopyableAlbums(int rate) {
+			Console.WriteLine("===========================");
+			Console.WriteLine($"Showing copyable albums by rate {rate}");
+			var qry = from    artist in AlbumsByArtistName
+					  where   artist.Value.All(cut => cut.Rate == rate)
+					  orderby artist.Key
+					  select  artist;
+			int count = 0;
+			foreach (var artist in qry) {
+				Console.WriteLine(artist.Key);
+				var albumNames = artist.Value.OrderBy(p => p.AlbumName);
+				foreach (var album in albumNames) {
+					Console.WriteLine($"     * [{count++}]: Rate[{rate}]: -- {album.AlbumName}");
+				}
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void BtnAnalyze_Click(object sender, EventArgs e) {
+			string ZuneRootDir = TxtStartingFolder.Text;
+			var ZuneDirs = Directory.EnumerateDirectories(ZuneRootDir, "*", SearchOption.AllDirectories);
+			foreach (var dir in ZuneDirs) {
+
+			}
+			// TODO:
 		}
 
 //---------------------------------------------------------------------------------------
@@ -211,9 +411,15 @@ namespace CheckFor192Rip {
 //---------------------------------------------------------------------------------------
 
 		private new string AutoScale(long NumBytes) {
+#if false
 			const long KB = 1024;
 			const long MB = KB * 1024;
 			const long GB = MB * 1024;
+#else
+			const long KB = 1000;
+			const long MB = KB * 1000;
+			const long GB = MB * 1000;
+#endif
 
 			if (NumBytes < KB) {
 				return NumBytes.ToString("N0");

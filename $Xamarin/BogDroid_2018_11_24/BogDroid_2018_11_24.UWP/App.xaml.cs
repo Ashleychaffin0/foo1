@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace BogDroid_2018_11_24.UWP
+namespace BogDroid_2019_03.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

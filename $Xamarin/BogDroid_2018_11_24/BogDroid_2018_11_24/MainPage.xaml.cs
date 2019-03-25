@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	public partial class MainPage : ContentPage {
 		public MainPage() {
 			InitializeComponent();

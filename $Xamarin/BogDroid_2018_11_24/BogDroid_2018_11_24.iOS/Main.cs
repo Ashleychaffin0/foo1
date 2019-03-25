@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace BogDroid_2018_11_24.iOS
+namespace BogDroid_2019_03.iOS
 {
     public class Application
     {

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
-using BogDroid_2018_11_24;
+using BogDroid_2019_03;
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 
 	/// <summary>
 	/// The playing board. Note that this does *not* include most of the UI, mostly just
@@ -245,7 +246,7 @@ using System.Threading;
 
 using Xamarin.Forms;
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 
 	/// <summary>
 	/// The playing board. Note that this does *not* include most of the UI, mostly just

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -43,6 +44,8 @@ namespace Zune3 {
 				return;
 			}
 			System.IO.Directory.SetCurrentDirectory(ZuneDirName);
+			// var asm = Assembly.GetExecutingAssembly();
+			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 			string NewPath = ZuneDirName + ";" 
 						   + ZuneDirName + @"\en-US;"
 						   // Dunno if these next two are needed
@@ -73,6 +76,10 @@ namespace Zune3 {
 #endif
 			LRSZune3 f = new LRSZune3();
 			Application.Run(f);
+		}
+
+		private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args) {
+			throw new NotImplementedException();
 		}
 	}
 }

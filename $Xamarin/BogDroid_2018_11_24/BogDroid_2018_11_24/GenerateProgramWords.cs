@@ -15,7 +15,7 @@
 //		 they're found)? Waiting until the end disallows such things. So for now I'll
 //		 leave the AddWord in.
 
-namespace BogDroid_2018_11_24 {
+namespace BogDroid_2019_03 {
 	class GenerateProgramWords {
 
 		Boondog2014     BogForm;

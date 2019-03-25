@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestGuiBuilder
+namespace xxxTest_____GuiBuilder
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace TestGuiBuilder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new TestGuiBuilder());
         }
     }
 }
