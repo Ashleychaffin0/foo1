@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RhythmAndClues": {
+      "commandName": "Project",
+      "commandLineArgs": "pgm.txt"
+    }
+  }
+}

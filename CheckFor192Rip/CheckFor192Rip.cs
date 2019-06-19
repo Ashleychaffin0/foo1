@@ -13,6 +13,24 @@ using TagLib;
 
 /*
 C:\Program Files (x86)\Android\android-sdk\platform-tools>adb push --sync "g:\$ Zune Master\Brenda Stubbert" /sdcard/Music
+https://www.androidauthority.com/about-android-debug-bridge-adb-21510/
+https://stackoverflow.com/questions/39441477/how-to-copy-file-using-adb-to-android-directory-accessible-from-pc
+
+	https://forums.xamarin.com/discussion/5923/access-to-sd-card
+	https://developer.android.com/reference/android/provider/MediaStore
+	https://developer.android.com/reference/android/provider/MediaStore.Files.html
+	https://stackoverflow.com/questions/10384080/mediastore-uri-to-query-all-types-of-files-media-and-non-media
+	https://www.bing.com/search?q=mediastore+query+example&form=WNSGPH&qs=SW&cvid=798c6c7374c64bdeab6bf2b1f3d46baa&pq=mediastore+query+example&cc=US&setlang=en-US&PC=DCTS&nclid=12D9FF18DF54C36DE4D7442D5A7BDE93&ts=1553102485563&elv=AY3%21uAY7tbNNZGZ2yiGNjfPVB1eYfp2bWPDBca1D%21cuq%218Ghj8f8pB6AaBY92pSuVX9B4Kpp32g0JW1pXMegsA2P*cZJvMYbx15z9immSP0Z&wsso=Moderate
+	https://www.sandersdenardi.com/querying-and-removing-media-from-android-mediastore/
+	https://stackoverflow.com/questions/3572463/what-is-context-on-android
+	https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/content/Context.java
+	https://stackoverflow.com/questions/10384080/mediastore-uri-to-query-all-types-of-files-media-and-non-media
+	https://developer.xamarin.com/api/type/Android.Provider.MediaStore/
+	https://developer.xamarin.com/api/type/Android.Provider.MediaStore/
+	https://stackoverflow.com/questions/6096783/android-using-mediastore
+	https://stackoverflow.com/questions/8994625/display-all-music-on-sd-cardhttp://z4android.blogspot.com/2011/06/displaying-list-of-music-files-stored.html
+
+
 */
 
 // TODO: G:\OneDrive\$ Zune Master\Various Artists\New Electric Muse II; the Continuing Story of Folk into Rock (Disc 1) - Delete *.wma?
@@ -104,10 +122,10 @@ namespace CheckFor192Rip {
 			sw.Restart();
 			tmr.Start();
 
-			Albums             = new List<AlbumInfo>(2600);
-			AlbumsByRate       = new Dictionary<int, List<AlbumInfo>>(2600);
-			AlbumsByArtistName = new Dictionary<string, List<AlbumInfo>>(2600);
-			Totals             = new Dictionary<int, (long TotalSize, TimeSpan TotalDuration)>(2600);
+			Albums             = new List<AlbumInfo>(3000);
+			AlbumsByRate       = new Dictionary<int, List<AlbumInfo>>(3000);
+			AlbumsByArtistName = new Dictionary<string, List<AlbumInfo>>(3000);
+			Totals             = new Dictionary<int, (long TotalSize, TimeSpan TotalDuration)>(3000);
 
 			string ZuneRootDir   = TxtStartingFolder.Text;
 			var ZuneDirs         = Directory.EnumerateDirectories(ZuneRootDir, "*", SearchOption.AllDirectories);
@@ -128,6 +146,9 @@ namespace CheckFor192Rip {
 						they won't be flagged as <IsGood> and won't be processed.
 			*/
 
+			int MaxAlbums = 100_000;
+			int nAlbums = 0;
+
 			foreach (var dir in ZuneDirs) {
 				// if (!dir.Contains(@"G:\$ Zune Master\Al Petteway\Caledon Wood")) continue;	// TODO:
 				LblDone.Text = dir;
@@ -136,6 +157,7 @@ namespace CheckFor192Rip {
 				Albums.Add(info);
 				if (!info.IsAlbumNotArtist) { continue; }
 				EnsureDictsExist(info);
+				if (++nAlbums > MaxAlbums) { break; }
 
 				// Console.WriteLine($"Album[{count++}]: [{info.Rate}] {info.ArtistName} - {info.AlbumName}");
 
@@ -155,24 +177,192 @@ namespace CheckFor192Rip {
 			tmr.Stop();
 			LblDone.Text = "Done!";
 
-			ShowAlbumsByRate(128);
+			PrintIndex(@"g:\lrs\CdIndex.html");
+#if true
+			GenreJustVariousArtists();
+
+			FindDuplicateTrackNumbers();
+
+			ShowDuplicateDurationAlbums();
 
 			CheckConsistnecyOfAlbumCutGenres();
 
-			FindDuplicateTrackNumbers();
+			Chickenman();
+#if false
 
 			FindCopyableAlbums(128);
 
 			ShowDiskNotDisc();
-#if false
+
+			ShowAlbumsByRate(128);
 
 			FindCopyableAlbums(192);
 
 			ShowAlbumsByRate(192);
 			ShowAlbumsByDuration();
-
 #endif
-			ShowDuplicateDurationAlbums();
+#endif
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void GenreJustVariousArtists() {
+			var qry = from alb in Albums
+					  where alb.PrimaryGenre == "Various Artists"
+					  select alb;
+			Console.WriteLine("================ Genre Just Various");
+			foreach (var item in qry) {
+				Console.WriteLine($"{item.PrimaryGenre}");
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void PrintIndex(string fn) {
+			// Albums by Genre, Artist Name, Album Name
+			// See https://stackoverflow.com/questions/1159233/multi-level-grouping-in-linq
+			var qry = from alb in Albums
+					   orderby alb.PrimaryGenre, alb.ArtistName, alb.AlbumName
+					   group alb by alb.PrimaryGenre into genres
+					   select new {
+						   genrekey = genres.Key,
+						   albums = from album in Albums
+									where album.PrimaryGenre == genres.Key
+									group album by album.ArtistName into Artists
+									select new {
+										Artists.Key,
+										name = (from art in Artists
+										select art.AlbumName).ToList()
+									}
+										
+					  };
+
+			using (var sw = new StreamWriter(fn)) {
+				sw.WriteLine($@"<html>
+<head>
+<title>Larry's CD Collection</title>
+</head>
+<body>
+");
+#if true
+				foreach (var entry in qry) {
+					sw.WriteLine($"<p/><b><font size=\"32\" color=\"red\">{entry.genrekey}</font></b><br/>");
+					foreach (var alb in entry.albums) {
+						// sw.WriteLine($"{alb.ArtistName} - {alb.AlbumName}<br/>");
+						int n = alb.name.Count(); 
+						sw.WriteLine($"<b>{alb.Key} - {alb.name.Count()} album{s(n)}</b><br/>");
+						if ((entry.genrekey == "Beethoven") && (alb.Key == "Various Artists - Classical")) Debugger.Break();
+						foreach (var name in alb.name) {
+							sw.WriteLine($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}<br/>");
+						}
+					}
+				}
+#else
+				foreach (var alb in qry) {
+					sw.WriteLine($"*G {alb.PrimaryGenre}");
+					sw.WriteLine($"*A {alb.ArtistName}");
+					sw.WriteLine($"*N {alb.AlbumName}");
+					foreach (var cut in alb.Cuts) {
+						// sw.WriteLine($"C {cut.CutNumber} {cut.Title}");
+					}
+					sw.WriteLine(";");
+				}
+#endif
+				sw.WriteLine(@"</body>
+</html>");
+			}
+			Process.Start(fn);
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private string s(int n) => n == 1 ? "" : "s";
+
+//---------------------------------------------------------------------------------------
+
+		private void Chickenman() {
+			/*
+			matches = defaultRegex.Matches(text);
+	  Console.WriteLine("Parsing '{0}'", text);
+	  // Iterate matches
+	  for (int ctr = 0; ctr < matches.Count; ctr++)
+		 Console.WriteLine("{0}. {1}", ctr, matches[ctr].Value);
+			*/
+			var CmAlb = AlbumsByArtistName["Chickenman"];
+			var re = new System.Text.RegularExpressions.Regex(@"^Episode \d+ - .*");
+
+			var Episodes  = new List<(AlbumInfo, Cut)>();
+			var Promos    = new List<(AlbumInfo, Cut)>();
+			var Weekends  = new List<(AlbumInfo, Cut)>();
+#if false
+			var AlbDict = new Dictionary<int, AlbumInfo>();
+			var albs = (from alb in Albums
+					  where alb.ArtistName == "Chickenman"
+					  select alb).ToArray();
+			foreach (AlbumInfo item in albs) {
+				var parse = item.AlbumName.Split(' ', ',');
+				int n = int.Parse(parse[3]);
+				AlbDict[n] = item;
+				// Console.WriteLine(item.AlbumName);
+			}
+			foreach (var key in AlbDict.Keys) {
+				Console.WriteLine(albs[key].AlbumName);
+			}
+#endif
+			foreach (var alb in CmAlb) {
+				Console.WriteLine($"=============================== {alb.AlbumName}");
+				foreach (var cut in alb.Cuts) {
+					var title = cut.Title.Replace("\"", "");
+					if (title.StartsWith("Weekend In Suburbia")) { Episodes.Add((alb, cut)); continue; }
+					if (title.StartsWith("Weekend ")) { Weekends.Add((alb, cut)); continue; }
+					if (title.Contains("Promo")) { Promos.Add((alb, cut)); continue; }
+					if (title.Contains("B.E.A.K. ")) { Promos.Add((alb, cut)); continue; }
+					if (title.Contains("Contest")) { Promos.Add((alb, cut)); continue; }
+					if (title.Contains("Earth Polluters")) { Weekends.Add((alb, cut)); continue; }
+					Episodes.Add((alb, cut));
+				}
+			}
+
+			string TargetDir = @"F:\chick\";
+			int n = 1;
+
+			Console.WriteLine("================ PROMOS");
+			foreach ((AlbumInfo alb, Cut cut) item in Promos) {
+				// Console.WriteLine(item.Item2.Title);
+				CmCopy("Promos", item, ref n);
+			}
+
+			Console.WriteLine("================ WEEKEND");
+			foreach (var item in Weekends) {
+				// Console.WriteLine(item.Item2.Title);
+				CmCopy("Weekend", item, ref n);
+			}
+
+			Console.WriteLine("================ EPISODES");
+			foreach (var item in Episodes) {
+				// Console.WriteLine(item.Item2.Title);
+				CmCopy("Episodes", item, ref n);
+			}
+
+			void CmCopy(string dir, (AlbumInfo alb, Cut cut) item, ref int num) {
+				Directory.CreateDirectory(TargetDir + dir);
+				string from  = Path.Combine(item.alb.PathName, item.cut.Filename);
+				string title = item.cut.Title;
+				title        = title.Replace("?", "").Replace(":", " --").Replace("\"", "") + ".wma";
+				if (dir == "Weekend") {
+					title = title.Replace("Chicken Man Vs. Earth Polluters - Episode", "Weekend");
+					title = title.Replace("Chicken Man Vs. Earth Polluters EP", "Weekend");
+					title = title.Replace("Weekend Episode", "Weekend");
+				} else if (dir == "Episodes") {
+					if (! title.StartsWith("Episode ")) {
+						title = $"Episode {num, 2} " + title;
+					}
+					++n;
+				}
+				string to    = Path.Combine(TargetDir, dir, title);
+				Console.WriteLine($"File.Copy({from},{to}, true");
+				System.IO.File.Copy(from, to, true);
+			}
 		}
 
 //---------------------------------------------------------------------------------------
@@ -471,10 +661,13 @@ namespace CheckFor192Rip {
 		private void BtnTestPDM_Click(object sender, EventArgs e) {
 #if true
 			var devs2 = PdInfo.Pds();
-			// var devID = GetPdId("LRS G7");
-			var devID = GetPdIdByDescription("ZTE");
-			string to = Path.Combine(devID, "Phone", "Music");
-			var proc = Process.Start("explorer.exe " + "\"" + to + "\"");
+			var devID = GetPdId("LRS G7");
+			// var devID = GetPdIdByDescription("ZTE");
+			// string to = Path.Combine(devID, "Phone", "Music");
+			string to = Path.Combine(devID, "SD card");
+			// var proc = Process.Start("explorer.exe " + "\"" + to + "\"");
+			var cmd = $"explorer.exe \"{devID}\"";
+			var proc = Process.Start(cmd);
 			Clipboard.SetText(to);
 			SetForegroundWindow(proc.MainWindowHandle);
 			SendKeys.Send("^L");       // Goes to Address bar

@@ -1,0 +1,9 @@
+﻿# I hope this works
+
+   Summary				# Lists the parts names, measures info, etc
+
+   Part 1				# Choose this part
+
+   Select-Measures 2 5	
+Factor-Duration 2.5
+

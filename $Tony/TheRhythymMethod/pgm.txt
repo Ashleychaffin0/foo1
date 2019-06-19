@@ -1,0 +1,9 @@
+# I hope this works
+
+   Parts				# Lists the parts names
+
+   Part Violine 1		# Choose this part
+
+   Select-Measures 2 5	
+Factor-Duration 2.5
+

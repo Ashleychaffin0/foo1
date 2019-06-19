@@ -1,0 +1,14 @@
+﻿	Help 
+
+	Load G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Input_notes_thirds.musicxml
+	Dump-Rhythm
+	Dump-Measures
+	Time-Signature 6 8
+	Rhythm 4. 8 4. 8 8 8
+	Tuplet 3 8 16 8.
+	Tuplet 5 16 16 8 8. 8
+	Rhythm 4 4 2
+	Dump-Rhythm
+	Apply-Rhythm 
+	Dump-Measures
+	Save G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Input_notes_thirds-LRS.musicxml

@@ -1,0 +1,20 @@
+﻿	Load         G:\LRS\MuseScore Files\INput Notes  12 note d melodic minor.musicxml
+	Load-Pattern G:\LRS\MuseScore Files\RP 6 note 1.musicxml
+	Apply-Pattern
+	dump-measures
+	Save G:\LRS\MuseScore Files\RP 6 note 1-lrs.musicxml
+
+	% Test [ 8 3:2 1 2 4 ]
+	
+	% Help 
+
+	% Load G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Input_notes_thirds.musicxml
+	% Dump-Rhythm
+	% Dump-Measures
+	% Time-Signature 19 49
+	% Rhythm [ 1 2 4 ] [ ] 8 [ 8 8. ]
+	% Rhythm 4. 8 4. [ 8 16 8. ] 8 8 8
+	% Dump-Rhythm
+	% Apply-Rhythm 
+	% Dump-Measures
+	% Save G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Input_notes_thirds-LRS.musicxml

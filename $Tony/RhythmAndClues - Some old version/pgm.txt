@@ -1,0 +1,5 @@
+﻿	Load-Notes   G:\LRS\MuseScore Files\INput Notes 12 note d melodic minor.musicxml
+	Load-Pattern G:\LRS\MuseScore Files\RP 6 note 1.musicxml
+	Apply-Rhythm
+	dump-measures
+	Save G:\LRS\MuseScore Files\RP 6 note 1-lrs.musicxml

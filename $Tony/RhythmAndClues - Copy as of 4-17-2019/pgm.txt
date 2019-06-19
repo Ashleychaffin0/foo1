@@ -1,0 +1,34 @@
+﻿	Help 
+
+	Load MuseScore G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Laura -- 2019-03-16\6_note_rhytm_pattern.musicxml
+	Dump-Measures
+	Apply-Pattern 1/4. 1/8 1/4. 1/8 1/8 1/8
+	Dump-Measures
+	Save G:\LRS\$Dev\C#\$Tony\RhythmAndClues\XmlFiles\Laura -- 2019-03-16\6_note_rhytHm_pattern-lrs.musicxml
+	
+
+%	Load ../../../XmlFiles/input A major scale.xml
+%	Dump-Measures
+%	Apply-Pattern  18 6 18 6 6 6
+%	Apply-Pattern  12 4 12 4 4 4
+%	Dump-Measures
+%	Save ../../../XmlFiles/input A major scale-LRS-2.xml
+
+%	Load G:\LRS\$Dev\C#\$Tony\RhythmAndClues\Rythm example Finale 1.xml
+%	Dump-Measures
+%	Apply-Pattern  18 6 18 6 6 6
+%	Dump-Measures
+%	Save G:\LRS\$Dev\C#\$Tony\RhythmAndClues\Rythm example Finale 1-LRS.xml
+%
+%	Load ../../../XmlFiles/8 note rhythm pattern 2.xml
+%	Dump-Measures
+%	Apply-Pattern  18 6 18 6 6 6
+%	Dump-Measures
+%	Save ../../../XmlFiles/8 note rhythm pattern 2-LRS.xml
+%
+%	Load ../../../XmlFiles/8 note rhythm pattern 3.xml
+%	Dump-Measures
+%	Apply-Pattern  18 6 18 6 6 6
+%	Dump-Measures
+%	Save ../../../XmlFiles/8 note rhythm pattern 3-LRS.xml
+%

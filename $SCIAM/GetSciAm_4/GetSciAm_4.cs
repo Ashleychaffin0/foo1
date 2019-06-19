@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -42,14 +43,14 @@ namespace GetSciAm_4 {
 			LoggedIn
 		}
 
-		string			PdfHref = null;
+		string?			PdfHref = null;
 
-		string			IssueUrl = null;
-		IssueInfo		info = null;
+		string?			IssueUrl = null;
+		IssueInfo?		info = null;
 
 		// string			ClipboardContents = null;
 
-		SynchronizationContext sc = null;
+		SynchronizationContext? sc = null;
 
 		long			TotReceivedAtStart;
 
@@ -153,7 +154,7 @@ namespace GetSciAm_4 {
 //---------------------------------------------------------------------------------------
 
 		private void GoToIssue() {
-			sc.Post(txt => lbTrace.Items.Insert(0, txt), "------------------");
+			sc!.Post(txt => lbTrace.Items.Insert(0, txt), "------------------");
 			TraceCallStackTop();
 			sc.Post(o => btnSaveAs.Enabled = false, null);
 			Clipboard.SetText(" ");
@@ -367,7 +368,7 @@ namespace GetSciAm_4 {
 			// TraceMsg($"IE_DocumentComplete - ThreadID = {tid}");
 
 			HTMLDocument doc;
-			HTMLBody	 body;
+			HTMLBody?	 body;
 
 			// If we're trying to load a non-HTML-document into the browser (e.g. a .pdf
 			// file), we won't have an IE.Document. If so, just return.
@@ -480,12 +481,12 @@ namespace GetSciAm_4 {
 				State = FsmState.LoggedIn;
 				return;
 			}
-			bool bGotLogin                    = false;
-			var forms                         = body.getElementsByTagName("form");
+			bool bGotLogin = false;
+			var forms      = body.getElementsByTagName("form");
 			foreach (var form in forms) {
-				var f                         = form as mshtml.HTMLFormElement;
+				var f = form as mshtml.HTMLFormElement;
 				// Console.WriteLine("Form ID = {0}", f.id);
-				if (f.id                      == "login") {
+				if (f!.id == "login") {
 					var inputs                = f.getElementsByTagName("input");
 					foreach (mshtml.HTMLInputElement input in inputs) {
 						// Console.WriteLine("{0}", input.name);
@@ -622,6 +623,7 @@ namespace GetSciAm_4 {
 		this.MonthNumber = MonthNumber;
 		this.MonthName   = MonthNames.Names[MonthNumber - 1];
 		this.WeekPicker  = WeekPicker;
+		this.ArticleName = "";
 		// TODO: Maybe more
 	}
 }

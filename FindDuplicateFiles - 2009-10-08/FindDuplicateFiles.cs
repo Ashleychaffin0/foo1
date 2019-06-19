@@ -1,4 +1,4 @@
-// Copyright (c) 2005-2009 by Larry Smith
+// Copyright (c) 2005-2019 by Larry Smith
 
 // TODO: Jan/Feb 2009
 //	*	Allow scanning multiple directories/drives. See point2 in next section.
@@ -41,9 +41,9 @@
 //		if we don't find them on the drive (but that may be a separate button on 
 //		the GUI).
 
-#define		DBG_DUMPHT
-#define		DBG_MSGS
-#define		DBG_SHOW_EQUAL_FILES
+#define DBG_DUMPHT
+#define DBG_MSGS
+#define DBG_SHOW_EQUAL_FILES
 // #define		DBG_ECHO_TO_CONSOLE
 
 using System;
@@ -58,8 +58,6 @@ using System.Reflection;
 
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
-using Bartizan.Utils.CRC;
 
 namespace FindDuplicateFiles {
 
@@ -122,7 +120,7 @@ namespace FindDuplicateFiles {
 			InitializeComponent();
 
 #if true
-			lblDir.Text = @"C:\LRS\C#";		// TODO:
+			lblDir.Text = @"G:\LRS\$Dev\C#";		// TODO:
 			btnGo.Enabled = true;
 #endif
 
@@ -138,14 +136,18 @@ namespace FindDuplicateFiles {
 			DirectoriesToIgnore.AddRange(new List<string> {
 				@"C:\Windows",
 				@"C:\Program Files",
-				@"C:\$Recycle.Bin"
+				@"F:\Program Files",
+				@"G:\Program Files",
+				@"C:\$Recycle.Bin",
+				@"F:\$Recycle.Bin",
+				@"G:\$Recycle.Bin",
 			});
 		}
 
 //---------------------------------------------------------------------------------------
 
 		private void btnFolderBrowse_Click(object sender, System.EventArgs e) {
-			folderBrowserDialog1.SelectedPath = @"C:\";
+			folderBrowserDialog1.SelectedPath = @"G:\";
 			folderBrowserDialog1.Description = "Select directory to scan for duplicates";
 			DialogResult res = folderBrowserDialog1.ShowDialog();
 			if (res == DialogResult.Cancel)
@@ -197,8 +199,9 @@ namespace FindDuplicateFiles {
 			Process.Start(OutputFilename);
 		}
 
-//---------------------------------------------------------------------------------------
+		//---------------------------------------------------------------------------------------
 
+#if false
 		private void GetFilesWithinSize() {
 			var fis = from fi in ProcessDir(lblDir.Text)
 					  where fi != null && fi.Length >= MinSize && fi.Length <= MaxSize
@@ -211,6 +214,7 @@ namespace FindDuplicateFiles {
 				(DictSizes[fsize]).Add(new FileEntry(fi.DirectoryName, fi.FullName));
 			}
 		}
+#endif
 
 //---------------------------------------------------------------------------------------
 
@@ -626,7 +630,7 @@ namespace FindDuplicateFiles {
 
 		private void Write(string fmt, params object[] parms) {
 			string s = string.Format(fmt, parms);
-			OutputFile.Write("{0}", s);
+			OutputFile.Write($"{s}");
 #if DBG_ECHO_TO_CONSOLE
 			Console.Write("{0}", s);
 #endif
@@ -636,15 +640,15 @@ namespace FindDuplicateFiles {
 
 		private void WriteLine(string fmt, params object[] parms) {
 			string s = string.Format(fmt, parms);
-			OutputFile.WriteLine("{0}", s);
+			OutputFile.WriteLine($"{s}");
 #if DBG_ECHO_TO_CONSOLE
-			Console.WriteLine("{0}", s);
+			Console.WriteLine("{s}");
 #endif
 		}
 
 //---------------------------------------------------------------------------------------
 
-		#region Windows Form Designer generated code
+#region Windows Form Designer generated code
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -663,214 +667,213 @@ namespace FindDuplicateFiles {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.components = new System.ComponentModel.Container();
-			this.btnFolderBrowse = new System.Windows.Forms.Button();
-			this.lblDir = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.txtMinSize = new System.Windows.Forms.TextBox();
-			this.txtMaxSize = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.radTB = new System.Windows.Forms.RadioButton();
-			this.radGB = new System.Windows.Forms.RadioButton();
-			this.radMB = new System.Windows.Forms.RadioButton();
-			this.radKB = new System.Windows.Forms.RadioButton();
-			this.radBytes = new System.Windows.Forms.RadioButton();
-			this.btnGo = new System.Windows.Forms.Button();
-			this.btnStop = new System.Windows.Forms.Button();
-			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.StatBar = new System.Windows.Forms.StatusBar();
-			this.txtOutputFilename = new System.Windows.Forms.Label();
-			this.btnOutputFile = new System.Windows.Forms.Button();
-			this.chkFullFileCompare = new System.Windows.Forms.CheckBox();
-			this.groupBox1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// btnFolderBrowse
-			// 
-			this.btnFolderBrowse.Location = new System.Drawing.Point(16, 24);
-			this.btnFolderBrowse.Name = "btnFolderBrowse";
-			this.btnFolderBrowse.Size = new System.Drawing.Size(112, 32);
-			this.btnFolderBrowse.TabIndex = 0;
-			this.btnFolderBrowse.Text = "Folder Browse";
-			this.btnFolderBrowse.Click += new System.EventHandler(this.btnFolderBrowse_Click);
-			// 
-			// lblDir
-			// 
-			this.lblDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.lblDir.Location = new System.Drawing.Point(144, 24);
-			this.lblDir.Name = "lblDir";
-			this.lblDir.Size = new System.Drawing.Size(536, 32);
-			this.lblDir.TabIndex = 1;
-			this.lblDir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(16, 126);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(72, 23);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Min Size";
-			// 
-			// txtMinSize
-			// 
-			this.txtMinSize.Location = new System.Drawing.Point(88, 126);
-			this.txtMinSize.Name = "txtMinSize";
-			this.txtMinSize.Size = new System.Drawing.Size(80, 22);
-			this.txtMinSize.TabIndex = 1;
-			this.txtMinSize.Text = "1";
-			// 
-			// txtMaxSize
-			// 
-			this.txtMaxSize.Location = new System.Drawing.Point(288, 126);
-			this.txtMaxSize.Name = "txtMaxSize";
-			this.txtMaxSize.Size = new System.Drawing.Size(80, 22);
-			this.txtMaxSize.TabIndex = 2;
-			// 
-			// label3
-			// 
-			this.label3.Location = new System.Drawing.Point(200, 126);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(104, 23);
-			this.label3.TabIndex = 4;
-			this.label3.Text = "Max Size";
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.radTB);
-			this.groupBox1.Controls.Add(this.radGB);
-			this.groupBox1.Controls.Add(this.radMB);
-			this.groupBox1.Controls.Add(this.radKB);
-			this.groupBox1.Controls.Add(this.radBytes);
-			this.groupBox1.Location = new System.Drawing.Point(16, 166);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(432, 64);
-			this.groupBox1.TabIndex = 3;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Units";
-			// 
-			// radTB
-			// 
-			this.radTB.Location = new System.Drawing.Point(344, 32);
-			this.radTB.Name = "radTB";
-			this.radTB.Size = new System.Drawing.Size(72, 24);
-			this.radTB.TabIndex = 4;
-			this.radTB.Text = "TB";
-			// 
-			// radGB
-			// 
-			this.radGB.Location = new System.Drawing.Point(264, 32);
-			this.radGB.Name = "radGB";
-			this.radGB.Size = new System.Drawing.Size(72, 24);
-			this.radGB.TabIndex = 3;
-			this.radGB.Text = "GB";
-			// 
-			// radMB
-			// 
-			this.radMB.Checked = true;
-			this.radMB.Location = new System.Drawing.Point(184, 32);
-			this.radMB.Name = "radMB";
-			this.radMB.Size = new System.Drawing.Size(72, 24);
-			this.radMB.TabIndex = 2;
-			this.radMB.TabStop = true;
-			this.radMB.Text = "MB";
-			// 
-			// radKB
-			// 
-			this.radKB.Location = new System.Drawing.Point(104, 32);
-			this.radKB.Name = "radKB";
-			this.radKB.Size = new System.Drawing.Size(72, 24);
-			this.radKB.TabIndex = 1;
-			this.radKB.Text = "KB";
-			// 
-			// radBytes
-			// 
-			this.radBytes.Location = new System.Drawing.Point(24, 32);
-			this.radBytes.Name = "radBytes";
-			this.radBytes.Size = new System.Drawing.Size(72, 24);
-			this.radBytes.TabIndex = 0;
-			this.radBytes.Text = "Bytes";
-			// 
-			// btnGo
-			// 
-			this.btnGo.Enabled = false;
-			this.btnGo.Location = new System.Drawing.Point(472, 182);
-			this.btnGo.Name = "btnGo";
-			this.btnGo.Size = new System.Drawing.Size(88, 32);
-			this.btnGo.TabIndex = 5;
-			this.btnGo.Text = "Go";
-			this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-			// 
-			// btnStop
-			// 
-			this.btnStop.Enabled = false;
-			this.btnStop.Location = new System.Drawing.Point(584, 182);
-			this.btnStop.Name = "btnStop";
-			this.btnStop.Size = new System.Drawing.Size(88, 32);
-			this.btnStop.TabIndex = 6;
-			this.btnStop.Text = "Stop";
-			// 
-			// StatBar
-			// 
-			this.StatBar.Location = new System.Drawing.Point(0, 238);
-			this.StatBar.Name = "StatBar";
-			this.StatBar.Size = new System.Drawing.Size(696, 22);
-			this.StatBar.TabIndex = 7;
-			// 
-			// txtOutputFilename
-			// 
-			this.txtOutputFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtOutputFilename.Location = new System.Drawing.Point(144, 62);
-			this.txtOutputFilename.Name = "txtOutputFilename";
-			this.txtOutputFilename.Size = new System.Drawing.Size(536, 32);
-			this.txtOutputFilename.TabIndex = 9;
-			this.txtOutputFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// btnOutputFile
-			// 
-			this.btnOutputFile.Location = new System.Drawing.Point(16, 62);
-			this.btnOutputFile.Name = "btnOutputFile";
-			this.btnOutputFile.Size = new System.Drawing.Size(112, 32);
-			this.btnOutputFile.TabIndex = 8;
-			this.btnOutputFile.Text = "Output File";
-			this.btnOutputFile.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// chkFullFileCompare
-			// 
-			this.chkFullFileCompare.AutoSize = true;
-			this.chkFullFileCompare.Location = new System.Drawing.Point(472, 128);
-			this.chkFullFileCompare.Name = "chkFullCrcChecking";
-			this.chkFullFileCompare.Size = new System.Drawing.Size(168, 21);
-			this.chkFullFileCompare.TabIndex = 10;
-			this.chkFullFileCompare.Text = "Use Full File Compare";
-			this.chkFullFileCompare.UseVisualStyleBackColor = true;
-			// 
-			// FindDuplicateFiles
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
-			this.ClientSize = new System.Drawing.Size(696, 260);
-			this.Controls.Add(this.chkFullFileCompare);
-			this.Controls.Add(this.txtOutputFilename);
-			this.Controls.Add(this.btnOutputFile);
-			this.Controls.Add(this.StatBar);
-			this.Controls.Add(this.btnStop);
-			this.Controls.Add(this.btnGo);
-			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.txtMaxSize);
-			this.Controls.Add(this.txtMinSize);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.lblDir);
-			this.Controls.Add(this.btnFolderBrowse);
-			this.Name = "FindDuplicateFiles";
-			this.Text = "Find Duplicate Files";
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.FindDuplicateFiles_Closing);
-			this.groupBox1.ResumeLayout(false);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.btnFolderBrowse = new System.Windows.Forms.Button();
+            this.lblDir = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMinSize = new System.Windows.Forms.TextBox();
+            this.txtMaxSize = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radTB = new System.Windows.Forms.RadioButton();
+            this.radGB = new System.Windows.Forms.RadioButton();
+            this.radMB = new System.Windows.Forms.RadioButton();
+            this.radKB = new System.Windows.Forms.RadioButton();
+            this.radBytes = new System.Windows.Forms.RadioButton();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.StatBar = new System.Windows.Forms.StatusBar();
+            this.txtOutputFilename = new System.Windows.Forms.Label();
+            this.btnOutputFile = new System.Windows.Forms.Button();
+            this.chkFullFileCompare = new System.Windows.Forms.CheckBox();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // btnFolderBrowse
+            // 
+            this.btnFolderBrowse.Location = new System.Drawing.Point(16, 24);
+            this.btnFolderBrowse.Name = "btnFolderBrowse";
+            this.btnFolderBrowse.Size = new System.Drawing.Size(112, 32);
+            this.btnFolderBrowse.TabIndex = 0;
+            this.btnFolderBrowse.Text = "Folder Browse";
+            this.btnFolderBrowse.Click += new System.EventHandler(this.btnFolderBrowse_Click);
+            // 
+            // lblDir
+            // 
+            this.lblDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDir.Location = new System.Drawing.Point(144, 24);
+            this.lblDir.Name = "lblDir";
+            this.lblDir.Size = new System.Drawing.Size(536, 32);
+            this.lblDir.TabIndex = 1;
+            this.lblDir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(16, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Min Size";
+            // 
+            // txtMinSize
+            // 
+            this.txtMinSize.Location = new System.Drawing.Point(88, 126);
+            this.txtMinSize.Name = "txtMinSize";
+            this.txtMinSize.Size = new System.Drawing.Size(80, 22);
+            this.txtMinSize.TabIndex = 1;
+            this.txtMinSize.Text = "1";
+            // 
+            // txtMaxSize
+            // 
+            this.txtMaxSize.Location = new System.Drawing.Point(288, 126);
+            this.txtMaxSize.Name = "txtMaxSize";
+            this.txtMaxSize.Size = new System.Drawing.Size(80, 22);
+            this.txtMaxSize.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(200, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 23);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Max Size";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radTB);
+            this.groupBox1.Controls.Add(this.radGB);
+            this.groupBox1.Controls.Add(this.radMB);
+            this.groupBox1.Controls.Add(this.radKB);
+            this.groupBox1.Controls.Add(this.radBytes);
+            this.groupBox1.Location = new System.Drawing.Point(16, 166);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(432, 64);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Units";
+            // 
+            // radTB
+            // 
+            this.radTB.Location = new System.Drawing.Point(344, 32);
+            this.radTB.Name = "radTB";
+            this.radTB.Size = new System.Drawing.Size(72, 24);
+            this.radTB.TabIndex = 4;
+            this.radTB.Text = "TB";
+            // 
+            // radGB
+            // 
+            this.radGB.Location = new System.Drawing.Point(264, 32);
+            this.radGB.Name = "radGB";
+            this.radGB.Size = new System.Drawing.Size(72, 24);
+            this.radGB.TabIndex = 3;
+            this.radGB.Text = "GB";
+            // 
+            // radMB
+            // 
+            this.radMB.Checked = true;
+            this.radMB.Location = new System.Drawing.Point(184, 32);
+            this.radMB.Name = "radMB";
+            this.radMB.Size = new System.Drawing.Size(72, 24);
+            this.radMB.TabIndex = 2;
+            this.radMB.TabStop = true;
+            this.radMB.Text = "MB";
+            // 
+            // radKB
+            // 
+            this.radKB.Location = new System.Drawing.Point(104, 32);
+            this.radKB.Name = "radKB";
+            this.radKB.Size = new System.Drawing.Size(72, 24);
+            this.radKB.TabIndex = 1;
+            this.radKB.Text = "KB";
+            // 
+            // radBytes
+            // 
+            this.radBytes.Location = new System.Drawing.Point(24, 32);
+            this.radBytes.Name = "radBytes";
+            this.radBytes.Size = new System.Drawing.Size(72, 24);
+            this.radBytes.TabIndex = 0;
+            this.radBytes.Text = "Bytes";
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(472, 182);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(88, 32);
+            this.btnGo.TabIndex = 5;
+            this.btnGo.Text = "Go";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Enabled = false;
+            this.btnStop.Location = new System.Drawing.Point(584, 182);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(88, 32);
+            this.btnStop.TabIndex = 6;
+            this.btnStop.Text = "Stop";
+            // 
+            // StatBar
+            // 
+            this.StatBar.Location = new System.Drawing.Point(0, 238);
+            this.StatBar.Name = "StatBar";
+            this.StatBar.Size = new System.Drawing.Size(696, 22);
+            this.StatBar.TabIndex = 7;
+            // 
+            // txtOutputFilename
+            // 
+            this.txtOutputFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutputFilename.Location = new System.Drawing.Point(144, 62);
+            this.txtOutputFilename.Name = "txtOutputFilename";
+            this.txtOutputFilename.Size = new System.Drawing.Size(536, 32);
+            this.txtOutputFilename.TabIndex = 9;
+            this.txtOutputFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnOutputFile
+            // 
+            this.btnOutputFile.Location = new System.Drawing.Point(16, 62);
+            this.btnOutputFile.Name = "btnOutputFile";
+            this.btnOutputFile.Size = new System.Drawing.Size(112, 32);
+            this.btnOutputFile.TabIndex = 8;
+            this.btnOutputFile.Text = "Output File";
+            this.btnOutputFile.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chkFullFileCompare
+            // 
+            this.chkFullFileCompare.AutoSize = true;
+            this.chkFullFileCompare.Location = new System.Drawing.Point(472, 128);
+            this.chkFullFileCompare.Name = "chkFullFileCompare";
+            this.chkFullFileCompare.Size = new System.Drawing.Size(168, 21);
+            this.chkFullFileCompare.TabIndex = 10;
+            this.chkFullFileCompare.Text = "Use Full File Compare";
+            this.chkFullFileCompare.UseVisualStyleBackColor = true;
+            // 
+            // FindDuplicateFiles
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+            this.ClientSize = new System.Drawing.Size(696, 260);
+            this.Controls.Add(this.chkFullFileCompare);
+            this.Controls.Add(this.txtOutputFilename);
+            this.Controls.Add(this.btnOutputFile);
+            this.Controls.Add(this.StatBar);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnGo);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtMaxSize);
+            this.Controls.Add(this.txtMinSize);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDir);
+            this.Controls.Add(this.btnFolderBrowse);
+            this.Name = "FindDuplicateFiles";
+            this.Text = "Find Duplicate Files";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.FindDuplicateFiles_Closing);
+            this.groupBox1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
@@ -881,43 +884,10 @@ namespace FindDuplicateFiles {
 		static void Main() {
 			Application.Run(new FindDuplicateFiles());
 		}
-		#endregion
+#endregion
 
 		private void button1_Click(object sender, EventArgs e) {
 
-		}
-	}
-
-//---------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------------
-
-	class FileEntry {
-		public string	DirName;
-		public string	FileName;
-		public uint		ShortCRC;		// The CRC of the beginning of the file. 
-
-//---------------------------------------------------------------------------------------
-		
-		public FileEntry(string DirName, string FileName) {
-			this.DirName  = DirName;
-			this.FileName = FileName;
-			ShortCRC	  = 0;
-		}
-
-//---------------------------------------------------------------------------------------
-
-		public void GetShortCRC(int nBytes) {
-			using (FileStream fs = new FileStream(FileName, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-				byte [] bytes = new byte[nBytes];
-				int n = fs.Read(bytes, 0, nBytes);	// n = # of bytes read (in case 
-													// filesize < nBytes
-				var crc = new BartCRC();
-				crc.AddData(bytes);
-				ShortCRC = crc.GetCRC();
-			}
 		}
 	}
 }

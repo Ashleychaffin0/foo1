@@ -26,7 +26,7 @@ namespace CheckFor192Rip {
 		// Next line is meant to be used only as a debugging info source
 		public static List<(DateTime CreationTime, string Pathname)> Earlies;
 
- 		List<(int cut, int rate, string filename)> CutsTuple;
+		List<(int cut, int rate, string filename)> CutsTuple;
 
 		public bool bIs128;
 		public bool bIs192;
@@ -80,6 +80,7 @@ namespace CheckFor192Rip {
 				CutsTuple.Add(((int)CutInfo.Tag.Track, Rate, file));
 				if (CutNumber++ == 0) {			// Only once per album
 					PrimaryGenre = CutInfo.Tag.FirstGenre ?? "Unknown Genre";
+					if ((PrimaryGenre == "BeethoveN") && (AlbumName == "")) Debugger.Break();
 					if (Rate == 192) {
 						if (fi.CreationTime.Year < 2018) {
 							Earlies.Add((fi.CreationTime, filePath));
@@ -129,12 +130,12 @@ namespace CheckFor192Rip {
 		void GetAlbumBasics(string dirName) {
 			var parts = dirName.Split(new char[] { '\\' });
 			ArtistName = parts[2];
+			if (ArtistName.Trim().Length == 0) Debugger.Break();
 			if (parts.Length == 4) {
 				AlbumName = parts[3];
 			} else {
 				AlbumName = "";
 			}
 		}
-
 	}
 }
