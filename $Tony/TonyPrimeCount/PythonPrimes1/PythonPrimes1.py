@@ -30,10 +30,12 @@ def CountByDivision(num):
             numPrimesSoFar += 1    # Duh! Python doesn't have ++
     return numPrimesSoFar
 
+limit = 1000000
+print("Begin counting number of primes up to", limit)
 start_time = time.time()
-n = CountByDivision(1000000)
+n = CountByDivision(limit)
 elapsed_time = time.time() - start_time
-print(n, " primes in ", elapsed_time)
+print("Found", n, " primes in ", elapsed_time)
 
 
 

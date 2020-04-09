@@ -17,7 +17,7 @@ namespace WesBooks3 {
 
 		public tblGenres(OleDbDataReader rdr) {
 			GenreID = (int)rdr["GenreID"];
-			Genre = (string)rdr["Genre"];
+			Genre   = (string)rdr["Genre"];
 		}
 
 //---------------------------------------------------------------------------------------
@@ -44,11 +44,11 @@ namespace WesBooks3 {
 //---------------------------------------------------------------------------------------
 
 		public static void CreateTable(string filename) {
-			var db = new LRSAccessDatabase(filename);
+			var db  = new LRSAccessDatabase(filename);
 			var qry = new AccessQuery(db);
 			var SQL = "DROP TABLE tblGenres";
-			var OK = qry.ExecuteNonQuery(SQL);
-			SQL = @"
+			var OK  = qry.ExecuteNonQuery(SQL);
+			SQL     = @"
 				CREATE TABLE tblGenres( 
 					GenreID	IDENTITY PRIMARY KEY,
 					Genre	CHAR(24) NOT NULL

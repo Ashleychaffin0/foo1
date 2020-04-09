@@ -73,12 +73,25 @@ namespace SciAmToc {
 		public static void Test() {
 			// var x        = new iText.IO.Image;
 			// var y        = iText.IO.Image
-			string filename = @"G:\LRS\SciAmFoo.pdf";
+			// string filename = @"G:\LRS\SciAmFoo.pdf";
+			string filename = @"G:\LRS\sampele_pdf_2.pdf";
 			PdfReader rdr   = new PdfReader(filename);
 			var pdoc        = new PdfDocument(rdr);
 			PdfCatalog cat  = pdoc.GetCatalog();
 			var info        = pdoc.GetDocumentInfo();
 			PdfPage page    = pdoc.GetFirstPage();
+#if true
+			// var extractor = new PdfTextExtractor(;
+			// string xxx = extractor.GetTextFromPage(000001);
+			var xxx = PdfTextExtractor.GetTextFromPage(page);
+#if false
+			// From https://www.aspforums.net/Threads/132819/Read-and-extract-searched-text-from-pdf-file-using-iTextSharp-in-ASPNet/
+			iTextSharp.text.pdf.parser.ITextExtractionStrategy strategy = new iTextSharp.text.pdf.parser.SimpleTextExtractionStrategy();
+			string currentText = iTextSharp.text.pdf.parser.PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
+			currentText = System.Text.Encoding.UTF8.GetString(System.Text.Encoding.Convert
+				(System.Text.Encoding.Default, System.Text.Encoding.UTF8, System.Text.Encoding.UTF8.GetBytes(currentText)));
+#endif
+#endif
 			// var map      = page.GetPdfObject().map[PdfName.MediaBox];
 			var keys        = page.GetPdfObject().KeySet();
 			var MediaBoxVal = page.GetPdfObject().Values();

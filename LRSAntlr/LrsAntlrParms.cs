@@ -8,12 +8,14 @@ using LRSUtils;
 
 namespace LRSAntlr {
 	public class LrsAntlrParms {
+		// TODO: Derive from a generic base class that has Load/Save implemented.
+
 		// Load/Save thyself
 		public string ParmsFilename;
 
 		// Antlr parms
-		public bool Listener;
-		public bool Visitor;
+		public bool		Listener;
+		public bool		Visitor;
 
 		// Other config parms
 		public string	TargetDir;

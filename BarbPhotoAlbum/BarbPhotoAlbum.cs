@@ -6,10 +6,12 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
+// For EXIF values, see media.mit.edu/pia/Research/deepview/exif.html
+
 namespace BarbPhotoAlbum {
 	public partial class BarbPhotoAlbum : Form {
 
-		string[] DirNames = { @"D:\LRS\BarbPhotoAlbum" };   // More later?
+		string[] DirNames = { @"C:\Program Files\Common Files\" };   // More later?
 		List<string> msgs;
 		List<PhotoInfo> Photos;
 
@@ -41,6 +43,8 @@ namespace BarbPhotoAlbum {
 			btnPrint.Enabled = false;
 			Photos.Clear();
 
+			DirNames[0] = @"C:\Users\Public\Pictures\Ashampoo Pictures";
+
 			foreach (var DirName in DirNames) {
 				ProcessDir(DirName);
 			}
@@ -52,18 +56,19 @@ namespace BarbPhotoAlbum {
 //---------------------------------------------------------------------------------------
 
 		private void msg(string s) {
-#if false
+#if true
 			if (s.EndsWith("\0")) {
 				s = s.Substring(0, s.Length - 1);
 			}
 			msgs.Add(s);
+			Console.WriteLine(s);
 #endif
 		}
 
 //---------------------------------------------------------------------------------------
 
 		private void ProcessDir(string DirName) {
-			var Filenames = Directory.EnumerateFiles(DirName, "*.jpg");
+			var Filenames = Directory.EnumerateFiles(DirName, "*.jpg", SearchOption.AllDirectories);
 			var enc = new ASCIIEncoding();
 			foreach (var Filename in Filenames) {
 				if (nImages > 920)
@@ -74,13 +79,12 @@ namespace BarbPhotoAlbum {
 				var Photo      = new PhotoInfo();
 				Photo.Filename = Filename;
 				using (Image img = Image.FromFile(Filename)) {
-
 					Photo.img   = img;
 					for (int i = 0; i < img.PropertyItems.Length; i++) {
 						var prop = img.PropertyItems[i];
 						var id   = img.PropertyIdList[i];
 						switch (id) {
-#if false
+#if true
 					case 0x0320:            // Image Title
 						msg($"Title = {enc.GetString(prop.Value)}");
 						break;
@@ -111,9 +115,9 @@ namespace BarbPhotoAlbum {
 						break;
 #endif
 						default:
-#if false
+#if true
 						if (prop.Type == 2) {
-							msg($"PropID = 0x{id:x}, {enc.GetString(prop.Value)}");
+							msg($"\tPropID = 0x{id:x}, {enc.GetString(prop.Value)}");
 						}
 #endif
 							break;

@@ -26,9 +26,9 @@ namespace WesBooks3 {
 //---------------------------------------------------------------------------------------
 
 		public tblAuthors(OleDbDataReader rdr) {
-			AuthorID = (int)rdr["AuthorID"];
+			AuthorID        = (int)rdr["AuthorID"];
 			AuthorFirstName = (string)rdr["AuthorFirstName"];
-			AuthorLastName = (string)rdr["AuthorLasttName"];
+			AuthorLastName  = (string)rdr["AuthorLasttName"];
 		}
 
 //---------------------------------------------------------------------------------------
@@ -41,8 +41,8 @@ namespace WesBooks3 {
 					ORDER BY AuthorLasttName, AuthorFirstName
 ";
 			// TODO: Code stolen from tblBooks.ReturnBooks
-			var qry = new AccessQuery(db);
-			var rdr = qry.OpenQuery(SQL);
+			var qry   = new AccessQuery(db);
+			var rdr   = qry.OpenQuery(SQL);
 			var books = new List<tblAuthors>();
 			while (rdr.Read()) {
 				books.Add(new tblAuthors(rdr));
@@ -59,11 +59,11 @@ namespace WesBooks3 {
 //---------------------------------------------------------------------------------------
 
 		public static void CreateTable(string filename) {
-			var db = new LRSAccessDatabase(filename);
+			var db  = new LRSAccessDatabase(filename);
 			var qry = new AccessQuery(db);
 			var SQL = "DROP TABLE tblAuthors";
-			var OK = qry.ExecuteNonQuery(SQL);
-			SQL = @"
+			var OK  = qry.ExecuteNonQuery(SQL);
+			SQL     = @"
 				CREATE TABLE tblAuthors( 
 					AuthorID			IDENTITY PRIMARY KEY,
 					AuthorFirstName		CHAR(20) NOT NULL,

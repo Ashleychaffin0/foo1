@@ -61,7 +61,6 @@ namespace WesBooks3 {
 			// We also have a reference to LRSAccessDatabase.
 			// Write the SQL to UPDATE the database
 			// TODO:
-
 			++NumberOfApplies;
 
 		}

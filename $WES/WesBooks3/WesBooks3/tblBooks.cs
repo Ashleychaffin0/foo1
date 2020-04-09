@@ -19,9 +19,7 @@ namespace WesBooks3 {
 		public string Title {
 			get { return _Title;	}
 
-			set {
-				_Title = value; IsDirty = true;
-			}
+			set { _Title = value; IsDirty = true; }
 		}
 
 		// The rest would be done the same as the above
@@ -124,15 +122,15 @@ namespace WesBooks3 {
 			BookTitle = BookTitle.Replace('*', '%');	// Replace normal wildcard (if
 			// any) with Access wildcard
 			string op = BookTitle.Contains('%') ? "LIKE" : "=";
-			var SQL = "SELECT * FROM tblBooks WHERE Title " + op + " \"" + BookTitle + "\"";
+			var SQL   = "SELECT * FROM tblBooks WHERE Title " + op + " \"" + BookTitle + "\"";
 			return ReturnBooks(SQL);
 		}
 
 //---------------------------------------------------------------------------------------
 
 		private List<tblBooks> ReturnBooks(string SQL) {
-			var qry = new AccessQuery(db);
-			var rdr = qry.OpenQuery(SQL);
+			var qry   = new AccessQuery(db);
+			var rdr   = qry.OpenQuery(SQL);
 			var books = new List<tblBooks>();
 			while (rdr.Read()) {
 				books.Add(new tblBooks(rdr));
@@ -194,15 +192,15 @@ namespace WesBooks3 {
 				CREATE TABLE tblBooks( 
 					BookID		  IDENTITY PRIMARY KEY,
 					Title		  CHAR(60) NOT NULL,
-                    ISBN		  CHAR(20) NOT NULL,
-                    CoverLocation CHAR(60) NOT NULL,
+					ISBN		  CHAR(20) NOT NULL,
+					CoverLocation CHAR(60) NOT NULL,
 					AuthorID	  INTEGER NOT NULL,
 					GenreID		  INTEGER NOT NULL,
-                    SeriesID      INTEGER NOT NULL,  
+					SeriesID      INTEGER NOT NULL,  
 					bRead		  BIT NOT NULL,
 					dtDateRead	  DATETIME,
 					bAnthology	  BIT NOT NULL,
-                    bSeries       BIT NOT NULL 
+					bSeries       BIT NOT NULL 
 				)
 ";
 			OK = qry.ExecuteNonQuery(SQL);

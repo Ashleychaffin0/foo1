@@ -36,8 +36,8 @@ namespace SaveBrowserTabLinks {
 
 //---------------------------------------------------------------------------------------
 
-		public static IEnumerable<(string Title, string Url)> Tabs() {
-			var qryTabs = from proc in Process.GetProcessesByName("chrome")
+		public static IEnumerable<(string Title, string Url)> Tabs(string exeName) {
+			var qryTabs = from proc in Process.GetProcessesByName(exeName)
 						  where proc.MainWindowHandle != IntPtr.Zero
 						  select AutomationElement.FromHandle(proc.MainWindowHandle);
 

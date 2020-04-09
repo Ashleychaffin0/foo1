@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace DowloadCSharpLangMeetings {
 			InitializeComponent();
 
 			for (int year = 2013; year < 2030; year++) {
-				string BaseYear = BaseDir + $"/{year}";
+				string BaseYear = Path.Combine(BaseDir, $"{year}");
 				var web = new HAP.HtmlWeb();
 				var doc = web.Load(BaseYear);
 				var nodes = from node in doc.DocumentNode.SelectNodes("//tr")

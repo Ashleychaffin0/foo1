@@ -9,9 +9,10 @@ namespace SaveBrowserTabLinks {
 	public static class AutomationElementExtensions {
 		public static AutomationElement GetUrlBar(this AutomationElement element) {
 			try {
-				// Return InternalGetUrlBar(element);
+				Return InternalGetUrlBar(element);
 				Condition condNewTab = new PropertyCondition(AutomationElement.NameProperty, "New Tab");
 				AutomationElement elmNewTab = element.FindFirst(TreeScope.Descendants, condNewTab);
+				var all = element.FindAll(TreeScope.Descendants, condNewTab);
 				// Get the tabstrip by getting the parent of the 'new tab' button 
 				TreeWalker treewalker = TreeWalker.ControlViewWalker;
 				AutomationElement elmTabStrip = treewalker.GetParent(elmNewTab);

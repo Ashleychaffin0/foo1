@@ -1,0 +1,9 @@
+﻿using System;
+
+namespace FooConsole3 {
+	class Program {
+		static void Main(string[] args) {
+			Console.WriteLine("Hello World!");
+		}
+	}
+}

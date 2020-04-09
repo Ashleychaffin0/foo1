@@ -126,8 +126,6 @@ namespace Gutenbergxt2Html {
 				}
 			}
 
-
-
 			wtr.WriteLine("</BODY>");
 			wtr.WriteLine("</HTML>");
 			wtr.Close();

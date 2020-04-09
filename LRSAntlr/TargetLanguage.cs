@@ -11,8 +11,8 @@ namespace LRSAntlr {
 //---------------------------------------------------------------------------------------
 
 		public TargetLanguage(string Language, CheckBox ChkBox, string CompilerString) {
-			this.Language = Language;
-			this.ChkBox = ChkBox;
+			this.Language       = Language;
+			this.ChkBox         = ChkBox;
 			this.CompilerString = CompilerString;
 		}
 	}

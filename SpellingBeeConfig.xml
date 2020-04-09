@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpellingBeeConfig>
+  <PolygonSides>6</PolygonSides>
+  <UnixMasterWordList>G:\OneDrive\$Dev\Words.txt</UnixMasterWordList>
+  <OrdinaryWordsFilename>G:\OneDrive\$Dev\SpellingBeeOrdinaryWords.txt</OrdinaryWordsFilename>
+  <ObscureWordsFilename>G:\OneDrive\$Dev\SpellingBeeObscureWords.txt</ObscureWordsFilename>
+  <BogUser>G:\LRS\</BogUser>
+  <SaveDir>G:\LRS\Judie\SpellingBee\</SaveDir>
+  <FontName>Arial</FontName>
+  <FontSize>14</FontSize>
+</SpellingBeeConfig>

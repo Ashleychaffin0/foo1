@@ -505,6 +505,7 @@ But hopefully you get the idea.
 //---------------------------------------------------------------------------------------
 
 		private void BtnTest_Click(object sender, EventArgs e) {
+			LRS_PdfUtils.Test();
 #if false
 			int EndYear, EndMonthIndex;
 			if (ChkFirstIssueOnly.Checked) {

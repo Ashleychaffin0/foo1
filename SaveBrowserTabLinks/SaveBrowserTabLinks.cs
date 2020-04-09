@@ -30,7 +30,7 @@ namespace SaveBrowserTabLinks {
 
 		private void SaveChrome(string BaseDir) {
 			string ChromeDir = Path.Combine(BaseDir, "Chrome");
-			foreach (var item in ChromeTabInfo.Tabs()) {
+			foreach (var item in ChromeTabInfo.Tabs("chrome")) {
 				// This Url might already be in $Saved Links. If so, don't add it again
 				if (ExistingUrl(item)) continue;
 #if true
@@ -45,7 +45,19 @@ namespace SaveBrowserTabLinks {
 //---------------------------------------------------------------------------------------
 
 		private void SaveEdge(string baseDir) {
-			MessageBox.Show("Nonce on Microsoft Edge");
+			// MessageBox.Show("Nonce on Microsoft Edge");
+			// TODO: Basically same code as SaveChrome. Consolidate.
+			string EdgeDir = Path.Combine(baseDir, "Edge");
+			foreach (var item in ChromeTabInfo.Tabs("msedge")) {
+				// This Url might already be in $Saved Links. If so, don't add it again
+				if (ExistingUrl(item)) continue;
+#if true
+			MessageBox.Show("Save DISABLED!");
+#else
+				Directory.CreateDirectory(ChromeDir);
+				ChromeTabInfo.CreateShortcutToUrl(ChromeDir, item.Title, item.Url);
+#endif
+			}
 		}
 
 //---------------------------------------------------------------------------------------

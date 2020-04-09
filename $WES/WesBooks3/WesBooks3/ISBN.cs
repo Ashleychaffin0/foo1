@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace WesBooks3 {
@@ -15,10 +13,12 @@ namespace WesBooks3 {
 
 		List<KeyValuePair<string, string>> OtherInfo;
 
+//---------------------------------------------------------------------------------------
+
 		public bool Read(string ISBN) {
 			OtherInfo = new List<KeyValuePair<string, string>>();
 
-			System.Net.WebClient client = new System.Net.WebClient();
+			var client = new WebClient();
 
 			string key = "RWHETRSL";
 			// Uri uri = new Uri("http://isbndb.com/api/v2/xml/" + key + "/books?q=science&p=3 ");
@@ -79,12 +79,12 @@ namespace WesBooks3 {
 			//		 0-425-04934-5 is by Simon Brett, but ISBNdb has it as Brett Simon.
 			// Note: Another bug for the same book. It's title is "Cast in Order of
 			//		 Disappearance", but ISBNdb has it as merely "Cast in Order of".
-			var NameNode = node.SelectSingleNode("name");
+			var NameNode    = node.SelectSingleNode("name");
 			string FullName = NameNode.InnerText.Trim();
-			int ixComma = FullName.IndexOf(',');
+			int ixComma     = FullName.IndexOf(',');
 			if (ixComma >= 0) {
 				// Assume it's LastName, FirstName
-				AuthorLastName = FullName.Substring(0, ixComma).Trim();
+				AuthorLastName  = FullName.Substring(0, ixComma).Trim();
 				AuthorFirstName = FullName.Substring(ixComma + 1).Trim();
 			} else {
 				// Assume it's FirstName LastName, but be careful. The FirstName may be

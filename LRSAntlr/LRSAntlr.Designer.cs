@@ -54,14 +54,16 @@
 			this.RadGrunDiagnostics = new System.Windows.Forms.RadioButton();
 			this.TxtGrunStartRuleName = new System.Windows.Forms.TextBox();
 			this.LblGrunStartRuleName = new System.Windows.Forms.Label();
+			this.BtnEdit = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(29, 30);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(48, 17);
+			this.label1.Size = new System.Drawing.Size(84, 29);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Folder";
 			// 
@@ -69,18 +71,20 @@
 			// 
 			this.TxtFolderName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TxtFolderName.Location = new System.Drawing.Point(115, 27);
+			this.TxtFolderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxtFolderName.Location = new System.Drawing.Point(152, 27);
 			this.TxtFolderName.Name = "TxtFolderName";
-			this.TxtFolderName.Size = new System.Drawing.Size(655, 22);
+			this.TxtFolderName.Size = new System.Drawing.Size(1011, 34);
 			this.TxtFolderName.TabIndex = 1;
 			this.TxtFolderName.TextChanged += new System.EventHandler(this.TxtFolderName_TextChanged);
 			// 
 			// BtnBrowseDir
 			// 
 			this.BtnBrowseDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnBrowseDir.Location = new System.Drawing.Point(796, 27);
+			this.BtnBrowseDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BtnBrowseDir.Location = new System.Drawing.Point(1194, 25);
 			this.BtnBrowseDir.Name = "BtnBrowseDir";
-			this.BtnBrowseDir.Size = new System.Drawing.Size(75, 23);
+			this.BtnBrowseDir.Size = new System.Drawing.Size(114, 34);
 			this.BtnBrowseDir.TabIndex = 2;
 			this.BtnBrowseDir.Text = "Browse";
 			this.BtnBrowseDir.UseVisualStyleBackColor = true;
@@ -89,36 +93,40 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(29, 71);
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(29, 87);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(67, 17);
+			this.label2.Size = new System.Drawing.Size(113, 29);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Grammar";
 			// 
 			// CmbGrammar
 			// 
+			this.CmbGrammar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.CmbGrammar.FormattingEnabled = true;
-			this.CmbGrammar.Location = new System.Drawing.Point(115, 71);
+			this.CmbGrammar.Location = new System.Drawing.Point(152, 84);
 			this.CmbGrammar.Name = "CmbGrammar";
-			this.CmbGrammar.Size = new System.Drawing.Size(222, 24);
+			this.CmbGrammar.Size = new System.Drawing.Size(222, 37);
 			this.CmbGrammar.TabIndex = 4;
 			this.CmbGrammar.SelectedIndexChanged += new System.EventHandler(this.CmbGrammar_SelectedIndexChanged);
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(29, 117);
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(29, 133);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(57, 17);
+			this.label3.Size = new System.Drawing.Size(97, 29);
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Options";
 			// 
 			// RadGUI
 			// 
 			this.RadGUI.AutoSize = true;
-			this.RadGUI.Location = new System.Drawing.Point(115, 115);
+			this.RadGUI.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGUI.Location = new System.Drawing.Point(152, 131);
 			this.RadGUI.Name = "RadGUI";
-			this.RadGUI.Size = new System.Drawing.Size(53, 21);
+			this.RadGUI.Size = new System.Drawing.Size(75, 33);
 			this.RadGUI.TabIndex = 6;
 			this.RadGUI.TabStop = true;
 			this.RadGUI.Text = "GUI";
@@ -127,9 +135,10 @@
 			// RadConsole
 			// 
 			this.RadConsole.AutoSize = true;
-			this.RadConsole.Location = new System.Drawing.Point(206, 115);
+			this.RadConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadConsole.Location = new System.Drawing.Point(260, 131);
 			this.RadConsole.Name = "RadConsole";
-			this.RadConsole.Size = new System.Drawing.Size(80, 21);
+			this.RadConsole.Size = new System.Drawing.Size(124, 33);
 			this.RadConsole.TabIndex = 7;
 			this.RadConsole.TabStop = true;
 			this.RadConsole.Text = "Console";
@@ -138,9 +147,10 @@
 			// ChkListener
 			// 
 			this.ChkListener.AutoSize = true;
-			this.ChkListener.Location = new System.Drawing.Point(115, 159);
+			this.ChkListener.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkListener.Location = new System.Drawing.Point(152, 175);
 			this.ChkListener.Name = "ChkListener";
-			this.ChkListener.Size = new System.Drawing.Size(81, 21);
+			this.ChkListener.Size = new System.Drawing.Size(121, 33);
 			this.ChkListener.TabIndex = 8;
 			this.ChkListener.Text = "Listener";
 			this.ChkListener.UseVisualStyleBackColor = true;
@@ -149,9 +159,10 @@
 			// ChkVisitor
 			// 
 			this.ChkVisitor.AutoSize = true;
-			this.ChkVisitor.Location = new System.Drawing.Point(206, 159);
+			this.ChkVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkVisitor.Location = new System.Drawing.Point(300, 175);
 			this.ChkVisitor.Name = "ChkVisitor";
-			this.ChkVisitor.Size = new System.Drawing.Size(69, 21);
+			this.ChkVisitor.Size = new System.Drawing.Size(102, 33);
 			this.ChkVisitor.TabIndex = 9;
 			this.ChkVisitor.Text = "Visitor";
 			this.ChkVisitor.UseVisualStyleBackColor = true;
@@ -159,9 +170,10 @@
 			// 
 			// BtnGo
 			// 
-			this.BtnGo.Location = new System.Drawing.Point(32, 296);
+			this.BtnGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BtnGo.Location = new System.Drawing.Point(29, 399);
 			this.BtnGo.Name = "BtnGo";
-			this.BtnGo.Size = new System.Drawing.Size(75, 23);
+			this.BtnGo.Size = new System.Drawing.Size(85, 42);
 			this.BtnGo.TabIndex = 10;
 			this.BtnGo.Text = "Go";
 			this.BtnGo.UseVisualStyleBackColor = true;
@@ -170,9 +182,10 @@
 			// RadDll
 			// 
 			this.RadDll.AutoSize = true;
-			this.RadDll.Location = new System.Drawing.Point(323, 115);
+			this.RadDll.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadDll.Location = new System.Drawing.Point(417, 131);
 			this.RadDll.Name = "RadDll";
-			this.RadDll.Size = new System.Drawing.Size(134, 21);
+			this.RadDll.Size = new System.Drawing.Size(206, 33);
 			this.RadDll.TabIndex = 11;
 			this.RadDll.TabStop = true;
 			this.RadDll.Text = "DLL??? (Nonce)";
@@ -183,22 +196,23 @@
 			this.LbMsgs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.LbMsgs.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LbMsgs.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LbMsgs.FormattingEnabled = true;
 			this.LbMsgs.HorizontalScrollbar = true;
-			this.LbMsgs.ItemHeight = 22;
-			this.LbMsgs.Location = new System.Drawing.Point(32, 335);
+			this.LbMsgs.ItemHeight = 25;
+			this.LbMsgs.Location = new System.Drawing.Point(29, 467);
 			this.LbMsgs.Name = "LbMsgs";
-			this.LbMsgs.Size = new System.Drawing.Size(862, 268);
+			this.LbMsgs.Size = new System.Drawing.Size(1312, 229);
 			this.LbMsgs.TabIndex = 12;
 			this.LbMsgs.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LbMsgs_MouseMove);
 			// 
 			// ChkCompileAsJava
 			// 
 			this.ChkCompileAsJava.AutoSize = true;
-			this.ChkCompileAsJava.Location = new System.Drawing.Point(179, 200);
+			this.ChkCompileAsJava.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsJava.Location = new System.Drawing.Point(216, 227);
 			this.ChkCompileAsJava.Name = "ChkCompileAsJava";
-			this.ChkCompileAsJava.Size = new System.Drawing.Size(60, 21);
+			this.ChkCompileAsJava.Size = new System.Drawing.Size(84, 33);
 			this.ChkCompileAsJava.TabIndex = 14;
 			this.ChkCompileAsJava.Text = "Java";
 			this.ChkCompileAsJava.UseVisualStyleBackColor = true;
@@ -207,9 +221,10 @@
 			// ChkCompileAsCSharp
 			// 
 			this.ChkCompileAsCSharp.AutoSize = true;
-			this.ChkCompileAsCSharp.Location = new System.Drawing.Point(115, 200);
+			this.ChkCompileAsCSharp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsCSharp.Location = new System.Drawing.Point(151, 227);
 			this.ChkCompileAsCSharp.Name = "ChkCompileAsCSharp";
-			this.ChkCompileAsCSharp.Size = new System.Drawing.Size(47, 21);
+			this.ChkCompileAsCSharp.Size = new System.Drawing.Size(65, 33);
 			this.ChkCompileAsCSharp.TabIndex = 13;
 			this.ChkCompileAsCSharp.Text = "C#";
 			this.ChkCompileAsCSharp.UseVisualStyleBackColor = true;
@@ -218,9 +233,10 @@
 			// ChkCompileAsPython3
 			// 
 			this.ChkCompileAsPython3.AutoSize = true;
-			this.ChkCompileAsPython3.Location = new System.Drawing.Point(256, 200);
+			this.ChkCompileAsPython3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsPython3.Location = new System.Drawing.Point(300, 227);
 			this.ChkCompileAsPython3.Name = "ChkCompileAsPython3";
-			this.ChkCompileAsPython3.Size = new System.Drawing.Size(86, 21);
+			this.ChkCompileAsPython3.Size = new System.Drawing.Size(127, 33);
 			this.ChkCompileAsPython3.TabIndex = 15;
 			this.ChkCompileAsPython3.Text = "Python 3";
 			this.ChkCompileAsPython3.UseVisualStyleBackColor = true;
@@ -229,9 +245,10 @@
 			// ChkCompileAsCpp
 			// 
 			this.ChkCompileAsCpp.AutoSize = true;
-			this.ChkCompileAsCpp.Location = new System.Drawing.Point(462, 200);
+			this.ChkCompileAsCpp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsCpp.Location = new System.Drawing.Point(554, 227);
 			this.ChkCompileAsCpp.Name = "ChkCompileAsCpp";
-			this.ChkCompileAsCpp.Size = new System.Drawing.Size(55, 21);
+			this.ChkCompileAsCpp.Size = new System.Drawing.Size(80, 33);
 			this.ChkCompileAsCpp.TabIndex = 16;
 			this.ChkCompileAsCpp.Text = "C++";
 			this.ChkCompileAsCpp.UseVisualStyleBackColor = true;
@@ -240,9 +257,10 @@
 			// ChkCompileAsPython2
 			// 
 			this.ChkCompileAsPython2.AutoSize = true;
-			this.ChkCompileAsPython2.Location = new System.Drawing.Point(359, 200);
+			this.ChkCompileAsPython2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsPython2.Location = new System.Drawing.Point(427, 227);
 			this.ChkCompileAsPython2.Name = "ChkCompileAsPython2";
-			this.ChkCompileAsPython2.Size = new System.Drawing.Size(86, 21);
+			this.ChkCompileAsPython2.Size = new System.Drawing.Size(127, 33);
 			this.ChkCompileAsPython2.TabIndex = 17;
 			this.ChkCompileAsPython2.Text = "Python 2";
 			this.ChkCompileAsPython2.UseVisualStyleBackColor = true;
@@ -251,9 +269,10 @@
 			// ChkCompileAsSwift
 			// 
 			this.ChkCompileAsSwift.AutoSize = true;
-			this.ChkCompileAsSwift.Location = new System.Drawing.Point(713, 200);
+			this.ChkCompileAsSwift.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsSwift.Location = new System.Drawing.Point(847, 227);
 			this.ChkCompileAsSwift.Name = "ChkCompileAsSwift";
-			this.ChkCompileAsSwift.Size = new System.Drawing.Size(59, 21);
+			this.ChkCompileAsSwift.Size = new System.Drawing.Size(87, 33);
 			this.ChkCompileAsSwift.TabIndex = 18;
 			this.ChkCompileAsSwift.Text = "Swift";
 			this.ChkCompileAsSwift.UseVisualStyleBackColor = true;
@@ -262,9 +281,10 @@
 			// ChkCompileAsGo
 			// 
 			this.ChkCompileAsGo.AutoSize = true;
-			this.ChkCompileAsGo.Location = new System.Drawing.Point(647, 200);
+			this.ChkCompileAsGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsGo.Location = new System.Drawing.Point(780, 227);
 			this.ChkCompileAsGo.Name = "ChkCompileAsGo";
-			this.ChkCompileAsGo.Size = new System.Drawing.Size(49, 21);
+			this.ChkCompileAsGo.Size = new System.Drawing.Size(67, 33);
 			this.ChkCompileAsGo.TabIndex = 19;
 			this.ChkCompileAsGo.Text = "Go";
 			this.ChkCompileAsGo.UseVisualStyleBackColor = true;
@@ -273,9 +293,10 @@
 			// ChkCompileAsJavaScript
 			// 
 			this.ChkCompileAsJavaScript.AutoSize = true;
-			this.ChkCompileAsJavaScript.Location = new System.Drawing.Point(534, 200);
+			this.ChkCompileAsJavaScript.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChkCompileAsJavaScript.Location = new System.Drawing.Point(634, 227);
 			this.ChkCompileAsJavaScript.Name = "ChkCompileAsJavaScript";
-			this.ChkCompileAsJavaScript.Size = new System.Drawing.Size(96, 21);
+			this.ChkCompileAsJavaScript.Size = new System.Drawing.Size(146, 33);
 			this.ChkCompileAsJavaScript.TabIndex = 20;
 			this.ChkCompileAsJavaScript.Text = "JavaScript";
 			this.ChkCompileAsJavaScript.UseVisualStyleBackColor = true;
@@ -284,18 +305,20 @@
 			// lblGrunOptions
 			// 
 			this.lblGrunOptions.AutoSize = true;
-			this.lblGrunOptions.Location = new System.Drawing.Point(157, 244);
+			this.lblGrunOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblGrunOptions.Location = new System.Drawing.Point(29, 351);
 			this.lblGrunOptions.Name = "lblGrunOptions";
-			this.lblGrunOptions.Size = new System.Drawing.Size(94, 17);
+			this.lblGrunOptions.Size = new System.Drawing.Size(156, 29);
 			this.lblGrunOptions.TabIndex = 21;
 			this.lblGrunOptions.Text = "Grun options:";
 			// 
 			// RadGrunTokens
 			// 
 			this.RadGrunTokens.AutoSize = true;
-			this.RadGrunTokens.Location = new System.Drawing.Point(266, 271);
+			this.RadGrunTokens.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGrunTokens.Location = new System.Drawing.Point(203, 349);
 			this.RadGrunTokens.Name = "RadGrunTokens";
-			this.RadGrunTokens.Size = new System.Drawing.Size(76, 21);
+			this.RadGrunTokens.Size = new System.Drawing.Size(115, 33);
 			this.RadGrunTokens.TabIndex = 22;
 			this.RadGrunTokens.TabStop = true;
 			this.RadGrunTokens.Text = "Tokens";
@@ -304,9 +327,10 @@
 			// RadGrunTree
 			// 
 			this.RadGrunTree.AutoSize = true;
-			this.RadGrunTree.Location = new System.Drawing.Point(357, 271);
+			this.RadGrunTree.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGrunTree.Location = new System.Drawing.Point(320, 349);
 			this.RadGrunTree.Name = "RadGrunTree";
-			this.RadGrunTree.Size = new System.Drawing.Size(59, 21);
+			this.RadGrunTree.Size = new System.Drawing.Size(86, 33);
 			this.RadGrunTree.TabIndex = 23;
 			this.RadGrunTree.TabStop = true;
 			this.RadGrunTree.Text = "Tree";
@@ -315,9 +339,10 @@
 			// RadGrunGui
 			// 
 			this.RadGrunGui.AutoSize = true;
-			this.RadGrunGui.Location = new System.Drawing.Point(434, 271);
+			this.RadGrunGui.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGrunGui.Location = new System.Drawing.Point(408, 349);
 			this.RadGrunGui.Name = "RadGrunGui";
-			this.RadGrunGui.Size = new System.Drawing.Size(53, 21);
+			this.RadGrunGui.Size = new System.Drawing.Size(75, 33);
 			this.RadGrunGui.TabIndex = 24;
 			this.RadGrunGui.TabStop = true;
 			this.RadGrunGui.Text = "GUI";
@@ -326,9 +351,10 @@
 			// RadGrunTrace
 			// 
 			this.RadGrunTrace.AutoSize = true;
-			this.RadGrunTrace.Location = new System.Drawing.Point(507, 271);
+			this.RadGrunTrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGrunTrace.Location = new System.Drawing.Point(485, 349);
 			this.RadGrunTrace.Name = "RadGrunTrace";
-			this.RadGrunTrace.Size = new System.Drawing.Size(66, 21);
+			this.RadGrunTrace.Size = new System.Drawing.Size(97, 33);
 			this.RadGrunTrace.TabIndex = 25;
 			this.RadGrunTrace.TabStop = true;
 			this.RadGrunTrace.Text = "Trace";
@@ -337,9 +363,10 @@
 			// RadGrunDiagnostics
 			// 
 			this.RadGrunDiagnostics.AutoSize = true;
-			this.RadGrunDiagnostics.Location = new System.Drawing.Point(597, 271);
+			this.RadGrunDiagnostics.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RadGrunDiagnostics.Location = new System.Drawing.Point(584, 349);
 			this.RadGrunDiagnostics.Name = "RadGrunDiagnostics";
-			this.RadGrunDiagnostics.Size = new System.Drawing.Size(102, 21);
+			this.RadGrunDiagnostics.Size = new System.Drawing.Size(159, 33);
 			this.RadGrunDiagnostics.TabIndex = 26;
 			this.RadGrunDiagnostics.TabStop = true;
 			this.RadGrunDiagnostics.Text = "Diagnostics";
@@ -347,25 +374,39 @@
 			// 
 			// TxtGrunStartRuleName
 			// 
-			this.TxtGrunStartRuleName.Location = new System.Drawing.Point(396, 241);
+			this.TxtGrunStartRuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxtGrunStartRuleName.Location = new System.Drawing.Point(263, 283);
 			this.TxtGrunStartRuleName.Name = "TxtGrunStartRuleName";
-			this.TxtGrunStartRuleName.Size = new System.Drawing.Size(265, 22);
+			this.TxtGrunStartRuleName.Size = new System.Drawing.Size(265, 34);
 			this.TxtGrunStartRuleName.TabIndex = 27;
 			// 
 			// LblGrunStartRuleName
 			// 
 			this.LblGrunStartRuleName.AutoSize = true;
-			this.LblGrunStartRuleName.Location = new System.Drawing.Point(266, 244);
+			this.LblGrunStartRuleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblGrunStartRuleName.Location = new System.Drawing.Point(24, 283);
 			this.LblGrunStartRuleName.Name = "LblGrunStartRuleName";
-			this.LblGrunStartRuleName.Size = new System.Drawing.Size(112, 17);
+			this.LblGrunStartRuleName.Size = new System.Drawing.Size(189, 29);
 			this.LblGrunStartRuleName.TabIndex = 28;
 			this.LblGrunStartRuleName.Text = "Start Rule Name";
+			// 
+			// BtnEdit
+			// 
+			this.BtnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BtnEdit.Location = new System.Drawing.Point(455, 79);
+			this.BtnEdit.Name = "BtnEdit";
+			this.BtnEdit.Size = new System.Drawing.Size(85, 42);
+			this.BtnEdit.TabIndex = 29;
+			this.BtnEdit.Text = "Edit";
+			this.BtnEdit.UseVisualStyleBackColor = true;
+			this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
 			// 
 			// LRSAntlr
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(906, 639);
+			this.ClientSize = new System.Drawing.Size(1353, 757);
+			this.Controls.Add(this.BtnEdit);
 			this.Controls.Add(this.LblGrunStartRuleName);
 			this.Controls.Add(this.TxtGrunStartRuleName);
 			this.Controls.Add(this.RadGrunDiagnostics);
@@ -434,6 +475,7 @@
 		private System.Windows.Forms.RadioButton RadGrunDiagnostics;
 		private System.Windows.Forms.TextBox TxtGrunStartRuleName;
 		private System.Windows.Forms.Label LblGrunStartRuleName;
+		private System.Windows.Forms.Button BtnEdit;
 	}
 }
 

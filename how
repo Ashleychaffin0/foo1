@@ -1,0 +1,35 @@
+[33mcommit 8dda42017171694b94e29dfc3afb06a6abb9fdfe[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Wed Jun 19 12:23:26 2019 -0400
+
+    More updates
+
+[33mcommit 9039fd1631f19566ab1f38b09c8d8648d0c3beb8[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Wed Jun 19 12:22:34 2019 -0400
+
+    Co-authored-by: Anthony Vidmar <tony.vidmar@gmail.com>
+
+[33mcommit c658dc7122a304234d98c48e1a3f219bd35960e8[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Mon Mar 25 15:22:46 2019 -0400
+
+    Another mass commit
+
+[33mcommit 34dbccd6ac509cb226345b1430ca2a0aa8a40a64[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Thu Jan 24 20:10:09 2019 -0500
+
+    Mass commit
+
+[33mcommit c08f6376d8f9fad2f2e64b87c9ccd7b7e24c4942[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Thu Jan 10 20:45:42 2019 -0500
+
+    Generic staged commit of almost everything (it seems)
+
+[33mcommit f0260af0c008047d382428c103b250c6aa6a23f2[m
+Author: Larry Smith <lrs5@lrs5.net>
+Date:   Mon Oct 8 20:57:27 2018 -0400
+
+    Add .gitignore and .gitattributes.

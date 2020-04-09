@@ -17,7 +17,7 @@ namespace WesBooks3 {
 
 		public tblPublishers(OleDbDataReader rdr) {
 			PublisherID = (int)rdr["PublisherID"];
-			Publisher = (string)rdr["Publisher"];
+			Publisher   = (string)rdr["Publisher"];
 		}
 
 //---------------------------------------------------------------------------------------

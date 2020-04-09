@@ -91,7 +91,7 @@ namespace PrimeCount1 {
 				// The original version of C# would require you to write
 				// Console.WriteLine("Count by Division = {0:N0}", nPrimeDiv);
 				// where the {0:N0} would be somewhat like the "%" syntax
-				// in C/C++'s printf string. {0} would mean the first (zeroeth)
+				// in C/C++'s printf string. {0} would mean the first (zero-th)
 				// parameter after the format string (nPrimeDiv). {1}
 				// would mean the second parameter (if any), etc. The ":N0"
 				// formats the data with digit separators (e.g. "1,234"
@@ -148,7 +148,7 @@ namespace PrimeCount1 {
 			//       Or even, I suppose, double[]. But byte[]
 			//       is probably the most efficient (not that
 			//       (as mentioned above) we're overly concerned
-			//       with performance. But bool[] may involved
+			//       with performance. But bool[] may involve
 			//       bit twiddling (which would slow us down)
 			//       and anything wider than a 1-byte field
 			//       could incur cache miss hits.

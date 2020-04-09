@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace WesBooks3 {
 	public class WesBook {
-		public string Title;
-		public string Author;
-		public string Genre;
-		public string ISBN;
-		public string Publisher;
+		public string	Title;
+		public string	Author;
+		public string	Genre;
+		public string	ISBN;
+		public string	Publisher;
 		public DateTime DateLastRead;
-		public string CoverLocation;              // Location of cover file (JPEG, etc.)
-		public string Series;
-		public bool bSeries;
-		public bool bAnthology;
+		public string	CoverLocation;          // Location of cover file (JPEG, etc.)
+		public string	Series;
+		public bool		bSeries;
+		public bool		bAnthology;
 
 //---------------------------------------------------------------------------------------
 
@@ -28,34 +28,33 @@ namespace WesBooks3 {
 //---------------------------------------------------------------------------------------
 
 		public WesBook(
-			string Title,
-			string Author,
-			string Genre,
-			string ISBN,
-			string Publisher,
-			string Series,
-			DateTime DateLastRead,
-			string CoverLocation,
-			bool bAnthology,
-			bool bSeries) {
-
-			this.Title = Title;
-			this.Author = Author;
-			this.Genre = Genre;
-			this.ISBN = ISBN;
-			this.Publisher = Publisher;
-			this.Series = Series;
-			this.DateLastRead = DateLastRead;
+				string	 Title,
+				string	 Author,
+				string	 Genre,
+				string	 ISBN,
+				string	 Publisher,
+				string	 Series,
+				DateTime DateLastRead,
+				string	 CoverLocation,
+				bool	 bAnthology,
+				bool	 bSeries) {
+			this.Title         = Title;
+			this.Author        = Author;
+			this.Genre         = Genre;
+			this.ISBN          = ISBN;
+			this.Publisher     = Publisher;
+			this.Series        = Series;
+			this.DateLastRead  = DateLastRead;
 			this.CoverLocation = CoverLocation;
-			this.bAnthology = bAnthology;
-			this.bSeries = bSeries;
+			this.bAnthology    = bAnthology;
+			this.bSeries       = bSeries;
 		}
 
 //---------------------------------------------------------------------------------------
 
 		public Image GetImage() {
 			byte[] imageBytes = Convert.FromBase64String(CoverLocation);
-			MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+			MemoryStream ms   = new MemoryStream(imageBytes, 0, imageBytes.Length);
 			// Convert byte[] to Image
 			ms.Write(imageBytes, 0, imageBytes.Length);
 			Image image = Image.FromStream(ms, true);

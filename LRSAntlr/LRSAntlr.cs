@@ -54,13 +54,16 @@ namespace LRSAntlr {
 //---------------------------------------------------------------------------------------
 
 		private void SetupParms() {
-			if (!File.Exists(ParmsFilename)) {
+			if (File.Exists(ParmsFilename)) {
+				Parms = new LrsAntlrParms(ParmsFilename).Load();
+				CopyParmsToUI();
+			} else {
 				Parms = new LrsAntlrParms(ParmsFilename) {
 					Listener			= true,
 					Visitor				= true,
 					TargetDir			= ".",
 					CompileAsCSharp		= true,
-					CompileAsJava		= true,
+					CompileAsJava		= false,
 					CompileAsPython2	= false,
 					CompileAsPython3	= false,
 					CompileAsCpp		= false,
@@ -70,9 +73,6 @@ namespace LRSAntlr {
 					// UIOption		 = 
 				};
 				GenericSerializer<LrsAntlrParms>.Save(ParmsFilename, Parms);
-			} else {
-				Parms = new LrsAntlrParms(ParmsFilename).Load();
-				CopyParmsToUI();
 			}
 		}
 
@@ -81,12 +81,12 @@ namespace LRSAntlr {
 		private void SetupLanguages() {
 			TargetLanguages = new List<TargetLanguage> {
 				// https://github.com/antlr/antlr4/blob/master/doc/csharp-target.md
-				new TargetLanguage("CSharp",	 ChkCompileAsCSharp,	"Nonce"),
-				new TargetLanguage("Java",		 ChkCompileAsJava,		"Nonce"),
-				new TargetLanguage("Python2",	 ChkCompileAsPython2,	"Nonce"),
-				new TargetLanguage("Python3",	 ChkCompileAsPython3,	"Nonce"),
+				new TargetLanguage("CSharp",	 ChkCompileAsCSharp,	 "Nonce"),
+				new TargetLanguage("Java",		 ChkCompileAsJava,		 "Nonce"),
+				new TargetLanguage("Python2",	 ChkCompileAsPython2,	 "Nonce"),
+				new TargetLanguage("Python3",	 ChkCompileAsPython3,	 "Nonce"),
 				// https://github.com/antlr/antlr4/blob/master/doc/cpp-target.md
-				new TargetLanguage("C++",		 ChkCompileAsCpp,		"Nonce"),
+				new TargetLanguage("C++",		 ChkCompileAsCpp,		 "Nonce"),
 				new TargetLanguage("JavaScript", ChkCompileAsJavaScript, "Nonce"),
 				new TargetLanguage("Go",		 ChkCompileAsGo,		 "Nonce"),
 				new TargetLanguage("Swift",		 ChkCompileAsSwift,		 "Nonce")
@@ -96,7 +96,7 @@ namespace LRSAntlr {
 //---------------------------------------------------------------------------------------
 
 		private void CopyParmsToUI() {
-			TxtFolderName.Text			= Parms.TargetDir;
+			TxtFolderName.Text				= Parms.TargetDir;
 			// TODO: Fill combo box
 			ChkListener.Checked				= Parms.Listener;
 			ChkVisitor.Checked				= Parms.Visitor;
@@ -136,10 +136,9 @@ namespace LRSAntlr {
 
 				var proc = new Process {
 					StartInfo = new ProcessStartInfo {
-						// FileName = @"g:\lrs-8500\bin\a4.cmd",
-						FileName  = Path.Combine(JavaDir, "java.exe"),
-						Arguments = "org.antlr.v4.Tool " + 
-							Path.Combine(Parms.TargetDir, GrammarName + ".g4"),
+						FileName = "a4.cmd",
+						// FileName  = Path.Combine(JavaDir, "java.exe"),
+						Arguments = Path.Combine(Parms.TargetDir, GrammarName + ".g4"),
 						UseShellExecute        = false,
 						RedirectStandardOutput = true,
 						RedirectStandardError  = true,
@@ -240,12 +239,14 @@ namespace LRSAntlr {
 
 				var parms = (GrammarName, SolutionGuid, ProjectGuid);
 
+				// TODO: Update to .Net Core 3 .sln and .csproj formats
 				CopySkeleton("SkeletonSln.txt", SlnName, parms);
 				CopySkeleton("SkeletonProject.txt", Dir + $@"\{GrammarName}.csproj", parms);
 				CopySkeleton("SkeletonProgram.txt", Dir + $@"\{GrammarName}.cs", parms);
 				CopySkeleton("SkeletonApp.Config.txt", Dir + @"\app.config", parms);
 				string DirProps = Path.Combine(Dir, "Properties");
 				Directory.CreateDirectory(DirProps);
+				// TODO: Pass in $$YEAR$$?
 				CopySkeleton("SkeletonAssemblyInfo.txt", DirProps + @"\AssemblyInfo.cs", parms);
 				// TODO: Add separate Listener (and maybe Visitor) module
 			}
@@ -384,6 +385,13 @@ namespace LRSAntlr {
 			if (line >= LbMsgs.Items.Count) return;
 			string text = (string)LbMsgs.Items[line];
 			toolTip1.SetToolTip(LbMsgs, text);
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void BtnEdit_Click(object sender, EventArgs e) {
+			var proc = Process.Start("Code.cmd", Path.Combine(Parms.TargetDir, CmbGrammar.Text + ".g4"));
+			proc.WaitForExit();
 		}
 	}
 }

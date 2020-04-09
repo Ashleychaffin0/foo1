@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessQuery.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="dlgEditGenres.cs">
       <SubType>Form</SubType>

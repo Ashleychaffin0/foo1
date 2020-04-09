@@ -17,7 +17,7 @@ namespace WesBooks3 {
 
 		public tblSeries(OleDbDataReader rdr) {
 			SeriesID = (int)rdr["SeriesID"];
-			Series = (string)rdr["Series"];
+			Series   = (string)rdr["Series"];
 		}
 
 //---------------------------------------------------------------------------------------
@@ -44,11 +44,11 @@ namespace WesBooks3 {
 //---------------------------------------------------------------------------------------
 
 		public static void CreateTable(string filename) {
-			var db = new LRSAccessDatabase(filename);
+			var db  = new LRSAccessDatabase(filename);
 			var qry = new AccessQuery(db);
 			var SQL = "DROP TABLE tblSeries";
-			var OK = qry.ExecuteNonQuery(SQL);
-			SQL = @"
+			var OK  = qry.ExecuteNonQuery(SQL);
+			SQL     = @"
 				CREATE TABLE tblSeries( 
 					 SeriesID	IDENTITY PRIMARY KEY,
 					 Series	    CHAR(24) NOT NULL

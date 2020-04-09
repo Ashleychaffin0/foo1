@@ -31,7 +31,7 @@ using System.Xml.Serialization;
 namespace nsTrackFoldingAtHome {
 	public partial class TrackF_H : Form {
 
-		public List<RawData> StatsData {get; set;}
+		public List<RawData> StatsData { get; set;}
 
 		const string StatsFilename = "Folding@Home_Stats.xml";
 

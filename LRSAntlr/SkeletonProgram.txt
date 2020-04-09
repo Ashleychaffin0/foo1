@@ -15,7 +15,7 @@ namespace $$GrammarName$$ {
 				var tokens				 = new CommonTokenStream(lex);
 				var parser				 = new $$GrammarName$$Parser(tokens);
 				parser.BuildParseTree	 = true;
-				var tree				 = parser.StartRule();
+				var tree				 = parser.$$StartRule$$();
 				var printer				 = new $$GrammarName$$Listener();
 				ParseTreeWalker.Default.Walk(printer, tree);
 			} catch (Exception ex) {
