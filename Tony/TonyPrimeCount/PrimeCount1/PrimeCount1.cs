@@ -151,7 +151,8 @@ namespace PrimeCount1 {
 			//       with performance. But bool[] may involved
 			//       bit twiddling (which would slow us down)
 			//       and anything wider than a 1-byte field
-			//       could incur cache miss hits.
+			//       could incur cache miss hits. Note that
+			//		 there's also the BitVector class.
 			byte[] Sieve = new byte[limit + 1];
 			// Initialize slots. We have <num + 1> of them
 			// since (for simplicity of programming) we
