@@ -5,9 +5,7 @@ public class InvalidOpcodeException : Exception {
 
 //---------------------------------------------------------------------------------------
 
-	public InvalidOpcodeException(string opcode) {
-		Opcode = opcode;
-	}
+	public InvalidOpcodeException(string opcode) => Opcode = opcode;
 }
 
 //---------------------------------------------------------------------------------------
@@ -19,7 +17,32 @@ public class UnknownSymbolException : Exception {
 
 //---------------------------------------------------------------------------------------
 
-	public UnknownSymbolException(string symbol) {
-		Symbol = symbol;
+	public UnknownSymbolException(string symbol) => Symbol = symbol;
+}
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+
+public class InvalidNumberOfArgsException : Exception {
+	public int ExpectedNumberOfArgs;
+	public int NumberOfArgs;
+
+//---------------------------------------------------------------------------------------
+	public InvalidNumberOfArgsException(int expectedNumberOfArgs, int numberOfArgs) {
+		ExpectedNumberOfArgs = expectedNumberOfArgs;
+		NumberOfArgs         = numberOfArgs;
 	}
+}
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+
+public class DuplicateLabelException : Exception {
+	public string Label;
+
+//---------------------------------------------------------------------------------------
+
+	public DuplicateLabelException(string label) => Label = label;
 }

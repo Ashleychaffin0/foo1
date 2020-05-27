@@ -1,49 +1,110 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Sockets;
 
 namespace LrsColinAssembler {
 	/// <summary>
-	/// Take an input assembler line and parse it
+	/// Take an input assembler line, parses it and does a bit of error checking
 	/// </summary>
-	public class SourceLine {
+	class SourceLine {
 		static readonly char[] seps = new char[] { ' ', ',' };
-		public bool		IsEmptyLine = false;
-		public string	Label = "";
-		public Opcode	OpcodeEntry;
+		public OpcodeDef  OpcodeEntry;
+		public ParsedLine ParsedSource;
+
 
 //---------------------------------------------------------------------------------------
 
-		public SourceLine(string line, uint addr) {
+		public SourceLine(string line, ushort addr) {
+			ParsedSource = new ParsedLine(addr, line);
+
 			// Strip off comments
 			int ix = line.IndexOf(';');     // Note: Doesn't support ; inside strings
 			if (ix >= 0) line = line.Substring(0, ix);
 
 			// Handle empty lines
 			if (line.Trim().Length == 0) {
-				IsEmptyLine = true;
-				OpcodeEntry = new Opcode(0x00, 0);	// Need opcode to have length of 0
+				ParsedSource.Length = 0;
 				return;
 			}
 			// Canonicalize input
 			line = line.Replace('\t', ' ');
-			line = line.ToUpper();
 
 			// Simple parsing
-			var tokens = line.Split(seps, StringSplitOptions.RemoveEmptyEntries);
+			var tokens = line.Split(seps, StringSplitOptions.RemoveEmptyEntries).ToList<string>();
 
 			// Handle label
-			int ixToken = 0;                // Token scan starts at first token
-			if (line[0] != ' ') {           // A label starts in the first column
-				Label = tokens[0];
-				Assembler.symtab[Label] = addr;	// Ignoring duplicate labels
-				ixToken = 1;                // Skip over token[0]
-			}
+			HandleLabel(line, addr, tokens);
 
-			string opcode = tokens[ixToken];
-			bool bFound = Assembler.OpcodeTable.TryGetValue(opcode, out OpcodeEntry);
-			if (!bFound) {
-				throw new InvalidOpcodeException(opcode);
+			// Handle opcode
+			HandleOpcode(tokens, out ParsedSource.Mnemonic);
+			if (ParsedSource.Mnemonic.Length == 0) { return; }
+			ParsedSource.Parms = new List<string>(tokens);
+
+			// Special processing for "DefineString" pseudo-op
+			if (ParsedSource.Mnemonic != "DS") {
+				// Check for the right number of arguments
+				int NumArgs = CheckArgumentCount(tokens);
+				if (NumArgs <= 0) { return; }
+			} else {
+				ParsedSource.Length = 1;	// Just so we won't be considered a comment
+				// Can have " around the string, but will ignore multiple blanks
+				string s = string.Join(' ', tokens)
+					.Replace(@"\n", "\n")
+					.Replace(@"\z", "")		// For empty strings
+					.Replace(@"\b", " ")	// Allow multiple blanks
+					.Replace(@"\c", ",")	// We strip out commas above. Put them back in
+					+ '\0';
+				ParsedSource.DsText = s;
+				ParsedSource.Length = (ushort)s.Length;
+				ParsedSource.Parms = tokens;
+				return;
 			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void HandleLabel(string line, ushort addr, List<string> tokens) {
+			if (line[0] != ' ') {               // A label starts in the first column
+				string Label = tokens[0];
+				tokens.RemoveAt(0);
+				if (Assembler.Symtab.ContainsKey(Label)) {
+					ParsedSource.ErrorMessage = $"*** Duplicate label found: {Label} -- ignored";
+				} else {
+					Assembler.Symtab[Label] = addr;
+				}
+			}
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void HandleOpcode(List<string> tokens, out string Mnemonic) {
+			Mnemonic = tokens[0].ToUpper();
+			bool bFound = Assembler.OpcodeTable.TryGetValue(Mnemonic, out OpcodeEntry);
+			if (!bFound) {
+				ParsedSource.ErrorMessage = $"*** Invalid opcode found: {Mnemonic}";
+				// TODO: No error messages produced
+				ParsedSource.Opcode = 0x00;
+				ParsedSource.Length = 0;
+				Mnemonic = "";
+				return;
+			}
+			ParsedSource.OpDef  = OpcodeEntry;
+			ParsedSource.Opcode = OpcodeEntry.Op;
+			ParsedSource.Length = OpcodeEntry.Length;
+			tokens.RemoveAt(0);		// Don't need opcode any more
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private int CheckArgumentCount(List<string> tokens) {
+			int NumArgs = tokens.Count;
+			if (OpcodeEntry.NumberOfArgs != NumArgs) {
+				ParsedSource.ErrorMessage = $"*** Invalid number of arguments. Expecting {OpcodeEntry.NumberOfArgs}, found {NumArgs}";
+				return -1;
+			}
+			return NumArgs;
 		}
 	}
 }

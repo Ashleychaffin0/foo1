@@ -20,7 +20,7 @@
 // Note: Python took 7 seconds for n=100,000. 
 //       In 6.75 seconds, C# found primes up to 15,000,000
 //       But that 6.75 seconds was with debugging enabled.
-//       In "Release" mode, primes up to 15,000,000 were found in 4.2 seconds!
+//       In "Release" mode, primes up to 15,000,000 were found in 4.04 seconds!
 
 using System;
 // Some of the following <using> statements were generated
@@ -74,6 +74,8 @@ namespace PrimeCount1 {
 			}
 		}
 
+//---------------------------------------------------------------------------------------
+
 		private static void CountPrimesUpTo(int limit) {
 			// Handle trivial cases
 			switch (limit) {
@@ -102,20 +104,30 @@ namespace PrimeCount1 {
 				// (Book, page 90) which mostly obsoletes the {0} syntax
 				// (but which is still supported for backward compatibility
 				// with existing code)
-				Console.WriteLine($"Count by Division = {nPrimeDiv:N0} in {sw.Elapsed}");
+				Console.WriteLine($"Count by {nameof(CountByDivision)}       = {nPrimeDiv:N0} in {sw.Elapsed}");
 
 				sw.Restart();
-				int nPrimeSieve = CountBySieve(limit);
+				int nPrimeSieve = CountBySieveByte(limit);
 				sw.Stop();
-				Console.WriteLine($"Count by Sieve    = {nPrimeSieve:N0} in {sw.Elapsed}");
+				Console.WriteLine($"Count ({nPrimeSieve:N0}) by {nameof(CountBySieveByte)}      = {nPrimeSieve:N0} in {sw.Elapsed}");
 
 				sw.Restart();
-				int nPrimeSieve2 = CountBySieve2(limit);
+				int nPrimeSieve2 = CountBySieveBool(limit);
 				sw.Stop();
-				Console.WriteLine($"Count by Sieve2   = {nPrimeSieve2:N0} in {sw.Elapsed}");
+				Console.WriteLine($"Count ({nPrimeSieve2:N0}) by {nameof(CountBySieveBool)}      = {nPrimeSieve2:N0} in {sw.Elapsed}");
+
+				sw.Restart();
+				int nPrimeSieveOdd = CountBySieveOddMostly(limit);
+				sw.Stop();
+				Console.WriteLine($"Count ({nPrimeSieveOdd:N0}) by {nameof(CountBySieveOddMostly)} = {nPrimeSieveOdd:N0} in {sw.Elapsed}");
+#if false
+#endif
+
 				break;
 			}
 		}
+
+//---------------------------------------------------------------------------------------
 
 		private static int CountByDivision(int limit) {
 			int numPrimesSoFar = 1;      // We know num > 2
@@ -130,20 +142,89 @@ namespace PrimeCount1 {
 				// since our real goal is to learn C#. So we'll
 				// just divide by all odd numbers, not just
 				// all odd primes
+
+				// int xdiv = 3;
+				// while (xdiv <= DivLimit) {
+				// 	// body
+				// 	xdiv += 2;
+				// }
+
+
 				for (int Divisor = 3; Divisor <= DivLimit; Divisor += 2) {
-					if ((PotentialPrime % Divisor) == 0) {
-						bGotDivisor = true;
+					bGotDivisor = (PotentialPrime % Divisor) == 0;
+					if (bGotDivisor) {
 						break;       // Can't be prime
 					}
 				}
 				if (! bGotDivisor) {
 					++numPrimesSoFar;
+					// Console.WriteLine($"{numPrimesSoFar}:  {PotentialPrime}");
 				}
 			}
 			return numPrimesSoFar;
 		}
 
-		private static int CountBySieve(int limit) {
+//---------------------------------------------------------------------------------------
+
+// 0 1 2 3 4 5 6 7 8 9 10
+// 1 1 1 1 0 1 0 1 0 0 0
+
+		private static int CountBySieveOddMostly(int limit) {
+			// Note: Could also have used bool[]. Or string[].
+			//       Or even, I suppose, double[]. But byte[]
+			//       is probably the most efficient (not that
+			//       (as mentioned above) we're overly concerned
+			//       with performance. But bool[] may involved
+			//       bit twiddling (which would slow us down)
+			//       and anything wider than a 1-byte field
+			//       could incur cache miss hits. Note that
+			//		 there's also the BitVector class.
+			byte[] Sieve = new byte[++limit];
+			// Initialize slots. We have <num + 1> of them
+			// since (for simplicity of programming) we
+			// include a slot for 0.
+			for (int i = 0; i < limit; i++) {
+				Sieve[i] = 1;			// Each slot is potentially a prime
+			}
+
+			Sieve[0] = Sieve[1] = 0;    // Neither of these is prime
+
+			// Do a separate pass for n==2
+			for (int i = 4; i < limit; i += 2) {
+				Sieve[i] = 0;			// Nope, that one's not prime
+			}
+
+			// Just sieve the odd numbers
+			for (int OddNum = 3; OddNum < limit / 2; OddNum += 2) {
+				if (Sieve[OddNum] == 0) { continue; }		// Known to be composite
+				// If PossiblePrime is, say, 5, then knock out all multiples of 5
+				// by starting <i> at 5 + 5 and incrementing <i> by 5 each time
+				for (int i = OddNum + OddNum; i < Sieve.Length; i += OddNum) {
+					Sieve[i] = 0;
+				}
+			}
+
+			// for (int i = 2; i <= Math.Sqrt(limit); i++) {
+			// 	for (int j = 2 * i; j < Sieve.Length; j += i) {
+			// 		Sieve[j] = 0;
+			// 	}
+			// }
+
+			// OK, the fun's over. Count the number of 1's
+			// Here's the traditional (i.e. hard) way. Loop,
+			// incrementing a counter
+			int nPrimes1 = 0;
+			for (int i = 0; i < Sieve.Length; i++) {
+				if (Sieve[i] == 1) {
+					++nPrimes1;
+				}
+			}
+			return nPrimes1;
+		}
+
+//---------------------------------------------------------------------------------------
+
+			private static int CountBySieveByte(int limit) {
 			// Note: Could also have used bool[]. Or string[].
 			//       Or even, I suppose, double[]. But byte[]
 			//       is probably the most efficient (not that
@@ -221,7 +302,9 @@ namespace PrimeCount1 {
 			return nPrimes1;
 		}
 
-		private static int CountBySieve2(int limit) {
+//---------------------------------------------------------------------------------------
+
+		private static int CountBySieveBool(int limit) {
 			// This code is a copy of CountBySieve except
 			// that we use a vector of bool, rather than int.
 			// I'm curious to see what impact on performance

@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="XamarinTest_2020_05_23.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XamarinTest_2020_05_23.UWP"
+    RequestedTheme="Light">
+
+</Application>
