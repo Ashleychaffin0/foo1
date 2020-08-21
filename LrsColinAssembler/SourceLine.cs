@@ -10,13 +10,15 @@ namespace LrsColinAssembler {
 	/// </summary>
 	class SourceLine {
 		static readonly char[] seps = new char[] { ' ', ',' };
-		public OpcodeDef  OpcodeEntry;
-		public ParsedLine ParsedSource;
-
+		public OpcodeDef					OpcodeEntry;
+		public ParsedLine					ParsedSource;
+		readonly Dictionary<string, ushort> Symtab;
 
 //---------------------------------------------------------------------------------------
 
-		public SourceLine(string line, ushort addr) {
+		// TODO: Comment
+		public SourceLine(Dictionary<string, ushort> symtab, string line, ushort addr) {
+			Symtab = symtab;
 			ParsedSource = new ParsedLine(addr, line);
 
 			// Strip off comments
@@ -50,9 +52,13 @@ namespace LrsColinAssembler {
 			} else {
 				ParsedSource.Length = 1;	// Just so we won't be considered a comment
 				// Can have " around the string, but will ignore multiple blanks
+				// Map \n to newline, \z to 0x00, \b to blank, \c to comma
 				string s = string.Join(' ', tokens)
-					.Replace(@"\n", "\n")
+					.Replace("\"", "")		// Get rid of surrounding quotes
+					.Replace(@"\n", Environment.NewLine)
 					.Replace(@"\z", "")		// For empty strings
+					.Replace(@"\s", ";")	// For semicolons
+					.Replace(@"\t", "\t")	// For tab character
 					.Replace(@"\b", " ")	// Allow multiple blanks
 					.Replace(@"\c", ",")	// We strip out commas above. Put them back in
 					+ '\0';
@@ -65,26 +71,27 @@ namespace LrsColinAssembler {
 
 //---------------------------------------------------------------------------------------
 
+		// TODO: Comment
 		private void HandleLabel(string line, ushort addr, List<string> tokens) {
 			if (line[0] != ' ') {               // A label starts in the first column
 				string Label = tokens[0];
 				tokens.RemoveAt(0);
-				if (Assembler.Symtab.ContainsKey(Label)) {
+				if (Symtab.ContainsKey(Label)) {
 					ParsedSource.ErrorMessage = $"*** Duplicate label found: {Label} -- ignored";
 				} else {
-					Assembler.Symtab[Label] = addr;
+					Symtab[Label] = addr;
 				}
 			}
 		}
 
 //---------------------------------------------------------------------------------------
 
+		// TODO: Comment
 		private void HandleOpcode(List<string> tokens, out string Mnemonic) {
 			Mnemonic = tokens[0].ToUpper();
 			bool bFound = Assembler.OpcodeTable.TryGetValue(Mnemonic, out OpcodeEntry);
 			if (!bFound) {
 				ParsedSource.ErrorMessage = $"*** Invalid opcode found: {Mnemonic}";
-				// TODO: No error messages produced
 				ParsedSource.Opcode = 0x00;
 				ParsedSource.Length = 0;
 				Mnemonic = "";
@@ -98,6 +105,7 @@ namespace LrsColinAssembler {
 
 //---------------------------------------------------------------------------------------
 
+		// TODO: Comment
 		private int CheckArgumentCount(List<string> tokens) {
 			int NumArgs = tokens.Count;
 			if (OpcodeEntry.NumberOfArgs != NumArgs) {

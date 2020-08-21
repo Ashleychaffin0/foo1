@@ -4,6 +4,8 @@ using System.Reflection.Emit;
 using System.Text;
 
 namespace LrsColinAssembler {
+
+	// TODO: Lotsa comments
 	public class ParsedLine {	
 		public ushort		SourceAddress;
 		public string		Source;

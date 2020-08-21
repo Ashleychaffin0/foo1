@@ -42,6 +42,8 @@ namespace TestEnumerateBrowserTabs {
 			// Console.WriteLine("noo"); noo();
 		}
 
+//---------------------------------------------------------------------------------------
+
 		private void noo() {
 			var main = AutomationElement.FromHandle(new IntPtr(GetDesktopWindow()));
 			foreach (AutomationElement child in main.FindAll(TreeScope.Children, PropertyCondition.TrueCondition)) {
@@ -66,11 +68,15 @@ namespace TestEnumerateBrowserTabs {
 			}
 		}
 
+//---------------------------------------------------------------------------------------
+
 	public static AutomationElement GetEdgeCommandsWindow(AutomationElement edgeWindow) {
 		return edgeWindow.FindFirst(TreeScope.Children, new AndCondition(
 			new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Window),
 			new PropertyCondition(AutomationElement.NameProperty, "Microsoft Edge")));
 	}
+
+//---------------------------------------------------------------------------------------
 
 	public static string GetEdgeUrl(AutomationElement edgeCommandsWindow) {
 		var addressEditBox = edgeCommandsWindow.FindFirst(TreeScope.Children,
@@ -79,6 +85,8 @@ namespace TestEnumerateBrowserTabs {
 		return ((TextPattern)addressEditBox.GetCurrentPattern(TextPattern.Pattern)).DocumentRange.GetText(int.MaxValue);
 	}
 
+//---------------------------------------------------------------------------------------
+
 		public static string GetEdgeTitle(AutomationElement edgeWindow) {
 			var addressEditBox = edgeWindow.FindFirst(TreeScope.Children,
 				new PropertyCondition(AutomationElement.AutomationIdProperty, "m_tabContentDCompVisualElement"));
@@ -86,6 +94,8 @@ namespace TestEnumerateBrowserTabs {
 
 			return addressEditBox.Current.Name;
 		}
+
+//---------------------------------------------------------------------------------------
 
 		private void loo() {
 			// var p = Process.GetProcessesByName("MicrosoftEdgeCP");
@@ -103,9 +113,6 @@ namespace TestEnumerateBrowserTabs {
 
 				}
 			}
-
-
-
 
 			var root = elems.FirstOrDefault();
 
@@ -125,6 +132,8 @@ namespace TestEnumerateBrowserTabs {
 			}
 #endif
 		}
+
+//---------------------------------------------------------------------------------------
 
 		private static void DumpElement(AutomationElement rootElement) {
 			var zzz = rootElement.FindAll(TreeScope.Subtree, Condition.TrueCondition);
@@ -151,6 +160,8 @@ namespace TestEnumerateBrowserTabs {
 				}
 			}
 		}
+
+//---------------------------------------------------------------------------------------
 
 		private void hoo() {
 			// As far as I can tell, the Chrome window consists (logically) of the tab
@@ -199,17 +210,23 @@ namespace TestEnumerateBrowserTabs {
 			}
 		}
 
+//---------------------------------------------------------------------------------------
+
 		private static void SendText(string text, IntPtr hWnd) {
 			SetForegroundWindow(hWnd);
 			SendKeys.SendWait(text);
 			System.Threading.Thread.Sleep(200);
 		}
 
+//---------------------------------------------------------------------------------------
+
 		private void goo() {
 			foreach (var Url in GetTabs()) {
 				Console.WriteLine(Url);
 			}
 		}
+
+//---------------------------------------------------------------------------------------
 
 		public IEnumerable<string> GetTabs() {
 			// From https://stackoverflow.com/questions/18897070/getting-the-current-tabs-url-from-google-chrome-using-c-sharp
@@ -328,6 +345,8 @@ namespace TestEnumerateBrowserTabs {
 				   select ret.StartsWith("http") ? ret : "http://" + ret;
 		}
 
+//---------------------------------------------------------------------------------------
+
 		private void foo() {
 			Process[] procsChrome = Process.GetProcessesByName("chrome");
 			if (procsChrome.Length <= 0) {
@@ -379,7 +398,13 @@ namespace TestEnumerateBrowserTabs {
 		}
 
 	}
+
+
+
 	public static class AutomationElementExtensions {
+
+//---------------------------------------------------------------------------------------
+
 		public static AutomationElement GetUrlBar(this AutomationElement element) {
 			try {
 				// return InternalGetUrlBar(element);
@@ -396,6 +421,8 @@ namespace TestEnumerateBrowserTabs {
 			}
 		}
 
+//---------------------------------------------------------------------------------------
+
 		public static string TryGetValue(this AutomationElement urlBar, AutomationPattern[] patterns) {
 			try {
 				return ((ValuePattern)urlBar.GetCurrentPattern(patterns[0])).Current.Value;
@@ -403,6 +430,8 @@ namespace TestEnumerateBrowserTabs {
 				return "";
 			}
 		}
+
+//---------------------------------------------------------------------------------------
 
 		private static AutomationElement InternalGetUrlBar(AutomationElement element) {
 			// walking path found using inspect.exe (Windows SDK) for Chrome 29.0.1547.76 m (currently the latest stable)

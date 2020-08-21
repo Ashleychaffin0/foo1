@@ -2,62 +2,92 @@
 
 namespace LrsColinAssembler {
 	internal partial class Interpreter {
+		/// <summary>
+		/// Adds the contents of the second register into the first
+		/// </summary>
 		private void Exec_AR() {                // 0x1A - Add Register
-			(byte RegTarget, byte RegSource) = DecodeRegs(PC + 1);
+			(byte RegTarget, byte RegSource) = DecodeRegs(IP + 1);
 			Registers[RegTarget] += Registers[RegSource];
-			PC += 2;
+			TrcShowReg(RegTarget);
+			TrcShowReg(RegSource);
+			SetCC(Registers[RegTarget]);
+			IP += 2;
 		}
 
 //---------------------------------------------------------------------------------------
 
+		/// <summary>
+		/// Subtracts the contents of the second register from the first. Note that
+		/// subtracting a register from itself (e.g. SR R5,R5) is a good way to 
+		/// get zero into a register.
+		/// </summary>
 		private void Exec_SR() {                // 0x1B - Subtract Register
-			(byte RegTarget, byte RegSource) = DecodeRegs(PC + 1);
+			(byte RegTarget, byte RegSource) = DecodeRegs(IP + 1);
 			Registers[RegTarget] -= Registers[RegSource];
-			PC += 2;
+			TrcShowReg(RegTarget);
+			TrcShowReg(RegSource);
+			SetCC(Registers[RegTarget]);
+			IP += 2;
 		}
 
 //---------------------------------------------------------------------------------------
 
+		/// <summary>
+		/// Adds data in memory to the specified register
+		/// </summary>
 		private void Exec_Add() {                // 0x5A - Add
-			(byte Reg, _) = DecodeRegs(PC + 1);
-			short address = DecodeAddress(PC + 2);
-			short data = Word(address);
-			Registers[Reg] += data;
+			(byte RegTarget, _)   = DecodeRegs(IP + 1);
+			short address         = DecodeAddress(IP + 2);
+			short data            = Word(address);
+			Registers[RegTarget] += data;
+			TrcShowReg(RegTarget);
 			SetCC(data);
-			PC += 4;
+			IP += 4;
 		}
 
 //---------------------------------------------------------------------------------------
 
+		/// <summary>
+		/// Subtracts data in memory from the specified register
+		/// </summary>
 		private void Exec_Sub() {                // 0x5B - Subtract
-			(byte Reg, _) = DecodeRegs(PC + 1);
-			short address = DecodeAddress(PC + 2);
-			short data = Word(address);
-			Registers[Reg] -= data;
-			SetCC(Registers[Reg]);
-			PC += 4;
+			(byte RegTarget, _)   = DecodeRegs(IP + 1);
+			short address         = DecodeAddress(IP + 2);
+			short data            = Word(address);
+			Registers[RegTarget] -= data;
+			TrcShowReg(RegTarget);
+			SetCC(Registers[RegTarget]);
+			IP += 4; ;
 		}
 
 //---------------------------------------------------------------------------------------
 
+		/// <summary>
+		/// Multiplies a register from data in memory
+		/// </summary>
 		private void Exec_Mul() {                // 0x5C - Multiply
-			(byte Reg, _) = DecodeRegs(PC + 1);
-			short address = DecodeAddress(PC + 2);
+			(byte RegTarget, _) = DecodeRegs(IP + 1);
+			short address = DecodeAddress(IP + 2);
 			short data = Word(address);
-			Registers[Reg] *= data;
-			SetCC(Registers[Reg]);
-			PC += 4;
+			Registers[RegTarget] *= data; 
+			TrcShowReg(RegTarget);
+			SetCC(Registers[RegTarget]);
+			IP += 4;
 		}
 
 //---------------------------------------------------------------------------------------
 
+		/// <summary>
+		/// Divides a register by data in memory
+		/// </summary>
 		private void Exec_Div() {                // 0x5D - Divide
-			(byte Reg, _) = DecodeRegs(PC + 1);
-			short address = DecodeAddress(PC + 2);
+			(byte RegTarget, _) = DecodeRegs(IP + 1);
+			short address = DecodeAddress(IP + 2);
 			short data = Word(address);
-			Registers[Reg] /= data;
-			SetCC(Registers[Reg]);
-			PC += 4;
+			Registers[RegTarget] /= data;
+			TrcShowReg(RegTarget);
+			SetCC(Registers[RegTarget]);
+			IP += 4;
 		}
 	}
 }

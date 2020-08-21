@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Runtime.Intrinsics.X86;
 
 namespace LrsColinAssembler {
 	internal partial class Interpreter {
-		Dictionary<byte, Action> MapOpcodeToExec;
+		Dictionary<byte, Action>	MapOpcodeToExec;
 
-		readonly byte[]	  Ram;
+		static public byte[]		Ram;
 
 		// I had a bug whereby I was picking up the wrong
 		// value for an index register. Previously I just
@@ -41,15 +42,21 @@ namespace LrsColinAssembler {
 			}
 		}
 #endif
-		ushort		PC;					// Program Counter (aka Address)
+		ushort		IP;					// Program Counter (aka Address)
 		CondCode	CC = CondCode.None;	// Condition Code
 
-		bool	IsRunning = true;
-		bool	Tracing   = false;
+		bool		IsRunning = true;
+
+		bool								Tracing   = false;
+		bool								LastOpWasPrint = false;
+		internal static bool				ShowCC;
+		internal static BitVector32			RegsChanged;
+		static DebugInfo					dbgInfo;
+		readonly Dictionary<string, ushort>	Symtab;
 
 //---------------------------------------------------------------------------------------
 
-		public Interpreter(byte[] ram) {
+		public Interpreter(byte[] ram, Dictionary<string, ushort> symtab) {
 			Ram = ram;
 
 			// Initialize registers
@@ -58,6 +65,8 @@ namespace LrsColinAssembler {
 			}
 
 			SetupMapTable();
+
+			Symtab = symtab;
 		}
 
 //---------------------------------------------------------------------------------------
@@ -80,10 +89,12 @@ namespace LrsColinAssembler {
 				[0x5A] = Exec_Add,			// Add (duh!)
 				[0x5B] = Exec_Sub,			// Subtract Register
 				[0x5C] = Exec_Mul,			// Multiply
-				[0x5D] = Exec_Div,			// Divide
+				[0x5D] = Exec_Div,          // Divide
 
-				// Branches
+				// Branches et al
+				[0x19] = Exec_CR,           // Compare registers
 				[0x47] = Exec_Branches,		// All flavors
+				[0x59] = Exec_Cmp,			// Compare
 
 				// Subroutines
 				[0x45] = Exec_Call,			// Call subroutine
@@ -105,35 +116,43 @@ namespace LrsColinAssembler {
 		internal void Run() {
 			Console.WriteLine();
 			Console.WriteLine();
+
+			// First, update our mapping table source line
+			foreach (ushort key in Assembler.MapAddressToSource.Keys) {
+				ParsedLine pline = Assembler.MapAddressToSource[key];
+				string line      = pline.Source.Replace('\t', ' ');
+				string[] src     = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+				Assembler.MapAddressToSource[key].Source = string.Join(' ', src);
+			}
+
 			Console.WriteLine("Execution begins...");
-			PC = 0;
+			dbgInfo = new DebugInfo(Registers, CC);
+			IP = 0;
 			while (IsRunning) {
-				byte opcode = Ram[PC];
-				// TODO: Needs try/catch
+				byte opcode = Ram[IP];
 				try {
 					if (Tracing) {
-						Console.WriteLine($"Trace: {opcode:X2} at {PC:X4}");
-						DumpRegs();
+						dbgInfo.ShowOpcode(IP, Ram, Symtab);
+						dbgInfo = new DebugInfo(Registers, CC);
+						LastOpWasPrint = false;
+						ShowCC = false;
+						RegsChanged = new BitVector32(0);
 					}
 					MapOpcodeToExec[opcode]();
-					if (Tracing) { Console.WriteLine($"CC = {CC}"); }
+					if (Tracing) {
+						if (LastOpWasPrint) { Console.WriteLine(); }
+						dbgInfo.ShowChanged(Registers, CC);
+					}
 				} catch (Exception ex) {
-					Console.WriteLine($"*** Runtime exception -- {ex.Message} at {PC:X4}");
+					Console.WriteLine($"*** Runtime exception -- {ex.Message} at {IP:X4}");
 				}
 			}
+			Console.WriteLine();
 			Console.WriteLine("Program has ended");
 		}
 
 //---------------------------------------------------------------------------------------
 
-		private void DumpRegs() {
-			for (int i = 0; i < 16; i++) {
-				string msg = $"R{i}".PadRight(4);
-				msg += $"{Registers[i]:X4}";
-				msg += $" ({Registers[i]:N0})".PadRight(8);
-				Console.Write(msg);
-				if ((i > 0) && ((i % 4) == 3)) { Console.WriteLine(); }
-			}
-		}
+		private void TrcShowReg(byte regTarget) => RegsChanged[1 << regTarget] = true;
 	}
 }
