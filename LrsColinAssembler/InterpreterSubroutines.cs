@@ -22,7 +22,7 @@ namespace LrsColinAssembler {
 		private void Exec_Ret() {                // 0x07 -- Return from Subtroutine
 			(byte _, byte RegAddr) = DecodeRegs(IP + 1);
 			IP = (ushort)Registers[RegAddr];
-			Console.WriteLine();
+			// Console.WriteLine();
 		}
 	}
 }

@@ -1,7 +1,7 @@
-        $TraceOn
-        CALL            R14,TestIxes
+;       $TraceOn
+;        CALL            R14,TestIxes
 ;        CALL            R14,OneToTen
-;        CALL            R14,DoFib
+        CALL            R14,DoFib
 ;        CALL            R14,DoPrimes
         $PSTRING        DoneMsg
         $Stop
@@ -39,7 +39,7 @@ LC_a            DI      97              ; 0x61 -- 'a' -- Lower Case a
 LC_z            DI      122             ; 0x7a -- 'z' -- Lower Case z
 Ix1             DI      1               ; Increment
 MsgTestingIxes  DS      TextIxes: Converting lower-case to UPPER-CASE\n        
-IxTarget  DS            TextIxes: Converting lower-case to UPPER-CASE\n
+IxTarget        DS      TextIxes: Converting lower-case to UPPER-CASE\n
 
 ; ---------------------------------------------------------
 
@@ -50,7 +50,7 @@ Loop    CMP             R2,Ten		; Stopping value
         BLE             Print
         $PSTRING        NL
         RET             R14
-Print   $PSTRING        Space
+Print   $PSTRING        SEP
         $PREG           R2
         AR              R2,R3
         B               Loop
@@ -62,10 +62,11 @@ NL      DS              \n
 ; ---------------------------------------------------------
 
 DoFib   $PSTRING        FibMsg
+        ST              R14,FibR14      ; Save our return address
         LA              R5,15           ; Get first 15 Fib#s after 1, 1
         LA              R1,1            ; Most recent Fib# 
         LA              R2,1            ; Earlier Fib#
-        ST              R14,FibR14      ; Save our return address
+        LA              R7,NULL
 NextFib LR              R6,R1           ; Temp = Most recent
         AR              R6,R2           ; Add second most recent
         LR              R2,R1           ; New second most recent = old most recent
@@ -77,13 +78,15 @@ NextFib LR              R6,R1           ; Temp = Most recent
         L               R14,FibR14
         RET             R14
 
-FibMsg  DS              Fibonacci numbers...: 1\c 1        
+FibMsg  DS              Fibonacci numbers...: 1\c 1  
+NULL    DS              "\0"
 SEP     DS              "\c\b"            ; ", "
 One     DI              1
 FibR14  DI              0
 
-PrintNum $PSTRING       SEP
-        $PReg           R1
+PrintNum $PSTRING       0[R7]
+        LA              R7,SEP
+        $PREGHEX        R1
         RET             R14 
 
 ; ---------------------------------------------------------

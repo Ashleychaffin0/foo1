@@ -35,11 +35,7 @@ int LifeStageAtAge(int age) => age switch 	{
 	};
 //}
 
-record Goo
-
-
-record Foo {
-	public int X, Y;
+record Foo(int X, int Y) {
 	public int MyProperty { get; set; }
 
 //---------------------------------------------------------------------------------------

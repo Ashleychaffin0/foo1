@@ -47,7 +47,8 @@ namespace LrsColinAssembler {
 
 		bool		IsRunning = true;
 
-		bool								Tracing   = false;
+		bool								Tracing = false;
+		bool								bIsRunOnly = false;
 		bool								LastOpWasPrint = false;
 		internal static bool				ShowCC;
 		internal static BitVector32			RegsChanged;
@@ -101,9 +102,10 @@ namespace LrsColinAssembler {
 				[0x07] = Exec_Ret,			// Return from subroutine
 
 				// Quasi-macros
-				[0xFA] = Exec_TraceOn,		// Start tracing
-				[0xFB] = Exec_TraceOff,		// End tracing
-				[0xFC] = Exec_PREG,			// Print register
+				[0xF9] = Exec_TraceOn,		// Start tracing
+				[0xFA] = Exec_TraceOff,		// End tracing
+				[0xFB] = Exec_PREG,			// Print register
+				[0xFC] = Exec_PREGHEX,		// Print Register in hex
 				[0xFD] = Exec_PNUM,			// Print number field
 				[0xFE] = Exec_PSTRING,		// Print string field
 				[0xFF] = Exec_STOP			// Buh-bye
@@ -117,12 +119,16 @@ namespace LrsColinAssembler {
 			Console.WriteLine();
 			Console.WriteLine();
 
+			bIsRunOnly = Assembler.MapAddressToSource is null;
+
 			// First, update our mapping table source line
-			foreach (ushort key in Assembler.MapAddressToSource.Keys) {
-				ParsedLine pline = Assembler.MapAddressToSource[key];
-				string line      = pline.Source.Replace('\t', ' ');
-				string[] src     = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-				Assembler.MapAddressToSource[key].Source = string.Join(' ', src);
+			if (!(bIsRunOnly)) {    // Check for runtime only
+				foreach (ushort key in Assembler.MapAddressToSource.Keys) {
+					ParsedLine pline = Assembler.MapAddressToSource[key];
+					string line = pline.Source.Replace('\t', ' ');
+					string[] src = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+					Assembler.MapAddressToSource[key].Source = string.Join(' ', src);
+				}
 			}
 
 			Console.WriteLine("Execution begins...");
@@ -131,7 +137,7 @@ namespace LrsColinAssembler {
 			while (IsRunning) {
 				byte opcode = Ram[IP];
 				try {
-					if (Tracing) {
+					if (Tracing && !bIsRunOnly) {
 						dbgInfo.ShowOpcode(IP, Ram, Symtab);
 						dbgInfo = new DebugInfo(Registers, CC);
 						LastOpWasPrint = false;
@@ -139,7 +145,7 @@ namespace LrsColinAssembler {
 						RegsChanged = new BitVector32(0);
 					}
 					MapOpcodeToExec[opcode]();
-					if (Tracing) {
+					if (Tracing && !bIsRunOnly) {
 						if (LastOpWasPrint) { Console.WriteLine(); }
 						dbgInfo.ShowChanged(Registers, CC);
 					}

@@ -19,6 +19,7 @@ namespace LRS.Zune.Classes {
 //---------------------------------------------------------------------------------------
 		
 		public static object Create<T>(ZuneQueryList zql, uint i) where T : class  {
+			// TODO: Use <switch> operator
 			Type t = typeof(T);
 			if (t == typeof(eQueryTypeAllTracks)) return new eQueryTypeAllTracks(zql, i);
 			if (t == typeof(eQueryTypeAllTracksDetailed)) return new eQueryTypeAllTracksDetailed(zql, i);

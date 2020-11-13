@@ -8,7 +8,7 @@ namespace LrsColinAssembler {
 		/// <summary>
 		/// Starts tracing
 		/// </summary>
-		private void Exec_TraceOn() {                 // 0xFA
+		private void Exec_TraceOn() {                 // 0xF9
 			Tracing = true;
 			++IP;
 		}
@@ -18,7 +18,7 @@ namespace LrsColinAssembler {
 		/// <summary>
 		/// Stops tracing
 		/// </summary>
-		private void Exec_TraceOff() {                 // 0xFB
+		private void Exec_TraceOff() {                 // 0xFA
 			Tracing = false;										
 			++IP;
 		}
@@ -28,10 +28,22 @@ namespace LrsColinAssembler {
 		/// <summary>
 		/// Displays the contents of a register
 		/// </summary>
-		private void Exec_PREG() {                  // 0xFC
+		private void Exec_PREG() {                  // 0xFB
 			LastOpWasPrint = true;
 			byte Reg = Ram[IP + 1];
 			Console.Write(Registers[Reg]);
+			IP += 2;
+		}
+
+//---------------------------------------------------------------------------------------
+
+		/// <summary>
+		/// Displays the contents of a register in hex
+		/// </summary>
+		private void Exec_PREGHEX() {               // 0xFC
+			LastOpWasPrint = true;
+			byte Reg = Ram[IP + 1];
+			Console.Write($"0x{Registers[Reg]:X4}");
 			IP += 2;
 		}
 

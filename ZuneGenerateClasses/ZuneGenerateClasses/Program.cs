@@ -15,7 +15,7 @@ namespace ZuneGenerateClasses {
 			try {
 				string path = Environment.GetEnvironmentVariable("PATH");
 				path = @"C:\Program Files\Zune;" + path;
-				Environment.SetEnvironmentVariable("PATH", path);
+				// Environment.SetEnvironmentVariable("PATH", path);
 				Application.Run(new ZuneGenerateClasses());
 			} catch (Exception ex) {
 				string msg = ex.Message;

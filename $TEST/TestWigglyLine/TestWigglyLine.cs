@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace TestWigglyLine {
@@ -7,6 +8,8 @@ namespace TestWigglyLine {
 			InitializeComponent();
 
 			Test1();
+
+			Test0(1, "asdf"); ;
 		}
 
 //------------------------------------------------------------------------------------

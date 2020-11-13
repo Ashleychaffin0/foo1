@@ -12,7 +12,7 @@ namespace LrsColinAssembler {
 		/// <param name="address">Where the word is located</param>
 		/// <returns>The contents of that word</returns>
 		private short Word(ushort address) {
-			short val = (short)((Ram[address] << 8) | Ram[address + 1]);
+			short val = (short)((Ram[address] << 8) | Ram[address + 1]);Console.be
 			return val;
 		}
 

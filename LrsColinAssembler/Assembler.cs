@@ -31,10 +31,9 @@ namespace LrsColinAssembler {
 
 		// For parsing an address with an optional index register
 		static readonly Regex reAddr = new Regex(@"(?<addr>\w+)(\[R?(?<ixreg>\d+)\])?",
-	RegexOptions.IgnoreCase | RegexOptions.Compiled);	// Regular Expression for address
+			RegexOptions.IgnoreCase | RegexOptions.Compiled);	// Regular Expression for address
 
-		const int RAMSIZE = 1024 * 10;			// 10K should be enough for our toy pgms
-		byte[] Ram;								// Our actual Ram array
+		readonly byte[] Ram;					// Our actual Ram array
 		ushort CodeAddress = 0;                 // Where we start executing
 		const int AddrWidth = 4;				// Addresses are 16 bits (4 bytes)
 
@@ -88,9 +87,10 @@ namespace LrsColinAssembler {
 				["B"]   = new OpcodeDef(0x47, 4, 1, Handle_BR),     // Branch unconditionally
 
 				// Quasi-macros
-				["$TRACEON"]  = new OpcodeDef(0xFA, 1, 0, Handle_NoArgs),	// Start tracing
-				["$TRACEOFF"] = new OpcodeDef(0xFB, 1, 0, Handle_NoArgs),	// End tracing
-				["$PREG"]     = new OpcodeDef(0xFC, 2, 1, Handle_OneReg),	// Print contents of register
+				["$TRACEON"]  = new OpcodeDef(0xF9, 1, 0, Handle_NoArgs),	// Start tracing
+				["$TRACEOFF"] = new OpcodeDef(0xFA, 1, 0, Handle_NoArgs),	// End tracing
+				["$PREG"]     = new OpcodeDef(0xFB, 2, 1, Handle_OneReg),	// Print contents of register
+				["$PREGHEX"]  = new OpcodeDef(0xFC, 2, 1, Handle_OneReg),	// Print contents of register in hex
 				["$PNUM"]     = new OpcodeDef(0xFD, 4, 1, Handle_OneAddr),	// Print numeric field
 				["$PSTRING"]  = new OpcodeDef(0xFE, 4, 1, Handle_OneAddr),  // Print string
 				["$STOP"]     = new OpcodeDef(0xFF, 1, 0, Handle_NoArgs),	// Return to "OS"
@@ -113,6 +113,11 @@ namespace LrsColinAssembler {
 				["B"]   = 0x0F			// Branch always
 			};
 		}
+
+//---------------------------------------------------------------------------------------
+
+		public Assembler(byte[] ram) => Ram = ram;
+
 //---------------------------------------------------------------------------------------
 
 		/// <summary>
@@ -139,7 +144,16 @@ namespace LrsColinAssembler {
 				int numPass2Erros = Pass2_GenerateCode();
 				if (numPass2Erros > 0) { return 1; }
 			}
+			WriteBinFile(filename);
 			return 0;	// No errors, so we can run this puppy
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private void WriteBinFile(string filename) {
+			string fn = Path.GetFileNameWithoutExtension(filename) + ".bin";
+			using var wtr = new BinaryWriter(File.OpenWrite(fn));
+			wtr.Write(Ram, 0, CodeAddress);
 		}
 
 //---------------------------------------------------------------------------------------
@@ -182,7 +196,6 @@ namespace LrsColinAssembler {
 		/// </summary>
 		/// <returns>0 if OK, 1 </returns>
 		private int Pass2_GenerateCode() {
-			Ram = new byte[RAMSIZE];	// Place to put our object code
 			int rc = 0;					// The eternal optimist
 			// Note: This routine never returns anything but 0. However
 			//		 if we ever enhance this processing to include some

@@ -36,12 +36,12 @@ namespace LrsColinAssembler {
 			short address    = DecodeAddress(IP + 2);
 			if ((CCMask & (byte)CC) != 0) {
 				IP = (ushort)address;
-				if (Tracing) { Console.Write(" (Taken)"); }
+				if (Tracing && !bIsRunOnly) { Console.Write(" (Taken)"); }
 			} else {
 				IP += 4;
-				if (Tracing) { Console.Write(" (Fall through)"); }
+				if (Tracing && !bIsRunOnly) { Console.Write(" (Fall through)"); }
 			}
-			if (Tracing) { Console.WriteLine(); }
+			if (Tracing && !bIsRunOnly) { Console.WriteLine(); }
 		}
 	}
 }

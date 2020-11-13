@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -117,24 +116,37 @@ namespace LrsColinAssembler {
 //---------------------------------------------------------------------------------------
 
 		public static void CopyToClipboard(string s) {
-			// pbcopy < file.txt
-			// type file.txt | clip
 			string temp = Path.GetTempFileName();
-			File.WriteAllText(temp, s);
-			string script = Path.GetTempFileName() + ".bat";
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-				File.WriteAllText(script, $"type {temp} | clip");
-			} else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
-				// TODO: May have to run chmod +755 (or whatever) first
-				File.WriteAllText(script, $"pbcopy < {temp}");
-			} else {
-				// Presumably some flavor of *nix. Don't know how to do that.
-				return; // Just ignore
+			// string script = Path.GetTempFileName();
+
+			try {
+				File.WriteAllText(temp, s);
+				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+					// script += ".bat";
+					// File.WriteAllText(script, $"clip <{temp}");
+					Exec("cmd", $"/K clip <{temp}");
+				} else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
+					// script += ".sh";
+					// TODO: May have to run chmod +x first
+					// File.WriteAllText(script, $"pbcopy < {temp}");
+					// Exec($"chmod +x {temp}");
+					Exec("pbcopy", $"<{temp}");
+				} else {
+					// Presumably some flavor of *nix. Don't know how to do that.
+					// Just ignore
+				}
+				// Exec(script);
+			} finally {
+				File.Delete(temp);
+				// File.Delete(script);
 			}
-			var proc = Process.Start(script);
+		}
+
+//---------------------------------------------------------------------------------------
+
+		private static void Exec(string cmd, string args) {
+			var proc = Process.Start(cmd, args);
 			proc.WaitForExit();
-			File.Delete(temp);
-			File.Delete(script);
 		}
 	}
 
